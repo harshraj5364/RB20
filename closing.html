@@ -1,0 +1,13 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>For you ✿</title><link rel="stylesheet" href="common.css"><style>
+body{--a:#fffaf0;--b:#ffeccc;--c:#ffdcc6;--ink:#7a5230;--hd:#b8521f;--pc:#a58a6a;--f1:#ffd08a;--f2:#f7a8a0}
+.hw{position:relative;width:min(880px,94vw);font:500 clamp(1.9rem,4.4vw,3.2rem)/1.7 'Caveat',cursive;color:#5b3a78}
+.hw p{margin:0 0 .6em;visibility:hidden}
+</style></head><body data-bg="peach" data-pf data-p="22"><main>
+<p class="cap rise">one more thing</p>
+<div class="card hw rise" id="W2" style="--i:1"><p>Happy Birthday, Riya.</p><p id="c2"></p><p id="fr"></p></div>
+<small class="tip" id="tip" hidden>tap the card to finish writing instantly</small>
+<button class="next" data-hold>one last surprise</button>
+</main><script src="config.js"></script><script src="common.js"></script><script>
+document.getElementById('c2').textContent=CFG.closing;document.getElementById('fr').textContent='From, '+(CFG.from||'your friend')+' ✿';
+setTimeout(()=>document.fonts.ready.then(()=>{document.getElementById('tip').hidden=false;write(document.getElementById('W2'),()=>{document.getElementById('tip').hidden=true;nx.classList.add('show')})}),1600);
+</script></body></html>

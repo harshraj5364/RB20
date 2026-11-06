@@ -1,0 +1,28 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Room 3</title><link rel="stylesheet" href="common.css"><style>
+.frm{padding:15px;background:linear-gradient(135deg,#a8702f,#6f4318);border-radius:3px;box-shadow:0 24px 36px -16px rgba(60,30,10,.7);rotate:-1.5deg}
+#ph{position:relative;width:min(330px,76vw);aspect-ratio:1;outline:4px solid #e0b05a;outline-offset:-4px;background:#e9dcc0}
+#ph img,#ph canvas{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px);object-fit:cover}
+#cv{transition:opacity .9s;touch-action:none;cursor:grab}
+.plq{background:linear-gradient(#ecd08a,#c9993a);border-radius:5px;padding:.5rem 2rem;box-shadow:0 6px 12px -4px rgba(60,40,10,.45);color:#4a3410;min-width:min(300px,80vw)}
+.plq b{display:block;font:800 1.1rem 'Outfit',sans-serif}.plq small{font:600 .6rem 'Outfit',sans-serif;letter-spacing:.14em;color:#6a4c18}
+.nv{display:flex;align-items:center;gap:1rem;font:600 .9rem 'Outfit',sans-serif;color:#7a6a5a}
+.rb{width:34px;height:34px;border-radius:50%;border:0;background:#e84a3c;color:#fff;font:700 1.2rem 'Outfit',sans-serif;cursor:pointer;box-shadow:0 3px 0 #b0281c}
+</style></head><body data-bg="cream" data-p="0"><main>
+<p class="ey">Room 3 · The Gallery</p>
+<h2>Our <mark class="m">photos</mark></h2>
+<p class="cap">Each one is covered. Rub your finger across to see it.</p>
+<div class="frm"><div id="ph"><img id="im" alt=""><canvas id="cv"></canvas></div></div>
+<div class="plq"><b id="ti">Untitled</b><small id="ex"></small></div>
+<div class="nv"><button class="rb" id="pv">‹</button><span id="ct"></span><button class="rb" id="nt">›</button></div>
+<button class="next" data-after="1500">Keep walking →</button>
+</main><script src="config.js"></script><script src="common.js"></script><script>
+const P4=CFG.photos,im=$('im'),cv=$('cv'),x=cv.getContext('2d'),S=420,dn=[];let i=0,dw=0,mv=0;cv.width=cv.height=S;
+function show(k){i=(k+P4.length)%P4.length;pic(P4[i].src,i,s=>im.src=s);$('ti').textContent=dn[i]?P4[i].cap:'Untitled';$('ex').textContent=`EXHIBIT ${i+1} · FROM THE ${(CFG.from||'MY').toUpperCase()} COLLECTION`;$('ct').textContent=(i+1)+'/'+P4.length;
+ cv.style.opacity=dn[i]?0:1;cv.style.pointerEvents=dn[i]?'none':'auto';
+ if(!dn[i]){x.globalCompositeOperation='source-over';const g=x.createLinearGradient(0,0,S,S);g.addColorStop(0,'#dcb680');g.addColorStop(1,'#c99a5b');x.fillStyle=g;x.fillRect(0,0,S,S);x.fillStyle='rgba(90,55,20,.35)';for(let j=0;j<300;j++)x.fillRect(R(0,S),R(0,S),R(1,3),R(1,3))}}
+const sc=e=>{const r=cv.getBoundingClientRect();x.globalCompositeOperation='destination-out';x.beginPath();x.arc((e.clientX-r.left)*S/r.width,(e.clientY-r.top)*S/r.height,48,0,7);x.fill()};
+const rv2=()=>{if(dn[i])return;const d=x.getImageData(0,0,S,S).data;let c=0;for(let p=3;p<d.length;p+=160)if(!d[p])c++;if(c>d.length/160*.1){dn[i]=1;show(i);petals(8,true)}};
+cv.onpointerdown=e=>{dw=1;cv.setPointerCapture(e.pointerId);sc(e)};cv.onpointermove=e=>{if(dw){sc(e);if(++mv%4==0)rv2()}};cv.onpointerup=()=>{dw=0;rv2()};
+$('pv').onclick=()=>show(i-1);$('nt').onclick=()=>show(i+1);
+document.fonts.ready.then(()=>show(0));prog(3);
+</script></body></html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Scrapbook</title><link rel="stylesheet" href="common.css"><style>
+main{justify-content:flex-start;padding:0;gap:0}
+.scn{min-height:100vh;display:flex;align-items:center;justify-content:center;width:100%;padding:8vh 0}
+#cov{display:flex;flex-direction:column;align-items:center;gap:.6rem}#cov img{width:min(520px,86vw)}
+#cov .em{font-size:clamp(4.4rem,15vw,8rem);line-height:1;filter:drop-shadow(4px 8px 8px rgba(0,0,0,.25))}
+.crd{background:#fff;padding:.5rem 1.6rem;font:400 clamp(1.8rem,5vw,2.8rem) 'Great Vibes',cursive;color:#555;rotate:-4deg;box-shadow:0 6px 14px rgba(0,0,0,.2)}
+.cl{font:400 1.4rem 'Great Vibes',cursive;background:rgba(255,255,255,.85);border:0;border-radius:4px;padding:.1rem .9rem;color:#555;cursor:pointer}
+.nb{display:grid;grid-template-columns:1fr 1fr;width:min(860px,94vw);background:#f4efe6;border-radius:10px;box-shadow:0 30px 60px -25px rgba(40,50,80,.5);position:relative;text-align:left;border:1px solid #d8cfc0}
+.nb>div{padding:2.2rem 1.8rem;min-height:340px;position:relative}
+.nb::after{content:'';position:absolute;left:50%;top:5%;bottom:5%;width:20px;translate:-50% 0;background:radial-gradient(circle,#f4f4f4 0 5px,#8a8a8a 6px 7px,transparent 8px) 0 0/100% 16.66%}
+.big{display:flex;align-items:center;gap:.4rem;font:700 clamp(5rem,15vw,8.5rem)/1 'Baloo 2',sans-serif;color:#f06aa0}
+.hw2{font:400 clamp(1.1rem,2.4vw,1.5rem)/1.6 'Gaegu',cursive;color:#5d6f8f}
+.pp{position:relative;background:#fff;padding:8px 8px 30px;box-shadow:0 12px 24px -12px rgba(0,0,0,.5);rotate:4deg;width:min(250px,70%);margin:0 auto}.pp img{display:block;width:100%;aspect-ratio:1;object-fit:cover}
+.pp::before{content:'';position:absolute;top:-12px;left:50%;width:90px;height:26px;translate:-50% 0;rotate:-4deg;background:rgba(255,226,120,.8)}
+.tag{position:absolute;right:-8px;top:-16px;font:700 1.5rem 'Kaushan Script',cursive;color:#d6313f;rotate:10deg;z-index:2}
+.row2{display:flex;gap:2.5rem;align-items:center;justify-content:center;flex-wrap:wrap;width:min(900px,94vw);text-align:left}
+.row2 p{flex:1 1 300px;font:400 clamp(1.15rem,2.4vw,1.5rem)/1.65 'Gaegu',cursive;color:#5d6f8f}
+.frm2{padding:8px;background:repeating-linear-gradient(45deg,#e8a0a8 0 8px,#fff 8px 16px);box-shadow:0 12px 24px -12px rgba(0,0,0,.5);width:min(260px,70vw);position:relative}.frm2 img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.film{position:relative;width:min(900px,96vw);background:#111;padding:26px 10px;display:flex;gap:6px;box-shadow:0 20px 40px -18px rgba(0,0,0,.6);rotate:-1.5deg}
+.film::before,.film::after{content:'';position:absolute;left:0;right:0;height:10px;background:repeating-linear-gradient(90deg,#f3f3f3 0 12px,transparent 12px 26px)}.film::before{top:8px}.film::after{bottom:8px}
+.film img{flex:1;min-width:0;aspect-ratio:3/4;object-fit:cover;filter:grayscale(.2) contrast(1.05)}
+.film .a{position:absolute;right:-22px;bottom:-18px;font-size:3.4rem}.film .b{position:absolute;left:-18px;top:-14px;font-size:2.6rem}
+.tn{display:flex;gap:2.8rem;align-items:center;justify-content:center;flex-wrap:wrap}
+.nt{position:relative;width:min(540px,92vw);background:#f2e6c9;padding:2.6rem 2.2rem;text-align:left;font:400 clamp(1.05rem,2.3vw,1.35rem)/1.7 'Special Elite',serif;color:#6a4a2a;box-shadow:0 24px 40px -20px rgba(60,40,10,.5);rotate:-1.5deg}
+.nt::before,.nt::after{content:'';position:absolute;left:0;right:0;height:10px;background:radial-gradient(circle at 10px 10px,#f2e6c9 9.5px,transparent 10px) 0 0/20px 10px repeat-x}.nt::before{top:-10px}
+.nt::after{bottom:-10px;background:radial-gradient(circle at 10px 0,#f2e6c9 9.5px,transparent 10px) 0 0/20px 10px repeat-x}
+.stkr{position:absolute;font-size:4.6rem;filter:drop-shadow(2px 4px 4px rgba(0,0,0,.3))}
+@media(max-width:640px){.nb{grid-template-columns:1fr}.nb::after{display:none}}
+</style></head><body data-bg="gingham" data-p="0"><main>
+<section class="scn"><div id="cov" class="rv"></div></section>
+<section class="scn"><div class="nb rv"><div><div class="big"><span id="ag">20</span><span id="cu">🧁</span></div><p class="hw2" id="w1"></p></div><div><div class="pp"><img id="i1" alt=""></div><span class="tag">Favourite person</span><p class="hw2" style="text-align:center;margin-top:1.2rem">Happy birthday!</p></div></div></section>
+<section class="scn"><div class="row2 rv"><div class="frm2"><img id="i2" alt=""></div><p>It's kind of funny how a whole year can pass without you even realizing it. This past year held so many versions of us: strangers in the same class, then friends, then best friends, with random chats, silly jokes and quiet moments that somehow became unforgettable. I hope today reminds you just how special you are and how much brighter you make the lives of the people around you.</p></div></section>
+<section class="scn"><div class="row2 rv"><p>I could keep a little box of everything from this year. It would probably be filled with blurry pictures, ridiculous conversations, tiny surprises, and all the moments that meant more than they seemed at the time. For once, I just want you to enjoy being celebrated today, because you absolutely deserve it. ❤</p><div class="pp"><img id="i3" alt=""></div></div></section>
+<section class="scn"><div class="film rv" id="fl"><span class="b">🎀</span><span class="a">⭐</span></div></section>
+<section class="scn"><div class="tn rv"><div class="nt">And just like that, another little chapter becomes a memory. I hope you always remember how special you are, not just today, but in all the ordinary moments in between: late-night conversations, silly pictures, unexpected adventures, and all the memories we haven't made yet. Whatever comes next, I'm really glad I get to be a part of it.<span class="stkr" style="left:-1.8rem;bottom:-2.6rem" id="st1">⭐</span><span class="stkr" style="right:1rem;bottom:-3rem;font-size:3.6rem" id="st2">📼</span></div><div class="pp"><img id="i4" alt=""></div></div></section>
+<button class="next" data-after="9000">turn the page</button>
+</main><script src="config.js"></script><script src="common.js"></script><script>
+const sb=CFG.scrapbook,y0=new Date(),yy=y0.getFullYear();
+$('ag').textContent=(y0>new Date(yy,0,20)?yy+1:yy)-2007;
+$('w1').innerHTML=`Happy Birthday, ${CFG.to}!<br>Another year of being you, and somehow you keep making life a little better just by being in it.`;
+ast('cover',s=>$('cov').innerHTML=s?`<img src="${s}" alt="">`:'<div class="crd">Happy Birthday</div><div class="em">📷✉️💐</div>');
+const cm=document.createElement('button');cm.className='cl';cm.textContent='click me!';cm.onclick=()=>document.querySelectorAll('.scn')[1].scrollIntoView({behavior:'smooth'});$('cov').after(cm);
+ast('cupcake',s=>{if(s)$('cu').innerHTML=`<img src="${s}" style="height:.7em" alt="">`});
+ast('star',s=>{if(s)$('st1').innerHTML=`<img src="${s}" style="width:4.6rem" alt="">`});
+ast('cassette',s=>{if(s)$('st2').innerHTML=`<img src="${s}" style="width:5.5rem" alt="">`});
+pic(sb.notebook,0,s=>$('i1').src=s);pic(sb.frame,1,s=>$('i2').src=s);pic(sb.bow,2,s=>$('i3').src=s);pic(sb.note,3,s=>$('i4').src=s);
+sb.film.forEach((f,i)=>{const m=document.createElement('img');m.alt='';pic(f,i,s=>m.src=s);$('fl').insertBefore(m,$('fl').querySelector('.a'))});
+rv('.rv');
+</script></body></html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The museum</title><link rel="stylesheet" href="common.css"><style>
+main{gap:1.1rem}
+.chip{display:inline-block;font:600 .75rem 'Outfit',sans-serif;color:#d8e8e0;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:.3rem .9rem;background:rgba(255,255,255,.06)}
+.ey{color:#bcd0c8}
+h1{font:800 clamp(1.8rem,5vw,2.7rem)/1.15 'Outfit',sans-serif;color:#fff}
+.cap{font:400 1rem 'Outfit',sans-serif;color:#b8c9c2;letter-spacing:0}
+#dr{position:relative;width:min(260px,64vw);aspect-ratio:3/4.6;perspective:1000px;margin:.6rem 0}
+#lt,#dd{position:absolute;inset:0;border-radius:130px 130px 6px 6px}
+#lt{display:grid;place-items:center;text-align:center;padding:1.4rem;background:radial-gradient(ellipse at 50% 45%,#fff3c4,#ffc65a 50%,#e8961c 78%);color:#5a3a10;font:500 1.15rem/1.4 'Outfit',sans-serif;opacity:0;transition:opacity .9s .4s;box-shadow:0 0 70px 10px rgba(255,170,40,.45)}
+#dd{background:linear-gradient(#145b57,#0b3a37);border:3px solid #0a2d2b;box-shadow:inset 0 0 0 7px #0f4a47,0 24px 40px -14px #000;transform-origin:left;transition:transform 1.6s cubic-bezier(.6,0,.2,1);cursor:pointer}
+.open #dd{transform:rotateY(-74deg)}.open #lt{opacity:1}
+.pn{position:absolute;left:14%;right:14%;border:2px solid rgba(255,255,255,.08);border-radius:10px}.pn:nth-child(1){top:30%;height:26%}.pn:nth-child(2){top:60%;height:30%}
+.pl{position:absolute;top:10%;left:50%;translate:-50% 0;rotate:-2deg;background:#fff;color:#222;font:600 .72rem/1.3 'Outfit',sans-serif;padding:.4rem .8rem;border-radius:5px;box-shadow:0 3px 8px rgba(0,0,0,.4);white-space:nowrap;text-align:center}
+.kn{position:absolute;left:50%;top:46%;width:58px;height:58px;translate:-50% 0;border-radius:50%;border:7px solid #d9a441;box-shadow:0 0 0 2px #a8741f,inset 0 0 0 2px #f4cf7a;transition:all .3s}
+.kn.hit{background:radial-gradient(#ff7a8a,#d62839);box-shadow:0 0 34px 8px #ff4d6d;border-color:#ff9aa8}
+#kd{display:flex;gap:.7rem}#kd i{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.2)}#kd i.on{background:#f5a524}
+#kt{font:400 .8rem 'Outfit',sans-serif;color:#9fb3ab}
+</style></head><body data-bg="door" data-p="0"><main>
+<span class="chip">🎂 Riya's Day</span>
+<p class="ey">closed to everyone, except you.</p>
+<h1 id="h1"></h1>
+<p class="cap">Knock three times. That's the rule.</p>
+<div id="dr"><div id="lt"><p><b>Come in, Riya.</b><br>7 rooms, and every one of them is about you.</p></div><div id="dd"><div class="pn"></div><div class="pn"></div><div class="pl">The Museum of Riya<br>one visitor only</div><b class="kn" id="kn"></b></div></div>
+<div id="kd"><i></i><i></i><i></i></div>
+<small id="kt">Tap the brass ring 👋</small>
+</main><script src="config.js"></script><script src="common.js"></script><script>
+$('h1').innerHTML=`${CFG.from||'Someone'} built you a <mark class="m">museum</mark>.`;
+let n=0;$('kn').onclick=()=>{if(n>2)return;n++;const k=$('kn');k.classList.add('hit');setTimeout(()=>k.classList.remove('hit'),450);$('dd').animate([{rotate:'0deg'},{rotate:'-1.4deg'},{rotate:'.9deg'},{rotate:'0deg'}],300);[...$('kd').children].forEach((e,i)=>e.classList.toggle('on',i<n));
+if(n==3){$('kt').textContent='Walking in…';setTimeout(()=>$('dr').classList.add('open'),500);setTimeout(()=>go('band.html'),4300)}};
+</script></body></html>

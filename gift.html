@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>For you</title><link rel="stylesheet" href="common.css"><style>
+main{gap:1.4rem}
+#gb{cursor:pointer;width:min(210px,56vw);filter:drop-shadow(0 10px 18px rgba(200,60,90,.18))}#gb svg{width:100%;overflow:visible}
+#lid{transition:transform .8s cubic-bezier(.3,1.6,.5,1)}.on #lid{transform:translateY(-34px) rotate(-6deg)}
+.fy{font:700 clamp(1.9rem,5vw,2.5rem) 'Dancing Script',cursive;color:#8b1f1f}
+.tp{font:italic 500 .95rem 'Cormorant Garamond',serif;color:#b79a8e}
+</style></head><body data-bg="ivory" data-p="0"><main>
+<div id="gb" class="rise"><svg viewBox="0 0 200 210"><defs><pattern id="gh" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(32)"><rect width="7" height="7" fill="#fbe2e8"/><path d="M0 0V7" stroke="#e0455f" stroke-width="2.4"/></pattern></defs><g stroke="#b3203f" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><rect x="28" y="92" width="144" height="104" rx="4" fill="url(#gh)"/><g id="lid"><rect x="18" y="64" width="164" height="36" rx="4" fill="url(#gh)"/><path d="M100 64C72 18 28 36 58 60C74 70 92 66 100 64C108 66 126 70 142 60C172 36 128 18 100 64Z" fill="url(#gh)"/><rect x="88" y="52" width="24" height="16" rx="3" fill="#fbe2e8"/></g></g></svg></div>
+<p class="fy rise" style="--i:2" id="fy"></p>
+<p class="tp rise" style="--i:3">(tap to open)</p>
+</main><script src="config.js"></script><script src="common.js"></script><script>
+$('fy').textContent='For you, '+CFG.to+'.';
+$('gb').onclick=function(){if(this.classList.contains('on'))return;this.classList.add('on');setTimeout(()=>bloom(()=>go(nextUrl())),700)};
+</script></body></html>

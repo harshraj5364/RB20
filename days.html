@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Room 2</title><link rel="stylesheet" href="common.css"><style>
+.big{font:800 clamp(5rem,20vw,9rem)/1 'Outfit',sans-serif;color:#e63b2e;letter-spacing:-.02em}
+.ch{display:flex;gap:.9rem;flex-wrap:wrap;justify-content:center}
+.ch div{background:#fff;border-radius:14px;padding:.7rem 1.2rem;box-shadow:0 10px 22px -12px rgba(0,0,0,.3);font:700 .65rem 'Outfit',sans-serif;letter-spacing:.14em;color:#8a7a6a;text-transform:uppercase}
+.ch div:nth-child(1){rotate:-3deg}.ch div:nth-child(2){rotate:1.5deg}.ch div:nth-child(3){rotate:3deg}
+.ch b{display:block;font:800 1.6rem 'Outfit',sans-serif;color:#2b2118;letter-spacing:0}
+</style></head><body data-bg="cream" data-p="0"><main>
+<p class="ey" id="ey"></p>
+<h2>We have been friends for</h2>
+<div class="big" id="n">0</div>
+<p class="ey" style="color:#7a6a5a;margin-top:-.8rem">days</p>
+<div class="ch" id="c"></div>
+<p class="cap" id="o"></p>
+<button class="next" data-after="2600">See our photos →</button>
+</main><script src="config.js"></script><script src="common.js"></script><script>
+const dt=new Date(CFG.friendsSince),d0=Math.max(0,Math.floor((Date.now()-dt)/864e5));
+$('ey').textContent='Room 2 · Since '+dt.toLocaleString('en',{month:'long',year:'numeric'});
+$('o').textContent=(CFG.from||'I')+' counted every single one of them.';
+const s0=Date.now();(function f(){const p=Math.min(1,(Date.now()-s0-900)/1800);$('n').textContent=p<0?0:Math.round(d0*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})();
+$('c').innerHTML=[[d0/365,'years in'],[d0/7,'weeks'],[d0/91,'seasons']].map(([v,l])=>`<div><b>${Math.floor(v)}</b>${l}</div>`).join('');
+prog(2);
+</script></body></html>

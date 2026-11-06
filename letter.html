@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A letter</title><link rel="stylesheet" href="common.css"><style>
+main{gap:1.2rem}
+#sc{display:flex;align-items:flex-end;justify-content:center;gap:1.4rem;flex-wrap:wrap}
+.bq{position:relative;width:min(240px,56vw);height:min(300px,70vw);animation:rise 1s both}.bq>img{width:100%}
+.bq i{position:absolute;font-size:clamp(3.2rem,11vw,4.6rem);font-style:normal;filter:drop-shadow(2px 4px 3px rgba(0,0,0,.25));animation:sw4 4s ease-in-out infinite alternate}
+@keyframes sw4{from{rotate:-4deg}to{rotate:4deg}}
+.bq b{position:absolute;left:12%;right:12%;top:48%;bottom:0;background:linear-gradient(#2d2f2a,#1d1f1b);clip-path:polygon(0 0,100% 0,60% 100%,40% 100%);z-index:-1}
+.bq em{position:absolute;left:50%;top:70%;translate:-50% 0;font-size:3rem;font-style:normal}
+.evw{position:relative}
+.ev3{position:relative;perspective:900px;width:min(270px,64vw);aspect-ratio:3/2;rotate:-6deg;cursor:pointer;animation:fly 1.6s cubic-bezier(.2,.9,.3,1) 1.2s both}
+@keyframes fly{from{opacity:0;translate:60vw -30vh;rotate:40deg}}
+.in3{position:absolute;inset:0;transition:transform 1s cubic-bezier(.3,1.3,.5,1);transform-style:preserve-3d}.ev3.f .in3{transform:rotateY(180deg)}
+.fa,.ba{position:absolute;inset:0;border-radius:6px;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:linear-gradient(135deg,#e4cfa8,#d4b988);box-shadow:0 18px 30px -14px rgba(70,45,10,.55)}.ba{transform:rotateY(180deg)}
+.ad{position:absolute;left:10%;top:34%;font:600 1.45rem/1.5 'Caveat',cursive;color:#5a4222;text-align:left}
+.fa s{position:absolute;right:8%;top:10%;width:30px;height:36px;background:#fff8ea;border:2px dashed #c28a6a;text-decoration:none;display:grid;place-items:center;color:#c24a67}.fa s+s{right:24%}
+.fl{position:absolute;left:0;right:0;top:0;height:60%;background:linear-gradient(#d0b17f,#c4a46f);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .8s;z-index:2}.ev3.op .fl{transform:rotateX(180deg)}
+.wax{position:absolute;left:50%;top:46%;translate:-50% -50%;width:44px;height:44px;border-radius:50%;border:0;background:radial-gradient(#e0443f,#9c1f26);color:#ffd9d0;font-size:1.3rem;z-index:3;cursor:pointer;box-shadow:0 3px 6px rgba(0,0,0,.4);transition:opacity .3s,scale .3s;animation:wb 1.6s ease-in-out infinite}@keyframes wb{50%{scale:1.15}}
+.ev3.op .wax{opacity:0;scale:1.8}
+.tt2{position:absolute;left:50%;top:-1.6rem;translate:-50% 0;font:600 .62rem 'Outfit',sans-serif;letter-spacing:.06em;white-space:nowrap;background:#fff;border-radius:999px;padding:.25rem .7rem;box-shadow:0 3px 10px rgba(0,0,0,.18);color:#444;pointer-events:none;opacity:0;animation:rise .6s 2.8s forwards}
+.sheet{display:none;position:relative;width:min(760px,94vw);padding:3.4rem 2.4rem 2.6rem;text-align:left;color:#22356b;rotate:-.6deg;box-shadow:0 30px 60px -25px rgba(70,45,10,.55);margin-bottom:-70px;z-index:3;
+background:linear-gradient(115deg,transparent 40%,rgba(120,110,90,.1) 41%,transparent 43%),linear-gradient(65deg,transparent 55%,rgba(255,255,255,.7) 56%,transparent 58%),linear-gradient(160deg,rgba(0,0,0,.04),transparent 30%,rgba(0,0,0,.05)),url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/><feColorMatrix values='0 0 0 0 .4 0 0 0 0 .35 0 0 0 0 .3 0 0 0 .22 0'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>"),#fbfaf6}
+.sheet.in{display:block;animation:pu 1.4s cubic-bezier(.2,.9,.2,1) both}@keyframes pu{from{opacity:0;translate:0 40vh;scale:.4;rotate:8deg}}
+.sheet h3{font:700 clamp(2rem,5vw,3rem) 'Caveat',cursive;color:#b0486a;margin-bottom:.4rem}
+.stk{position:absolute;right:1.6rem;top:-1.8rem;font-size:3.4rem;rotate:8deg}.stk b{position:absolute;left:100%;top:.3rem;font:700 2.8rem 'Caveat',cursive;color:#2fa88a}
+.hs{position:absolute;right:.6rem;top:3.4rem;font-size:1.6rem}.hs+.hs{right:2.2rem;top:4.8rem;font-size:1.2rem}
+.sheet::after{content:'✉';position:absolute;right:1.4rem;bottom:1rem;font-size:1.8rem;color:#889;opacity:.7}
+#L{position:relative}#L p{margin:0 0 .7em;visibility:hidden;font:500 clamp(1.6rem,3.2vw,2.3rem)/1.55 'Caveat',cursive}#L.ty p{font-family:'Special Elite',monospace;font-size:clamp(1rem,2.2vw,1.25rem);line-height:1.7}
+</style></head><body data-bg="graph" data-p="0"><main>
+<p class="cap rise" id="hint">something has arrived for you… tap the envelope</p>
+<article class="sheet" id="sh"><div class="stk">🎈<b id="ag">20</b></div><span class="hs">❤️</span><span class="hs">❤️</span><h3>Happy Birthday</h3><div id="L">
+<p>Dear Riya,</p>
+<p>Happy Birthday! Some people make the world feel lighter just by walking into it. You are one of them.</p>
+<p>Funny how we shared a school and never said a word, and then one day in June 2024 everything changed. You became my best friend and my favourite person. Your laugh can fix my worst day, and your kindness makes me want to be better.</p>
+<p>We have met only three times, but somehow it feels like I have known you forever. Thank you for every inside joke, every late-night chat and every ordinary day you turned into a good one.</p>
+<p>I hope this year gives you everything you deserve, and a little more. Please keep smiling, exactly the way you do.</p>
+<p style="margin:0">Always on your side,</p>
+<p id="sg">Your friend</p></div></article>
+<div id="sc"><div class="bq" id="bq"><b></b><i style="left:6%;top:16%">🌻</i><i style="left:30%;top:2%">🌻</i><i style="left:54%;top:14%">🌻</i><i style="left:14%;top:40%">🌻</i><i style="left:40%;top:32%">🌻</i><i style="left:62%;top:44%">🌻</i><em>🎀</em></div>
+<div class="evw"><span class="tt2" id="tt2">CLICK TO TURN OVER</span><div class="ev3" id="ev"><div class="in3"><div class="fa"><div class="ad">To: Riya<br>From: <span id="fm">your friend</span></div><s>✿</s><s>❀</s></div><div class="ba"><div class="fl"></div><button class="wax" id="wx">✿</button></div></div></div></div></div>
+<small class="tip" id="tip" hidden>tap the letter to finish writing instantly</small>
+<button class="next" data-hold>next</button>
+</main><script src="config.js"></script><script src="common.js"></script><script>
+const ev=$('ev'),sh=$('sh'),hn=$('hint'),tip=$('tip'),L=$('L');
+ast('sunBouquet',s=>{if(s)$('bq').innerHTML=`<img src="${s}" alt="">`});
+if(CFG.letterStyle==='type')L.classList.add('ty');
+$('fm').textContent=CFG.from||'your friend';if(CFG.from)$('sg').textContent='Your friend, '+CFG.from;
+const d0=new Date(),y0=d0.getFullYear();$('ag').textContent=(d0>new Date(y0,0,20)?y0+1:y0)-2007;
+let st=0;
+ev.onclick=e=>{
+ if(st==0){st=1;ev.classList.add('f');hn.textContent='now tap the little seal';$('tt2').textContent='CLICK SEAL TO OPEN';return}
+ if(st==1&&e.target.closest('#wx')){st=2;ev.classList.add('op');$('tt2').remove();hn.textContent='shhh… read it as it is written ✿';
+  setTimeout(()=>{sh.classList.add('in');sh.scrollIntoView({behavior:'smooth',block:'center'})},900);
+  setTimeout(()=>document.fonts.ready.then(()=>{tip.hidden=false;write(L,()=>{tip.hidden=true;nx.classList.add('show')})}),2600)}};
+</script></body></html>

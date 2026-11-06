@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Just for fun ✿</title><link rel="stylesheet" href="common.css"><style>
+body{--a:#fbf0ff;--b:#f1e0fa;--c:#e6dcfb;--ink:#59456f;--hd:#8a4fb0;--pc:#8f7fa6;--f1:#dcb8f2;--f2:#f7c6dc}
+.qb{width:min(620px,94vw)}.qb h3{font:700 2rem 'Caveat',cursive;color:var(--hd);margin:.4rem 0}
+.op{display:block;width:100%;margin:.6rem 0;padding:.7rem 1rem;font:600 1.4rem 'Caveat',cursive;color:var(--ink);background:rgba(255,255,255,.7);border:2px dashed var(--hd);border-radius:16px;cursor:pointer;transition:all .25s}
+.op:hover{background:#fff;rotate:-.6deg}.op.d{background:var(--f1);border-style:solid}
+</style></head><body data-bg="graph" data-pf data-p="18"><main>
+<p class="cap rise">just for fun</p>
+<h2 class="rise" style="--i:1">How well do you know me?</h2>
+<div class="card qb rise" id="qb" style="--i:2"></div>
+<button class="next" data-after="14000">next</button>
+</main><script src="config.js"></script><script src="common.js"></script><script>
+const Q=CFG.quiz,qb=document.getElementById('qb');let qi=0;
+function ask(){const q=Q[qi];qb.innerHTML=`<p class="cap">question ${qi+1} of ${Q.length}</p><h3>${q.q}</h3>`+q.o.map(o=>`<button class="op">${o}</button>`).join('')+'<p class="cap" id="rp" style="min-height:3em"></p>';
+qb.querySelectorAll('.op').forEach(b=>b.onclick=()=>{b.classList.add('d');qb.querySelectorAll('.op').forEach(x=>x.onclick=null);document.getElementById('rp').textContent=q.r;petals(6,true);
+setTimeout(()=>{if(++qi<Q.length)ask();else{qb.innerHTML='<h3 style="font-size:2.6rem">Full marks, obviously ✿</h3><p>There were never any wrong answers.</p>';nx.classList.add('show')}},2200)})}
+ask();
+</script></body></html>

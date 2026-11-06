@@ -1,0 +1,10 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Upload check</title><link rel="stylesheet" href="common.css"><style>
+body{--ink:#3a2c20;--hd:#b0486a;background:#f6efe3;font-family:'Outfit',sans-serif}main{justify-content:flex-start;text-align:left}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.8rem;width:100%}.c{background:#fff;border-radius:10px;padding:.6rem;font-size:.85rem;box-shadow:0 4px 12px -6px rgba(0,0,0,.3)}
+.c img{width:100%;height:90px;object-fit:contain;background:#f1ebe0;border-radius:6px}.ok{color:#1a8a4a}.no{color:#c0392b}</style></head><body data-gate="1" data-p="0"><main>
+<h1 style="font-size:2.4rem">Upload check</h1><p class="cap">Green = found in the photos folder. Red = missing (a stand-in is used). Names are listed in photos/UPLOAD-THESE.txt.</p><div class="g" id="g"></div></main>
+<script src="config.js"></script><script src="common.js"></script><script>
+const L=[];CFG.photos.forEach((p,i)=>L.push(['gallery '+(i+1),p.src]));L.push(['puzzle',CFG.puzzle],['cinema',CFG.cinema]);CFG.polaroids.forEach((p,i)=>L.push(['polaroid '+(i+1),p.src]));
+const sb=CFG.scrapbook;L.push(['scrap notebook',sb.notebook],['scrap frame',sb.frame],['scrap bow',sb.bow],['scrap note',sb.note]);sb.film.forEach((f,i)=>L.push(['film '+(i+1),f]));Object.entries(CFG.assets).forEach(([k,v])=>L.push([k,v]));
+L.forEach(([n,s])=>{const d=document.createElement('div');d.className='c';d.innerHTML=`<img alt=""><b>${n}</b><br><small>${s}</small><br><span>checking…</span>`;$('g').appendChild(d);const m=new Image();m.onload=()=>{d.querySelector('img').src=s;d.querySelector('span').className='ok';d.querySelector('span').textContent='✓ found'};m.onerror=()=>{d.querySelector('span').className='no';d.querySelector('span').textContent='✕ missing'};m.src=s});
+</script></body></html>

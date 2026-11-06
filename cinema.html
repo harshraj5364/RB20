@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Now showing</title><link rel="stylesheet" href="common.css"><style>
+.bk2{top:auto;bottom:5vh;left:50%;translate:-50% 0}
+main{gap:0;justify-content:flex-end;padding:0 0 12vh}
+.scr{position:relative;width:min(760px,94vw);aspect-ratio:16/8.5;border:3px solid #ddd;background:#000;box-shadow:0 0 60px rgba(255,255,255,.08);rotate:1deg;margin-bottom:3rem}
+.scr>img{width:100%;height:100%;object-fit:cover;filter:blur(1.2px) brightness(.9)}
+.bub{position:absolute;right:-6%;top:-30%;max-width:min(250px,46vw);color:#3a2412;border-radius:22px 28px 24px 30px;padding:.9rem 1.1rem;font:700 clamp(.95rem,2.4vw,1.2rem)/1.35 'Gaegu',cursive;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.6);background-color:#f3dcb4;background-image:radial-gradient(rgba(120,80,30,.35) 1px,transparent 1.5px);background-size:6px 6px}
+.cats{position:absolute;bottom:-14%;font-size:clamp(3rem,10vw,6rem)}.cats img{width:clamp(80px,18vw,150px)}
+.seats{height:64px;width:min(900px,98vw);background:radial-gradient(circle at 50% 100%,#b3263e 0 26px,transparent 27px) 0 0/58px 64px repeat-x}
+</style></head><body data-bg="cinema" data-p="0"><main>
+<div class="scr rise"><img id="im" alt=""><p class="bub">Wait a second… is that a diva on my screen? Ohhh, it's you, Riya! 🎉</p><span class="cats" style="left:-5%" id="c1">🐱</span><span class="cats" style="right:-4%" id="c2">🙀</span></div>
+<div class="seats"></div><button class="back bk2" onclick="go('gifts.html')">Back</button>
+</main><script src="config.js"></script><script src="common.js"></script><script>
+pic(CFG.cinema,0,s=>$('im').src=s);
+ast('catOrange',s=>{if(s)$('c1').innerHTML=`<img src="${s}" alt="">`});ast('catWhite',s=>{if(s)$('c2').innerHTML=`<img src="${s}" alt="">`});
+</script></body></html>

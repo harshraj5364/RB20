@@ -1,0 +1,24 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Write anything</title><link rel="stylesheet" href="common.css"><style>
+.bk2{top:auto;bottom:5vh;left:50%;translate:-50% 0}
+main{gap:1rem}
+.pg2{position:relative;width:min(760px,94vw);background:#f6efd9;padding:2.6rem 2rem 1.4rem 3.6rem;box-shadow:0 26px 44px -18px rgba(0,0,0,.7);rotate:1deg}
+.pg2::before{content:'';position:absolute;left:2.6rem;top:0;bottom:0;width:2px;background:rgba(220,90,90,.5)}
+.hl2{font:400 clamp(1.8rem,4.6vw,2.8rem)/1.2 'Gochi Hand',cursive;color:#1d1d1d;min-height:2.6em;text-align:left}
+#tx{display:block;width:100%;height:40vh;font:500 clamp(1.5rem,3vw,2rem)/2.1 'Caveat',cursive;color:#22356b;background:linear-gradient(transparent calc(2.1em - 1px),rgba(120,150,210,.45) 0) 0 .5em/100% 2.1em local;border:0;resize:none;outline:0}
+.pin{position:absolute;left:50%;top:-14px;font-size:2rem;z-index:3}.rbw{position:absolute;right:-10px;top:-12px;font-size:2.8rem;z-index:3}
+.cat5{position:absolute;left:-14%;bottom:-6%;font-size:clamp(4rem,12vw,7rem);filter:drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff)}.cat5 img{width:clamp(110px,22vw,210px)}
+.ro{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center}
+</style></head><body data-bg="crim" data-p="0"><main>
+<div class="pg2"><span class="pin">📌</span><span class="rbw">🎀</span><div class="hl2" id="hh"></div><textarea id="tx" maxlength="1500" placeholder="write whatever is in your heart ✿"></textarea><span class="cat5" id="ct5">🐱🌷</span></div>
+<div class="ro"><button class="btn" id="sv">save</button><button class="btn" id="cp">copy</button><a class="btn" id="ig" target="_blank" rel="noopener">send it on Instagram</a></div>
+<small id="ms" class="cap"></small><button class="back bk2" onclick="go('gifts.html')">Back</button>
+</main><script src="config.js"></script><script src="common.js"></script><script>
+tw($('hh'),'Anything you want to write in this',null,60);
+ast('catTulips',s=>{if(s)$('ct5').innerHTML=`<img src="${s}" alt="">`});
+const tx=$('tx'),ms=$('ms');tx.value=localStorage.getItem('riya_note')||'';
+const up=()=>localStorage.setItem('riya_note',tx.value),cp=()=>(navigator.clipboard?navigator.clipboard.writeText(tx.value):Promise.reject());
+tx.oninput=up;$('ig').href=CFG.instagram;
+$('sv').onclick=()=>{up();ms.textContent='saved on this device ✿'};
+$('cp').onclick=()=>cp().then(()=>ms.textContent='copied ✿',()=>ms.textContent='press and hold the text to copy it');
+$('ig').onclick=()=>{up();cp().then(()=>ms.textContent='copied! paste it in the chat ✿',()=>{})};
+</script></body></html>

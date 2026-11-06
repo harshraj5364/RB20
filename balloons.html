@@ -1,0 +1,16 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Wishes ✿</title><link rel="stylesheet" href="common.css"><style>
+body{--a:#eef8ff;--b:#dff0fb;--c:#e8e3fb;--ink:#44607a;--hd:#3f86c4;--pc:#7f9ab0;--f1:#b5daf5;--f2:#f6c9e4}
+.bl2{position:fixed;z-index:3;font-style:normal;font-size:clamp(3rem,9vw,5rem);line-height:1;cursor:pointer;animation:bin 2.2s cubic-bezier(.2,.8,.2,1) var(--dl) both,sw3 3s ease-in-out infinite alternate}
+@keyframes bin{from{transform:translateY(110vh)}}@keyframes sw3{from{translate:-8px 0;rotate:-4deg}to{translate:8px -10px;rotate:4deg}}
+#ts{font:700 clamp(1.8rem,4.4vw,3rem)/1.3 'Caveat',cursive;color:var(--hd);min-height:3.2em;max-width:700px;transition:opacity .4s}
+</style></head><body data-bg="bokeh" data-pf data-p="18"><main>
+<p class="cap rise">pop each balloon to read a wish</p>
+<h2 class="rise" style="--i:1">Eight little wishes</h2>
+<p id="ts"></p>
+<p class="cap" id="k">0 / 8 popped</p>
+<button class="next" data-after="14000">next</button>
+</main><script src="config.js"></script><script src="common.js"></script><script>
+const Wd=CFG.wishes,ts=document.getElementById('ts'),k=document.getElementById('k');let n=0;
+Wd.forEach((w,i)=>{const b=document.createElement('i');b.className='bl2';b.textContent='🎈';b.style.cssText=`left:${6+i*(84/Math.max(1,Wd.length-1))+R(-2,2)}%;top:${R(24,70)}%;--dl:${(i*.25).toFixed(2)}s;filter:hue-rotate(${i*45}deg) drop-shadow(3px 6px 4px rgba(0,0,0,.15))`;
+b.onclick=()=>{b.remove();petals(10,true);ts.textContent=w;k.textContent=++n+' / '+Wd.length+' popped';if(n==Wd.length)nx.classList.add('show')};B.appendChild(b)});
+</script></body></html>

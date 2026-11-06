@@ -1,0 +1,30 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Room 4</title><link rel="stylesheet" href="common.css"><style>
+#pz{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;width:min(340px,80vw);padding:10px;background:#fff;border:3px solid #e8d9c0;border-radius:6px;box-shadow:0 20px 40px -20px rgba(0,0,0,.4);position:relative;rotate:-1deg}
+.pc{aspect-ratio:1;cursor:pointer;transition:scale .2s;border-radius:2px}.pc.s{outline:4px solid #e8730c;scale:.93}
+#pz.dn{border-color:#f59e0b}
+.chs{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+.chs span,.chs button{background:#fff;border:0;border-radius:999px;padding:.4rem .9rem;box-shadow:0 3px 8px -3px rgba(0,0,0,.3);color:#3a2c20;font:600 .8rem 'Outfit',sans-serif;cursor:pointer}
+.sp{position:absolute;width:8px;height:3px;animation:spk 1.4s ease-out forwards;z-index:3}
+@keyframes spk{from{opacity:1}to{opacity:0;translate:var(--dx) var(--dy);rotate:240deg}}
+</style></head><body data-bg="cream" data-p="0"><main>
+<p class="ey">Room 4 · The Restoration Desk</p>
+<h2>This photo fell <mark class="m">apart</mark>.</h2>
+<p class="cap">Put the pieces back in order. Tap two pieces to swap them.</p>
+<div id="pz"></div>
+<div class="chs"><span id="mv">Moves 0</span><span id="tm">⏱ 0:00</span><button id="pk">● Hold to peek</button></div>
+<p class="cap" id="ms" style="min-height:3em"></p>
+<button class="next" data-after="9000">Next room →</button>
+</main><script src="config.js"></script><script src="common.js"></script><script>
+const pz=$('pz'),K=[...Array(9).keys()];let src,o=[...K],sel=-1,mv=0,t0=0,dn=0,fs=0;
+do{o.sort(()=>Math.random()-.5)}while(o.every((v,i)=>v==i));
+const ren=p=>pz.innerHTML=(p?K:o).map((t,i)=>`<div class="pc${i==sel&&!p?' s':''}" data-i="${i}" style="background:url('${src}') ${t%3*50}% ${(t/3|0)*50}%/300% 300%"></div>`).join('');
+const tf=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+const tick=()=>{const s=dn?fs:(t0?Math.floor((Date.now()-t0)/1000):0);$('mv').textContent='Moves '+mv;$('tm').textContent='⏱ '+tf(s)};
+pz.onclick=e=>{const c=e.target.closest('.pc');if(!c||dn)return;const i=+c.dataset.i;if(sel<0)sel=i;else{if(sel!=i){[o[sel],o[i]]=[o[i],o[sel]];mv++;t0=t0||Date.now()}sel=-1;
+ if(o.every((v,j)=>v==j)){dn=1;fs=Math.floor((Date.now()-t0)/1000);pz.classList.add('dn');$('ms').textContent=`Fixed it in ${mv} moves and ${tf(fs)}. ${CFG.from||'Someone'} would be impressed, but would never say so.`;nx.classList.add('show');
+  for(let j=0;j<44;j++){const q=document.createElement('i');q.className='sp';q.style.cssText=`left:${R(0,100)}%;top:${R(0,100)}%;background:${P(['#f59e0b','#17a99b','#e7507a','#7c5cd6','#f2b705'])};--dx:${R(-50,50)}px;--dy:${R(-60,60)}px`;pz.appendChild(q)}}}
+ ren();tick()};
+setInterval(()=>{if(!dn)tick()},1000);
+$('pk').onpointerdown=()=>ren(1);$('pk').onpointerup=$('pk').onpointerleave=()=>ren();
+pic(CFG.puzzle,2,s=>{src=s;ren()});prog(4);
+</script></body></html>

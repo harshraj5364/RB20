@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The gift box</title><link rel="stylesheet" href="common.css"><style>
+main{gap:1rem}
+.tbl{position:relative;width:min(820px,98vw);aspect-ratio:1.5}
+.bxo{position:absolute;inset:7% 8% 12% 8%;background:linear-gradient(135deg,#d9b27a,#c19556);border:7px solid #b9894a;box-shadow:inset 0 0 50px rgba(90,50,10,.5),0 30px 50px -20px rgba(40,10,10,.7)}
+.bxo::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:7px;background:rgba(120,80,30,.4)}
+.it{position:absolute;background:none;border:0;cursor:pointer;transition:transform .3s;filter:drop-shadow(4px 8px 6px rgba(0,0,0,.35))}.it:hover{transform:rotate(-4deg) scale(1.08)}
+.it .e{font-size:clamp(3.4rem,13vw,7rem);line-height:1;display:block}.it img{display:block;width:clamp(100px,24vw,230px)}
+#i1{left:10%;top:14%}#i2{right:10%;top:12%}#i3{left:12%;bottom:14%}#i4{right:10%;bottom:14%}
+.bwz{position:absolute;left:-2%;top:-1%;font-size:clamp(3.6rem,11vw,7rem);filter:drop-shadow(3px 6px 4px rgba(0,0,0,.3));pointer-events:none}.bwz img{width:clamp(90px,20vw,170px)}
+.plz{position:absolute;left:0;right:0;bottom:1%;height:9%;background:repeating-linear-gradient(90deg,#5a6272 0 6px,#4a5262 6px 12px);opacity:.85}
+</style></head><body data-bg="redcheck" data-p="0"><main>
+<div class="tbl rise"><div class="bxo"></div><button class="it" id="i1" title="memories"></button><button class="it" id="i2" title="a letter"></button><button class="it" id="i3" title="flowers"></button><button class="it" id="i4" title="your turn"></button><div class="bwz" id="bw"></div><div class="plz"></div></div>
+<p class="cap">tap something in the box</p>
+<button class="next" data-after="6000">keep going</button>
+</main><script src="config.js"></script><script src="common.js"></script><script>
+[['i1','camera','📷','cinema'],['i2','letters','💌','postcard'],['i3','bouquetWhite','💐','garden'],['i4','gifts','🎁','notebook']].forEach(([id,k,e,p])=>{ast(k,s=>$(id).innerHTML=s?`<img src="${s}" alt="">`:`<span class="e">${e}</span>`);$(id).onclick=()=>go(p+'.html')});
+ast('bow',s=>$('bw').innerHTML=s?`<img src="${s}" alt="">`:'🎀');
+</script></body></html>

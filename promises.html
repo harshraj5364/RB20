@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Room 7</title><link rel="stylesheet" href="common.css"><style>
+.pc2{width:min(560px,94vw);background:rgba(255,255,255,.75);border:2px dashed #b8a98f;border-radius:10px;padding:1.4rem 1.6rem;text-align:left;box-shadow:0 20px 40px -22px rgba(0,0,0,.4)}
+.pc2 h3{font:800 1.25rem 'Outfit',sans-serif;text-align:center;color:#2b2118}.by{display:block;text-align:center;font:700 .62rem 'Outfit',sans-serif;letter-spacing:.2em;color:#8a7a6a;margin-bottom:.8rem}
+.pc2 ul{list-style:none}.pc2 li label{display:flex;gap:.8rem;align-items:center;padding:.55rem .7rem;border-radius:4px;font:600 .92rem 'Outfit',sans-serif;cursor:pointer;transition:background .3s,color .3s}
+.pc2 li.hl label{background:#d6313f;color:#fff}
+.pc2 input{appearance:none;width:1.4rem;height:1.4rem;border-radius:5px;border:2px solid #0f766e;background:#fff;display:grid;place-items:center;flex:none;cursor:pointer}
+.pc2 input:checked{background:#0f766e}.pc2 input:checked::after{content:'✓';color:#fff;font-size:.9rem}
+.lb{font:700 .62rem 'Outfit',sans-serif;letter-spacing:.2em;color:#8a7a6a;margin:1rem 0 .3rem}
+.sgw{position:relative}#sg2{display:block;width:100%;height:130px;background:rgba(255,255,255,.8);border-radius:10px;touch-action:none;box-shadow:inset 0 2px 6px rgba(0,0,0,.1)}
+.sgw .ph{position:absolute;inset:0;display:grid;place-items:center;font:400 1.4rem 'Gaegu',cursive;color:#b8b0a4;pointer-events:none}
+.clr{position:absolute;right:8px;bottom:8px;font:600 .75rem 'Outfit',sans-serif;background:#fff;border:0;border-radius:6px;padding:.25rem .7rem;box-shadow:0 2px 6px rgba(0,0,0,.2);cursor:pointer}
+.nm{font:700 1.5rem 'Kaushan Script',cursive;color:#4a3b30;margin-top:.5rem}
+</style></head><body data-bg="cream" data-p="0"><main>
+<p class="ey">Room 7 · The Promises</p>
+<h2>Tick each promise, then <mark class="m">sign</mark>.</h2>
+<div class="pc2"><h3>Our Friendship Rules</h3><small class="by" id="by"></small><ul id="ls"></ul><p class="lb">SIGN HERE WITH YOUR FINGER</p><div class="sgw"><canvas id="sg2" width="560" height="130"></canvas><span class="ph" id="ph">sign here</span><button class="clr" id="cl">Clear</button></div><p class="nm">Riya</p></div>
+<button class="next" data-hold id="nb">Tick every promise (0/5)</button>
+<a id="sk" hidden class="ft" style="cursor:pointer;text-decoration:underline" onclick="go(nextUrl())">skip this room</a>
+</main><script src="config.js"></script><script src="common.js"></script><script>
+$('by').textContent=`BETWEEN ${(CFG.from||'ME').toUpperCase()} AND ${CFG.to.toUpperCase()}`;
+$('ls').innerHTML=CFG.promises.map((p,i)=>`<li><label><input type="checkbox"> ${i+1}. ${p}</label></li>`).join('');
+const ck=[...document.querySelectorAll('#ls input')],c=$('sg2'),x=c.getContext('2d'),nb=$('nb');let dn=0,len=0,lx,ly;x.lineWidth=2.6;x.lineCap='round';x.strokeStyle='#22356b';nb.classList.add('show');
+const st=()=>{const k=ck.filter(i=>i.checked).length,ok=k==ck.length&&len>=120;nb.textContent=k<ck.length?`Tick every promise (${k}/${ck.length})`:len<120?'Now sign above ☝':'Renew our friendship →';nb.style.opacity=ok?1:.6};
+nb.onclick=()=>{if(ck.every(i=>i.checked)&&len>=120)go(nextUrl())};
+ck.forEach(i=>i.onchange=()=>{const li=i.closest('li');li.classList.add('hl');setTimeout(()=>li.classList.remove('hl'),700);st()});
+const pt=e=>{const r=c.getBoundingClientRect();return[(e.clientX-r.left)*c.width/r.width,(e.clientY-r.top)*c.height/r.height]};
+c.onpointerdown=e=>{dn=1;c.setPointerCapture(e.pointerId);[lx,ly]=pt(e);$('ph').hidden=true};
+c.onpointermove=e=>{if(!dn)return;const[a,b]=pt(e);x.beginPath();x.moveTo(lx,ly);x.lineTo(a,b);x.stroke();len+=Math.hypot(a-lx,b-ly);lx=a;ly=b};
+c.onpointerup=()=>{dn=0;st()};
+$('cl').onclick=()=>{x.clearRect(0,0,c.width,c.height);len=0;$('ph').hidden=false;st()};
+st();setTimeout(()=>$('sk').hidden=false,20000);prog(7);
+</script></body></html>

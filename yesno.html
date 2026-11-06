@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A question</title><link rel="stylesheet" href="common.css"><style>
+main{gap:1.4rem}
+#q{font:400 clamp(1.8rem,5vw,3rem)/1.35 'Gochi Hand',cursive;color:#cfeaff;min-height:2.8em;max-width:700px;text-shadow:0 0 18px rgba(150,200,255,.3)}
+#cat{font-size:clamp(7rem,24vw,12rem);line-height:1;filter:drop-shadow(0 10px 20px rgba(0,0,0,.6))}#cat img{width:min(260px,60vw)}
+#bt{position:relative;width:min(900px,96vw);height:120px}
+.tg{position:absolute;top:20px;font:italic 700 2.2rem 'Kaushan Script',cursive;color:#5a3a1a;background:linear-gradient(#efdcb2,#d9bf88);padding:.4rem 2rem;border-radius:8px 14px 8px 14px;border:3px double #8a6a3a;box-shadow:0 8px 18px rgba(0,0,0,.6);cursor:pointer;transition:left .35s,top .35s,scale .35s;user-select:none}
+#no{left:0}#yes{right:0}
+</style></head><body data-bg="dark" data-p="0"><main>
+<p id="q"></p>
+<div id="cat" class="rise"></div>
+<div id="bt"><span class="tg" id="no">No</span><span class="tg" id="yes">yes</span></div>
+</main><script src="config.js"></script><script src="common.js"></script><script>
+ast('cat',s=>$('cat').innerHTML=s?`<img src="${s}" alt="">`:'🐱💐');
+setTimeout(()=>tw($('q'),'Do you wanna see what I made for YOU?',null,65),1000);
+let s=1;const no=$('no'),yes=$('yes');
+const run=e=>{e.preventDefault();no.style.left=R(5,70)+'%';no.style.top=R(0,60)+'px';s+=.12;yes.style.scale=Math.min(s,1.9)};
+no.onpointerenter=run;no.onclick=run;no.ontouchstart=run;
+yes.onclick=()=>{petals(40,true);$('q').textContent='Yay! Come, follow me…';setTimeout(()=>go(nextUrl()),1300)};
+</script></body></html>

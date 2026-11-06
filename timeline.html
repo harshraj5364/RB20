@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Room 5</title><link rel="stylesheet" href="common.css"><style>
+#tl{position:relative;width:min(560px,92vw);text-align:left;padding-left:2.2rem;display:flex;flex-direction:column;gap:1.1rem}
+#tl::before{content:'';position:absolute;left:.55rem;top:.6rem;bottom:.6rem;width:3px;background:linear-gradient(#f59e0b,#e84a3c);border-radius:3px}
+.ev2{position:relative;background:#fff;border-radius:14px;padding:.9rem 1.2rem;box-shadow:0 10px 22px -14px rgba(0,0,0,.35)}
+.ev2::before{content:'';position:absolute;left:-2.1rem;top:1.1rem;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid #e84a3c}
+.ev2 h3{font:800 1.1rem 'Outfit',sans-serif;color:#e8730c}.ev2 p{font:400 .95rem/1.5 'Outfit',sans-serif;color:#4a3b30}
+</style></head><body data-bg="cream" data-p="0"><main>
+<p class="ey">Room 5 · The Timeline</p>
+<h2>How we got <mark class="m">here</mark>.</h2>
+<div id="tl"></div>
+<button class="next" data-after="3500">Next room →</button>
+</main><script src="config.js"></script><script src="common.js"></script><script>
+$('tl').innerHTML=CFG.timeline.map(e=>`<div class="ev2 rv"><h3>${e.h}</h3><p>${e.t}</p></div>`).join('');
+rv('.ev2');prog(5);
+</script></body></html>

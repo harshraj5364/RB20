@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Room 1</title><link rel="stylesheet" href="common.css"><style>
+#bd{width:min(380px,84vw);overflow:visible;margin:.4rem 0}
+#bd path{fill:none;stroke-linecap:round;stroke-width:9;transition:stroke .9s}
+#bd path:nth-child(1){stroke:#cfc6b4}#bd path:nth-child(2){stroke:#b9ae98}#bd path:nth-child(3){stroke:#a89c86;stroke-width:5}
+#bd.on path:nth-child(1){stroke:#f2788f}#bd.on path:nth-child(2){stroke:#f5a524}#bd.on path:nth-child(3){stroke:#17a99b}
+#bd.on{animation:tie .9s}@keyframes tie{40%{scale:1.08 .7}}
+</style></head><body data-bg="cream" data-p="0"><main>
+<p class="ey">Room 1 · The Entrance</p>
+<h1>First, your friendship <mark class="m">band</mark>.</h1>
+<svg id="bd" viewBox="0 0 400 70"><path d="M0 35q25-28 50 0t50 0t50 0t50 0t50 0t50 0t50 0t50 0"/><path d="M0 35q25 28 50 0t50 0t50 0t50 0t50 0t50 0t50 0t50 0"/><path d="M0 35q12.5-12 25 0t25 0t25 0t25 0t25 0t25 0t25 0t25 0t25 0t25 0t25 0t25 0t25 0t25 0t25 0t25 0"/></svg>
+<p class="cap" id="t">This one was made for you. Tap the button to tie it on.</p>
+<button class="next" data-hold>Tie it on 🧶</button>
+</main><script src="config.js"></script><script src="common.js"></script><script>
+let tied=0;nx.classList.add('show');
+nx.onclick=()=>{if(!tied){tied=1;$('bd').classList.add('on');$('t').textContent='There. Now it is yours, and it never comes off.';nx.textContent='See how long we have been friends →';petals(20,true)}else go(nextUrl())};
+prog(1);
+</script></body></html>
