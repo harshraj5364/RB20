@@ -1,0 +1,49 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Her video 3</title><link rel="stylesheet" href="common.css"><style>
+main{gap:0}
+.vrow{display:flex;gap:clamp(1.6rem,4vw,4rem);align-items:center;justify-content:center;width:min(1120px,94vw);flex-wrap:wrap}.vrow.rev{flex-direction:row-reverse}
+.vbox{position:relative;flex:1 1 360px;max-width:min(480px,92vw);border-radius:22px;overflow:hidden;box-shadow:0 30px 60px -24px rgba(138,42,92,.55);border:8px solid #fff;background:#1c1018}
+.vbox video{display:block;width:100%;max-height:74vh;background:#1c1018}
+.pl2{position:absolute;inset:0;margin:auto;width:92px;height:92px;border-radius:50%;border:0;background:rgba(255,255,255,.9);font-size:2.2rem;color:#8a2a5c;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.miss{display:none;position:absolute;inset:0;place-items:center;text-align:center;padding:1.4rem;color:#fff;font:600 1.3rem/1.5 'Outfit',sans-serif;background:linear-gradient(135deg,#7a2a60,#c45a8a)}
+.vtx{flex:1 1 340px;text-align:left;max-width:540px}
+.vn{font:700 1.05rem 'Outfit',sans-serif;letter-spacing:.3em;color:#9a3a62}
+.vtx h2{font:700 clamp(2.8rem,6.4vw,4.6rem)/1.05 'Playfair Display',serif;font-style:italic;color:#5a1640;margin:.2rem 0 .9rem}
+.vtx p{font:700 clamp(1.55rem,3vw,2rem)/1.55 'Cormorant Garamond',serif;color:#241022}
+.orn{font-size:1.8rem;color:#9a3a62;margin-top:1rem}
+/* readability: bigger, darker text and bigger artwork */
+.cap{font-size:clamp(1.35rem,2.8vw,1.85rem)!important;font-weight:500!important}
+body[data-bg=cream] .cap{font-size:1.3rem!important;color:#1f1710!important}
+body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
+.ey{font-size:.95rem!important;letter-spacing:.16em!important;color:#b8330f!important}body[data-bg=door] .ey{color:#cfe0d8!important}
+.ft{font-size:1rem!important;color:#3a2c20!important}
+.ch div{font-size:.85rem!important;color:#3a2c20!important}.ch b{font-size:2.1rem!important}
+.ev2 h3{font-size:1.55rem!important}.ev2 p{font-size:1.3rem!important;color:#1f1710!important}
+.pc2 li label{font-size:1.25rem!important;color:#1f1710!important}.pc2 h3{font-size:1.7rem!important}.by,.lb{font-size:.9rem!important;color:#3a2c20!important}
+.chs span,.chs button{font-size:1.05rem!important}
+.plq b{font-size:1.4rem!important}.plq small{font-size:.8rem!important;color:#3a2408!important}
+.nv{font-size:1.15rem!important;color:#1f1710!important}
+.pl{font-size:1rem!important}#kt{font-size:1.1rem!important;color:#e6f3ee!important}
+.fy{font-size:clamp(2.1rem,5.4vw,2.8rem)!important}.tp{font-size:1.25rem!important;color:#5a3a2e!important}
+#t1{font-size:1.55rem!important;color:#2e1a16!important}#t2{font-size:1rem!important;color:#2e1a16!important}.sm{font-size:1.55rem!important}
+.it{color:#3a1f2a!important}.t small{font-size:1.2rem!important}
+.tip{font-size:1.1rem!important;opacity:.85!important}
+#cat img{width:min(400px,76vw)!important}
+.cats img{width:clamp(130px,26vw,250px)!important}
+.cg img{width:clamp(110px,24vw,230px)!important}
+.tgb{font-size:clamp(1.2rem,2.8vw,1.6rem)!important;color:#2e2010!important;max-width:min(300px,62vw)!important}
+.bub{font-size:clamp(1.15rem,2.8vw,1.5rem)!important}
+.bq{width:min(340px,76vw)!important;height:min(430px,96vw)!important}.bq>img{width:100%!important}
+.msg{font-size:clamp(1.25rem,2.8vw,1.55rem)!important;color:#241a46!important}
+.lines span{font-size:1.05rem!important;color:#2e2218!important}.cd h3{font-size:1.7rem!important}
+.op{font-size:1.7rem!important}.qb h3{font-size:2.4rem!important}#ts{font-size:clamp(2rem,4.8vw,3.2rem)!important}
+.fr h3{font-size:2rem!important}.bk p{font-size:1.5rem!important;color:#1f3a30!important}
+</style></head><body data-bg="dream" data-p="12"><main>
+<section class="vrow" id="vr"><div class="vbox"><video id="v" controls playsinline preload="auto"></video><button class="pl2" id="pl" hidden>▶</button><div class="miss" id="ms"><span>Her video will appear here.<br>Upload it to the videos folder.</span></div></div><div class="vtx"><p class="vn" id="vn"></p><h2 id="vh"></h2><p id="vt"></p><p class="orn">❦</p></div></section>
+<button class="next" data-after="5000">next ›</button>
+</main><script src="config.js"></script><script src="common.js"></script><script>
+const I=3,V=CFG.videos[I-1],v=$('v');$('vh').textContent=V.h;$('vt').textContent=V.t;$('vn').textContent='0'+I+' / 0'+CFG.videos.length;if(I%2==0)$('vr').classList.add('rev');
+const miss=()=>{$('ms').style.display='grid';$('pl').hidden=true;auto(12000)};
+v.onerror=miss;v.onended=()=>auto(2500);v.onplay=()=>{$('pl').hidden=true};v.src=V.src;
+v.play().catch(()=>{if($('ms').style.display!=='grid')$('pl').hidden=false});$('pl').onclick=()=>v.play();
+setTimeout(()=>{if(v.readyState<1&&$('ms').style.display!=='grid')miss()},7000);
+</script></body></html>

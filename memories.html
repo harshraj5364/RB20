@@ -1,28 +1,47 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Memories</title><link rel="stylesheet" href="common.css"><style>
-main{justify-content:flex-start;padding:6vh 0 8vh;gap:3rem}
-#col{columns:3 250px;column-gap:1.4rem;width:min(1100px,94vw)}@media(max-width:720px){#col{columns:2}}
-.po{break-inside:avoid;margin:0 0 1.4rem;background:#f8f0ee;padding:12px 12px 36px;box-shadow:0 14px 26px -14px rgba(90,50,30,.5);border-radius:3px;rotate:var(--r);cursor:zoom-in;transition:rotate .35s,scale .35s,opacity 1.1s,transform 1.1s}
-.po:hover{rotate:0deg;scale:1.04;position:relative;z-index:2}.po img{display:block;width:100%;height:auto;object-fit:cover}
-#lbx{position:fixed;inset:0;z-index:90;background:rgba(40,20,10,.65);display:none;place-items:center}#lbx.on{display:grid}#lbx img{max-width:min(520px,90vw);max-height:84vh;background:#f8f0ee;padding:12px 12px 36px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
-#lt{width:min(620px,92vw);background:linear-gradient(#fbe9de,#f1d3c5);border-radius:3px;padding:2.2rem 2rem;box-shadow:0 18px 36px -16px rgba(90,50,30,.5);text-align:left;background-image:repeating-linear-gradient(transparent 0 2.1rem,rgba(150,100,80,.08) 2.1rem calc(2.1rem + 1px))}
-#lt p{font:400 clamp(1.15rem,2.6vw,1.4rem)/1.95 'Kalam',cursive;color:#5a3a34}
-.hrt{color:#c87a7a;font-size:1.6rem}
-#fin h2{font:700 clamp(2.4rem,7vw,4.6rem)/1.1 'Dancing Script',cursive;color:#d9a79e;transition:color 2s}#fin.in h2{color:#8b1f1f}
-#fin p{font:600 clamp(1.2rem,3vw,1.7rem) 'Caveat',cursive;color:#a8806a}
+main{justify-content:flex-start;padding:7vh 0 10vh;gap:2rem}
+#col{columns:3 260px;column-gap:1.6rem;width:min(1100px,94vw)}@media(max-width:720px){#col{columns:2;column-gap:1rem}}
+.po{position:relative;break-inside:avoid;margin:0 0 1.6rem;background:#f8f0ee;padding:12px 12px 74px;box-shadow:0 14px 26px -14px rgba(90,50,30,.5);border-radius:3px;rotate:var(--r);cursor:zoom-in;transition:rotate .35s,scale .35s,opacity 1.1s,transform 1.1s}
+.po:hover{rotate:0deg;scale:1.03;z-index:2}.po img{display:block;width:100%;height:auto;object-fit:cover}
+.cp{position:absolute;left:10px;right:10px;bottom:10px;font:700 clamp(1.45rem,2.8vw,1.9rem)/1.12 'Caveat',cursive;color:#2a1610;text-align:center}
+#lbx{position:fixed;inset:0;z-index:90;background:rgba(40,20,10,.65);display:none;place-items:center}#lbx.on{display:grid}#lbx img{max-width:min(560px,92vw);max-height:86vh;background:#f8f0ee;padding:12px 12px 36px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+/* readability: bigger, darker text and bigger artwork */
+.cap{font-size:clamp(1.35rem,2.8vw,1.85rem)!important;font-weight:500!important}
+body[data-bg=cream] .cap{font-size:1.3rem!important;color:#1f1710!important}
+body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
+.ey{font-size:.95rem!important;letter-spacing:.16em!important;color:#b8330f!important}body[data-bg=door] .ey{color:#cfe0d8!important}
+.ft{font-size:1rem!important;color:#3a2c20!important}
+.ch div{font-size:.85rem!important;color:#3a2c20!important}.ch b{font-size:2.1rem!important}
+.ev2 h3{font-size:1.55rem!important}.ev2 p{font-size:1.3rem!important;color:#1f1710!important}
+.pc2 li label{font-size:1.25rem!important;color:#1f1710!important}.pc2 h3{font-size:1.7rem!important}.by,.lb{font-size:.9rem!important;color:#3a2c20!important}
+.chs span,.chs button{font-size:1.05rem!important}
+.plq b{font-size:1.4rem!important}.plq small{font-size:.8rem!important;color:#3a2408!important}
+.nv{font-size:1.15rem!important;color:#1f1710!important}
+.pl{font-size:1rem!important}#kt{font-size:1.1rem!important;color:#e6f3ee!important}
+.fy{font-size:clamp(2.1rem,5.4vw,2.8rem)!important}.tp{font-size:1.25rem!important;color:#5a3a2e!important}
+#t1{font-size:1.55rem!important;color:#2e1a16!important}#t2{font-size:1rem!important;color:#2e1a16!important}.sm{font-size:1.55rem!important}
+.it{color:#3a1f2a!important}.t small{font-size:1.2rem!important}
+.tip{font-size:1.1rem!important;opacity:.85!important}
+#cat img{width:min(400px,76vw)!important}
+.cats img{width:clamp(130px,26vw,250px)!important}
+.cg img{width:clamp(110px,24vw,230px)!important}
+.tgb{font-size:clamp(1.2rem,2.8vw,1.6rem)!important;color:#2e2010!important;max-width:min(300px,62vw)!important}
+.bub{font-size:clamp(1.15rem,2.8vw,1.5rem)!important}
+.bq{width:min(340px,76vw)!important;height:min(430px,96vw)!important}.bq>img{width:100%!important}
+.msg{font-size:clamp(1.25rem,2.8vw,1.55rem)!important;color:#241a46!important}
+.lines span{font-size:1.05rem!important;color:#2e2218!important}.cd h3{font-size:1.7rem!important}
+.op{font-size:1.7rem!important}.qb h3{font-size:2.4rem!important}#ts{font-size:clamp(2rem,4.8vw,3.2rem)!important}
+.fr h3{font-size:2rem!important}.bk p{font-size:1.5rem!important;color:#1f3a30!important}
 </style></head><body data-bg="peach" data-p="0"><main>
 <button class="gp" onclick="go(FLOW[ix-1]+'.html')">‹ Back</button>
 <div id="col"></div>
-<article id="lt" class="rv"><p id="ltx"></p></article>
-<div class="hrt rv">♡</div>
-<div id="fin" class="rv"><h2>I will always be by your side</h2><p id="fr"></p></div>
 <div id="lbx"><img alt=""></div>
-<button class="next" data-after="7000">turn the page</button>
+<button class="next" data-hold>turn the page</button>
 </main><script src="config.js"></script><script src="common.js"></script><script>
-const col=$('col'),lbx=$('lbx');
-CFG.polaroids.forEach((p,i)=>{const f=document.createElement('figure');f.className='po rv';f.style.cssText=`--r:${R(-3.5,3.5).toFixed(1)}deg;transition-delay:${(i%3)*.15}s`;f.innerHTML=`<img alt="" style="aspect-ratio:${P(['1','4/5','5/4'])}">`;pic(p.src,i,s=>f.firstChild.src=s);f.onclick=()=>{lbx.firstChild.src=f.firstChild.src;lbx.classList.add('on')};col.appendChild(f)});
+const col=$('col'),lbx=$('lbx');let stop=()=>{};
+CFG.polaroids.forEach((p,i)=>{const f=document.createElement('figure');f.className='po rv';f.style.cssText=`--r:${R(-3.5,3.5).toFixed(1)}deg;transition-delay:${(i%3)*.15}s`;f.innerHTML=`<img alt="" style="aspect-ratio:${P(['1','4/5','5/4'])}"><figcaption class="cp">${p.cap}</figcaption>`;pic(p.src,i,s=>f.firstChild.src=s);f.onclick=()=>{stop();lbx.firstChild.src=f.firstChild.src;lbx.classList.add('on')};col.appendChild(f)});
 lbx.onclick=()=>lbx.classList.remove('on');
-$('ltx').textContent=`To my dearest ${CFG.to}, I am writing this little note just because you have been on my mind all day long, which is nothing new since you pretty much live there anyway. Every single time I think about your smile, my heart does a tiny happy dance. I find myself smiling at my phone like a complete fool whenever your name pops up on Instagram, and honestly, it is my absolute favourite part of the day. You have this wonderful way of making the whole world feel brighter and sweeter just by being you. Thank you for all the long chats, the soft giggles we share, and the beautiful comfort of knowing you are my best friend. We have met only three times, but it already feels like I have known you forever. Please never forget how deeply you are valued and cherished. You are my favourite person and my safest space, and I cannot wait until the next time we get to meet. Forever and always, your friend, ${CFG.from||''}`;
-$('fr').textContent='From, your friend';
-$('lt').style.minHeight=$('lt').offsetHeight+'px';
-rv('.rv',e=>{if(e.id=='lt')typeWords($('ltx'),105)});
+rv('.rv');
+stop=autoScroll(60,3500,()=>{nx.classList.add('show');auto(4500)});
+setTimeout(()=>nx.classList.add('show'),9000);
 </script></body></html>

@@ -1,24 +1,70 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Write anything</title><link rel="stylesheet" href="common.css"><style>
-.bk2{top:auto;bottom:5vh;left:50%;translate:-50% 0}
-main{gap:1rem}
-.pg2{position:relative;width:min(760px,94vw);background:#f6efd9;padding:2.6rem 2rem 1.4rem 3.6rem;box-shadow:0 26px 44px -18px rgba(0,0,0,.7);rotate:1deg}
-.pg2::before{content:'';position:absolute;left:2.6rem;top:0;bottom:0;width:2px;background:rgba(220,90,90,.5)}
-.hl2{font:400 clamp(1.8rem,4.6vw,2.8rem)/1.2 'Gochi Hand',cursive;color:#1d1d1d;min-height:2.6em;text-align:left}
-#tx{display:block;width:100%;height:40vh;font:500 clamp(1.5rem,3vw,2rem)/2.1 'Caveat',cursive;color:#22356b;background:linear-gradient(transparent calc(2.1em - 1px),rgba(120,150,210,.45) 0) 0 .5em/100% 2.1em local;border:0;resize:none;outline:0}
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Questions</title><link rel="stylesheet" href="common.css"><style>
+main{gap:1rem;padding:8vh 0 10vh}
+.pg2{position:relative;width:min(820px,94vw);background:#f6efd9;padding:2.6rem 2rem 2rem 3.8rem;box-shadow:0 26px 44px -18px rgba(0,0,0,.7);rotate:.5deg;text-align:left}
+.pg2::before{content:'';position:absolute;left:2.8rem;top:0;bottom:0;width:2px;background:rgba(220,90,90,.55)}
+.qn{font:700 1rem 'Outfit',sans-serif;letter-spacing:.14em;color:#7a2a1a}
+.pgs{height:9px;border-radius:99px;background:#e6dcc0;overflow:hidden;margin:.5rem 0}.pgs i{display:block;height:100%;background:#d6313f;width:0;transition:width .5s}
+.qq{font:400 clamp(2rem,4.8vw,3rem)/1.2 'Gochi Hand',cursive;color:#111;min-height:3.2em}
+#ans{display:block;width:100%;height:28vh;min-height:170px;font:500 clamp(1.6rem,3vw,2.1rem)/2.1 'Caveat',cursive;color:#14224f;background:linear-gradient(transparent calc(2.1em - 1px),rgba(120,150,210,.5) 0) 0 .5em/100% 2.1em local;border:0;resize:none;outline:0}
+.phr{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin:.6rem 0}
+#thumb{width:96px;height:96px;object-fit:cover;border-radius:8px;border:3px solid #fff;box-shadow:0 4px 10px rgba(0,0,0,.35)}
+.ro{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:space-between;margin-top:.8rem}
 .pin{position:absolute;left:50%;top:-14px;font-size:2rem;z-index:3}.rbw{position:absolute;right:-10px;top:-12px;font-size:2.8rem;z-index:3}
-.cat5{position:absolute;left:-14%;bottom:-6%;font-size:clamp(4rem,12vw,7rem);filter:drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff)}.cat5 img{width:clamp(110px,22vw,210px)}
-.ro{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center}
+.cat5{position:absolute;left:-12%;bottom:-6%;font-size:clamp(4rem,12vw,7rem);filter:drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff)}.cat5 img{width:clamp(150px,30vw,280px)}
+#done{text-align:center}#done .btn{font-size:1.6rem}
+/* readability: bigger, darker text and bigger artwork */
+.cap{font-size:clamp(1.35rem,2.8vw,1.85rem)!important;font-weight:500!important}
+body[data-bg=cream] .cap{font-size:1.3rem!important;color:#1f1710!important}
+body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
+.ey{font-size:.95rem!important;letter-spacing:.16em!important;color:#b8330f!important}body[data-bg=door] .ey{color:#cfe0d8!important}
+.ft{font-size:1rem!important;color:#3a2c20!important}
+.ch div{font-size:.85rem!important;color:#3a2c20!important}.ch b{font-size:2.1rem!important}
+.ev2 h3{font-size:1.55rem!important}.ev2 p{font-size:1.3rem!important;color:#1f1710!important}
+.pc2 li label{font-size:1.25rem!important;color:#1f1710!important}.pc2 h3{font-size:1.7rem!important}.by,.lb{font-size:.9rem!important;color:#3a2c20!important}
+.chs span,.chs button{font-size:1.05rem!important}
+.plq b{font-size:1.4rem!important}.plq small{font-size:.8rem!important;color:#3a2408!important}
+.nv{font-size:1.15rem!important;color:#1f1710!important}
+.pl{font-size:1rem!important}#kt{font-size:1.1rem!important;color:#e6f3ee!important}
+.fy{font-size:clamp(2.1rem,5.4vw,2.8rem)!important}.tp{font-size:1.25rem!important;color:#5a3a2e!important}
+#t1{font-size:1.55rem!important;color:#2e1a16!important}#t2{font-size:1rem!important;color:#2e1a16!important}.sm{font-size:1.55rem!important}
+.it{color:#3a1f2a!important}.t small{font-size:1.2rem!important}
+.tip{font-size:1.1rem!important;opacity:.85!important}
+#cat img{width:min(400px,76vw)!important}
+.cats img{width:clamp(130px,26vw,250px)!important}
+.cg img{width:clamp(110px,24vw,230px)!important}
+.tgb{font-size:clamp(1.2rem,2.8vw,1.6rem)!important;color:#2e2010!important;max-width:min(300px,62vw)!important}
+.bub{font-size:clamp(1.15rem,2.8vw,1.5rem)!important}
+.bq{width:min(340px,76vw)!important;height:min(430px,96vw)!important}.bq>img{width:100%!important}
+.msg{font-size:clamp(1.25rem,2.8vw,1.55rem)!important;color:#241a46!important}
+.lines span{font-size:1.05rem!important;color:#2e2218!important}.cd h3{font-size:1.7rem!important}
+.op{font-size:1.7rem!important}.qb h3{font-size:2.4rem!important}#ts{font-size:clamp(2rem,4.8vw,3.2rem)!important}
+.fr h3{font-size:2rem!important}.bk p{font-size:1.5rem!important;color:#1f3a30!important}
 </style></head><body data-bg="crim" data-p="0"><main>
-<div class="pg2"><span class="pin">📌</span><span class="rbw">🎀</span><div class="hl2" id="hh"></div><textarea id="tx" maxlength="1500" placeholder="write whatever is in your heart ✿"></textarea><span class="cat5" id="ct5">🐱🌷</span></div>
-<div class="ro"><button class="btn" id="sv">save</button><button class="btn" id="cp">copy</button><a class="btn" id="ig" target="_blank" rel="noopener">send it on Instagram</a></div>
-<small id="ms" class="cap"></small><button class="back bk2" onclick="go('gifts.html')">Back</button>
+<div class="pg2"><span class="pin">📌</span><span class="rbw">🎀</span>
+<div id="step"><p class="qn" id="qn"></p><div class="pgs"><i id="pb"></i></div><div class="qq" id="qq"></div>
+<textarea id="ans" maxlength="800" placeholder="write your answer here ✿"></textarea>
+<div class="phr"><label class="btn" for="file">📷 add a photo from your camera</label><input type="file" id="file" accept="image/*" hidden><img id="thumb" alt="" hidden><button class="btn" id="rm" hidden>remove photo</button></div>
+<div class="ro"><button class="btn" id="bk">‹ back</button><button class="btn" id="nx3">next ›</button></div></div>
+<div id="done" hidden><div class="qq">All done. Thank you ✿</div><p class="cap">Tap the button and choose Instagram. Your answers and photos are sent to my messages.</p><button class="btn" id="send">send my answers on Instagram</button><p class="cap" id="ms2"></p></div>
+<span class="cat5" id="ct5">🐱🌷</span></div><button class="back" onclick="go('gifts.html')">Back</button>
 </main><script src="config.js"></script><script src="common.js"></script><script>
-tw($('hh'),'Anything you want to write in this',null,60);
 ast('catTulips',s=>{if(s)$('ct5').innerHTML=`<img src="${s}" alt="">`});
-const tx=$('tx'),ms=$('ms');tx.value=localStorage.getItem('riya_note')||'';
-const up=()=>localStorage.setItem('riya_note',tx.value),cp=()=>(navigator.clipboard?navigator.clipboard.writeText(tx.value):Promise.reject());
-tx.oninput=up;$('ig').href=CFG.instagram;
-$('sv').onclick=()=>{up();ms.textContent='saved on this device ✿'};
-$('cp').onclick=()=>cp().then(()=>ms.textContent='copied ✿',()=>ms.textContent='press and hold the text to copy it');
-$('ig').onclick=()=>{up();cp().then(()=>ms.textContent='copied! paste it in the chat ✿',()=>{})};
+const Q=CFG.qa,A=Q.map(()=>({t:'',f:null,u:''}));let qi=0,tqt=0;
+try{JSON.parse(localStorage.getItem('riya_qa')||'[]').forEach((a,i)=>{if(A[i]&&a)A[i].t=a.t||''})}catch(e){}
+const chk=()=>{const ok=$('ans').value.trim().length>0;$('nx3').disabled=!ok;$('nx3').style.opacity=ok?1:.5};
+function show(){const a=A[qi];$('qn').textContent=`QUESTION ${qi+1} OF ${Q.length}`;$('pb').style.width=(qi/Q.length*100)+'%';clearTimeout(tqt);$('qq').textContent='';let k=0;(function f(){$('qq').textContent=Q[qi].slice(0,++k);if(k<Q[qi].length)tqt=setTimeout(f,28)})();
+ $('ans').value=a.t;$('thumb').hidden=$('rm').hidden=!a.u;if(a.u)$('thumb').src=a.u;$('bk').style.visibility=qi?'visible':'hidden';$('nx3').textContent=qi==Q.length-1?'finish ✓':'next ›';chk()}
+$('ans').oninput=()=>{A[qi].t=$('ans').value;chk();try{localStorage.setItem('riya_qa',JSON.stringify(A.map(a=>({t:a.t}))))}catch(e){}};
+const shrink=f=>new Promise(res=>{const i=new Image(),u=URL.createObjectURL(f);i.onload=()=>{const s=Math.min(1,1280/Math.max(i.width,i.height)),c=document.createElement('canvas');c.width=Math.round(i.width*s);c.height=Math.round(i.height*s);c.getContext('2d').drawImage(i,0,0,c.width,c.height);c.toBlob(b=>res(b?new File([b],'answer.jpg',{type:'image/jpeg'}):f),'image/jpeg',.85)};i.onerror=()=>res(f);i.src=u});
+$('file').onchange=async e=>{const f=e.target.files[0];if(!f)return;const b=await shrink(f);A[qi].f=b;A[qi].u=URL.createObjectURL(b);$('thumb').src=A[qi].u;$('thumb').hidden=$('rm').hidden=false;e.target.value=''};
+$('rm').onclick=()=>{A[qi].f=null;A[qi].u='';$('thumb').hidden=$('rm').hidden=true};
+$('bk').onclick=()=>{if(qi>0){qi--;show()}};
+$('nx3').onclick=()=>{if($('nx3').disabled)return;if(qi<Q.length-1){qi++;show()}else{$('step').hidden=true;$('done').hidden=false;$('pb').style.width='100%'}};
+$('send').onclick=async()=>{const text=[CFG.to+"'s answers"].concat(Q.map((q,i)=>`${i+1}. ${q}\n-> ${A[i].t}${A[i].f?'  [photo attached]':''}`)).join('\n\n'),files=A.map((a,i)=>a.f?new File([a.f],`answer-${i+1}.jpg`,{type:'image/jpeg'}):null).filter(Boolean);
+ try{await navigator.clipboard.writeText(text)}catch(e){}
+ let shared=0;if(navigator.canShare&&files.length&&navigator.canShare({files})){try{await navigator.share({files,text,title:'My answers'});shared=1}catch(e){}}
+ if(!shared)window.open(CFG.instagramDM,'_blank');
+ $('ms2').textContent=shared?'Choose Instagram, then Direct, and send. The text is also copied, so you can paste it in the message ✿':'Your answers are copied. Instagram is opening: paste them in the chat and press send ✿';
+ if(CFG.answersEndpoint)fetch(CFG.answersEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text})}).catch(()=>{})};
+show();
 </script></body></html>

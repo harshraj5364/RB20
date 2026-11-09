@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Passkey</title><link rel="stylesheet" href="common.css"><style>
+#dried{position:fixed;left:0;top:0;width:min(150px,28vw);z-index:5;pointer-events:none;font-size:5rem;filter:drop-shadow(4px 6px 6px rgba(0,0,0,.3))}#dried img{width:100%;display:block}
+main{gap:1.2rem}
+#lk{background:none;border:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:.8rem;color:#6a4a3e}
+#lki{width:130px;height:130px;border-radius:50%;display:grid;place-items:center;font-size:4.6rem;background:radial-gradient(circle,#fbe9d4,transparent 70%)}#lki img{width:64%}
+#lk small{font:italic 600 1.3rem 'Cormorant Garamond',serif;letter-spacing:.06em}
+#md{position:fixed;inset:0;z-index:70;background:linear-gradient(#fbf1dc,#f2d5b5);display:none;flex-direction:column;align-items:center;justify-content:center;gap:.9rem}#md.on{display:flex}
+#x{position:absolute;right:2vw;top:2vh;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.7);color:#6a4a40;font-size:1.2rem;cursor:pointer}
+#lg{width:92px;height:92px;border-radius:50%;display:grid;place-items:center;font-size:2.8rem;background:radial-gradient(circle,#fdecd8,#f6dcc0);box-shadow:0 0 0 8px rgba(255,255,255,.4);transition:box-shadow .6s}
+#md.ok #lg{box-shadow:0 0 0 8px rgba(80,140,90,.45),0 0 30px 6px rgba(80,140,90,.3)}
+#pt{font:700 clamp(2.3rem,6vw,3.2rem) 'Dancing Script',cursive;color:#7a1f1f;transition:color .5s}#md.ok #pt{color:#256038}
+#md .bx{gap:1.2rem;position:relative}#md .bx::before{content:'';position:absolute;left:12px;right:12px;top:50%;height:1px;background:#a8906f}
+#md .bx i{width:24px;height:24px;border-radius:50%;border:2px solid #8a7050;background:#f9ecd6;position:relative;z-index:1}
+#md .bx i.f,#md.ok .bx i{background:#256038;border-color:#256038}#md .bx.r i{background:#b3202a;border-color:#b3202a}
+#pm{font:italic 600 1.15rem 'Cormorant Garamond',serif;color:#a01a24;min-height:1.5em}
+#hn{font:italic 600 1.1rem 'Cormorant Garamond',serif;color:#5a3a2e}
+#md .kp{gap:.9rem 1rem}
+#md .gk{width:clamp(62px,15vw,78px);aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.7);box-shadow:0 6px 16px -8px rgba(120,60,30,.45);font:700 1.7rem 'Cormorant Garamond',serif;color:#2e3e2a}#md .gk:active{scale:.92}
+#md.ok .kp{opacity:.45;pointer-events:none}
+#ld{position:fixed;inset:0;z-index:80;background:#f8efd6;display:none;flex-direction:column;align-items:center;justify-content:center;gap:1rem}#ld.on{display:flex}
+#ld .rg{position:relative;width:130px;height:130px}#ld .rg i{position:absolute;width:56px;height:56px}
+#ld small{font:700 .9rem 'Cormorant Garamond',serif;letter-spacing:.35em;color:#7a6040}
+#ld::before,#ld::after{content:'';position:absolute;width:260px;height:260px;border-radius:50%;border:1px solid rgba(180,150,110,.3);animation:rp 3s ease-out infinite}#ld::after{animation-delay:1.5s}
+@keyframes rp{from{scale:.5;opacity:1}to{scale:2.6;opacity:0}}
+/* readability: bigger, darker text and bigger artwork */
+.cap{font-size:clamp(1.35rem,2.8vw,1.85rem)!important;font-weight:500!important}
+body[data-bg=cream] .cap{font-size:1.3rem!important;color:#1f1710!important}
+body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
+.ey{font-size:.95rem!important;letter-spacing:.16em!important;color:#b8330f!important}body[data-bg=door] .ey{color:#cfe0d8!important}
+.ft{font-size:1rem!important;color:#3a2c20!important}
+.ch div{font-size:.85rem!important;color:#3a2c20!important}.ch b{font-size:2.1rem!important}
+.ev2 h3{font-size:1.55rem!important}.ev2 p{font-size:1.3rem!important;color:#1f1710!important}
+.pc2 li label{font-size:1.25rem!important;color:#1f1710!important}.pc2 h3{font-size:1.7rem!important}.by,.lb{font-size:.9rem!important;color:#3a2c20!important}
+.chs span,.chs button{font-size:1.05rem!important}
+.plq b{font-size:1.4rem!important}.plq small{font-size:.8rem!important;color:#3a2408!important}
+.nv{font-size:1.15rem!important;color:#1f1710!important}
+.pl{font-size:1rem!important}#kt{font-size:1.1rem!important;color:#e6f3ee!important}
+.fy{font-size:clamp(2.1rem,5.4vw,2.8rem)!important}.tp{font-size:1.25rem!important;color:#5a3a2e!important}
+#t1{font-size:1.55rem!important;color:#2e1a16!important}#t2{font-size:1rem!important;color:#2e1a16!important}.sm{font-size:1.55rem!important}
+.it{color:#3a1f2a!important}.t small{font-size:1.2rem!important}
+.tip{font-size:1.1rem!important;opacity:.85!important}
+#cat img{width:min(400px,76vw)!important}
+.cats img{width:clamp(130px,26vw,250px)!important}
+.cg img{width:clamp(110px,24vw,230px)!important}
+.tgb{font-size:clamp(1.2rem,2.8vw,1.6rem)!important;color:#2e2010!important;max-width:min(300px,62vw)!important}
+.bub{font-size:clamp(1.15rem,2.8vw,1.5rem)!important}
+.bq{width:min(340px,76vw)!important;height:min(430px,96vw)!important}.bq>img{width:100%!important}
+.msg{font-size:clamp(1.25rem,2.8vw,1.55rem)!important;color:#241a46!important}
+.lines span{font-size:1.05rem!important;color:#2e2218!important}.cd h3{font-size:1.7rem!important}
+.op{font-size:1.7rem!important}.qb h3{font-size:2.4rem!important}#ts{font-size:clamp(2rem,4.8vw,3.2rem)!important}
+.fr h3{font-size:2rem!important}.bk p{font-size:1.5rem!important;color:#1f3a30!important}
+</style></head><body data-bg="peach" data-p="0"><main>
+<div id="dried"></div>
+<button id="lk" class="rise"><span id="lki">🔐</span><small>tap to open</small></button>
+<div id="md"><button id="x">✕</button><div id="lg">🔐</div><h2 id="pt">Enter Passkey</h2><div class="bx" id="bx"><i></i><i></i><i></i><i></i></div><p id="pm"></p><div class="kp" id="kp"></div><small id="hn">hint: your birthday, day then month</small></div>
+<div id="ld"><div class="rg" id="rg"></div><small>LOADING</small></div>
+</main><script src="config.js"></script><script src="common.js"></script><script>
+ast('dried',s=>$('dried').innerHTML=s?`<img src="${s}" alt="">`:'🥀');
+ast('locket',s=>{if(s)$('lki').innerHTML=`<img src="${s}" alt="">`});
+const md=$('md');$('lk').onclick=()=>md.classList.add('on');$('x').onclick=()=>md.classList.remove('on');
+setTimeout(()=>md.classList.add('on'),4500);
+keypad({code:CFG.passkey,clear:true,on:()=>md.classList.contains('on'),
+ok:()=>{md.classList.add('ok');$('pt').textContent='Unlocked';$('pm').textContent='';setTimeout(()=>{md.classList.remove('on');$('ld').classList.add('on');
+ Promise.all(['rose1','rose2','rose3'].map(k=>new Promise(r=>ast(k,r)))).then(a=>{const ok=a.filter(Boolean);$('rg').innerHTML=[0,1,2,3,4,5].map(i=>{const t=i*Math.PI/3-Math.PI/2;return `<i class="rs" style="left:${(65+Math.cos(t)*50-28).toFixed(0)}px;top:${(65+Math.sin(t)*50-28).toFixed(0)}px;translate:0 0;--r:0deg;animation-delay:${i*.15}s">${rose(i%2?'#fff':'#f4a6b6',56,ok.length?P(ok):0)}</i>`}).join('')});
+ setTimeout(()=>go(nextUrl()),3200)},1100)},
+bad:b=>{b.classList.add('r');$('pm').textContent='wrong passkey, try again';setTimeout(()=>{b.classList.remove('r');$('pm').textContent=''},1400)}});
+</script></body></html>

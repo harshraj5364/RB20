@@ -1,37 +1,30 @@
 HOW THIS WORKS
 Put the files in this photos folder using EXACTLY these names.
-Anything you do not upload keeps a simple drawn or emoji stand-in, so the site always works.
-Open check.html (in the main folder) to see which files were found (green tick) and which are missing.
-"Cut-out" means a PNG with a transparent background (about 800 to 1200 px on the long side).
+Anything you do not upload keeps a simple drawn stand-in, so the site always works.
+Open check.html (in the main folder) to see which files were found (green) and which are missing (red).
+Her videos go in the videos folder (see videos/README.txt).
 
-YOUR PHOTOS (JPG, ideally about 1200 px)
-1.jpg 2.jpg 3.jpg 4.jpg       museum gallery, one per exhibit (scratch to reveal)
-puzzle.jpg                    the photo that "falls apart" (square works best)
-cinema.jpg                    shown on the cinema screen (landscape)
-p1.jpg ... p8.jpg             polaroid wall (also used for the secret-code page if collage.png is missing)
-scrap1.jpg                    scrapbook notebook, right-hand page
-scrap2.jpg                    scrapbook photo in the striped frame
-scrap3.jpg                    scrapbook photo with the yellow bow
-scrap4.jpg                    scrapbook polaroid on the scalloped note
-film1.jpg ... film5.jpg       the five frames of the film strip
-garden.jpg                    full-screen sunflower or flower field (wide, landscape)
+HER PHOTOS (JPG, ideally about 1200 px). The only photo of you two is together.jpg.
+her1.jpg ... her4.jpg         museum gallery: her most beautiful pictures (rub to reveal)
+her5.jpg ... her12.jpg        polaroid wall (each gets a compliment next to it)
+her13.jpg her14.jpg her15.jpg scrapbook pages
+together.jpg                  the ONE photo of the two of you: puzzle page and the last scrapbook note
+cinema.jpg                    shown on the cinema screen (a portrait of her, landscape works best)
+garden.jpg                    full-screen flower or sunflower field (wide, landscape)
 
-CUT-OUT ARTWORK (transparent PNG)
-collage.png                   photo collage with flowers for the secret-code page
-rose-1.png rose-2.png rose-3.png   painted roses (peach, pink, ivory) for the rose cascade
-dried-rose.png                dried hanging rose for the top-left corner of "From me to you"
-fromme-art.png                the illustration under "From me to you"
-locket.png                    small padlock or locket icon ("tap to open")
-cover-scene.png               camera + envelope + bouquet cover for the scrapbook page
-cat-flower.png                cat holding flowers (the "Do you wanna see what I made for you" page)
-cat-orange.png  cat-white.png the two cats at the corners of the cinema page
-cat-garden.png                small standing cat for the flower garden page
-cat-tulips.png                cat sticker with tulips for the notebook page
-camera.png letters.png bouquet-white.png gifts.png   the four things inside the gift box
-bow-red.png                   red satin bow for the corner of the gift box
-plush.png                     fluffy white edge for the gift-box table
-sunflower-bouquet.png         black-wrapped sunflower bouquet for the letter page
-poinsettia.png                red flowers for the postcard page
-cassette.png                  cassette tape sticker for the scalloped note
-star.png                      quilted gold star sticker
-cupcake.png                   cupcake sticker next to the big number
+ARTWORK THAT IS ALREADY MADE FOR YOU (in this folder, you can replace any of them)
+cover-scene.png  plush.png  camera.png  letters.png  bouquet-white.png  gifts.png  bow-red.png
+cassette.png  sunflower-bouquet.png  rose-1.png  rose-2.png  rose-3.png
+
+OPTIONAL CUT-OUT ARTWORK (transparent PNG). Without them an emoji or drawing is used.
+collage.png          photo collage with flowers for the secret-code page
+dried-rose.png       dried hanging rose for the top-left corner of the "From me to you" pages
+fromme-art.png       illustration under "From me to you" (otherwise the white bouquet is used)
+locket.png           padlock or locket icon on the passkey page
+cat-flower.png       cat holding flowers (the "Do you wanna see what I made for you" page)
+cat-orange.png cat-white.png   the two cats at the corners of the cinema page
+cat-garden.png       small standing cat for the flower garden page
+cat-tulips.png       cat sticker with tulips for the questions page
+dog.png              dog sticker for the music tape page
+poinsettia.png       red flowers for the postcard page
+star.png cupcake.png quilted star and cupcake stickers for the scrapbook

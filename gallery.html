@@ -7,6 +7,33 @@
 .plq b{display:block;font:800 1.1rem 'Outfit',sans-serif}.plq small{font:600 .6rem 'Outfit',sans-serif;letter-spacing:.14em;color:#6a4c18}
 .nv{display:flex;align-items:center;gap:1rem;font:600 .9rem 'Outfit',sans-serif;color:#7a6a5a}
 .rb{width:34px;height:34px;border-radius:50%;border:0;background:#e84a3c;color:#fff;font:700 1.2rem 'Outfit',sans-serif;cursor:pointer;box-shadow:0 3px 0 #b0281c}
+/* readability: bigger, darker text and bigger artwork */
+.cap{font-size:clamp(1.35rem,2.8vw,1.85rem)!important;font-weight:500!important}
+body[data-bg=cream] .cap{font-size:1.3rem!important;color:#1f1710!important}
+body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
+.ey{font-size:.95rem!important;letter-spacing:.16em!important;color:#b8330f!important}body[data-bg=door] .ey{color:#cfe0d8!important}
+.ft{font-size:1rem!important;color:#3a2c20!important}
+.ch div{font-size:.85rem!important;color:#3a2c20!important}.ch b{font-size:2.1rem!important}
+.ev2 h3{font-size:1.55rem!important}.ev2 p{font-size:1.3rem!important;color:#1f1710!important}
+.pc2 li label{font-size:1.25rem!important;color:#1f1710!important}.pc2 h3{font-size:1.7rem!important}.by,.lb{font-size:.9rem!important;color:#3a2c20!important}
+.chs span,.chs button{font-size:1.05rem!important}
+.plq b{font-size:1.4rem!important}.plq small{font-size:.8rem!important;color:#3a2408!important}
+.nv{font-size:1.15rem!important;color:#1f1710!important}
+.pl{font-size:1rem!important}#kt{font-size:1.1rem!important;color:#e6f3ee!important}
+.fy{font-size:clamp(2.1rem,5.4vw,2.8rem)!important}.tp{font-size:1.25rem!important;color:#5a3a2e!important}
+#t1{font-size:1.55rem!important;color:#2e1a16!important}#t2{font-size:1rem!important;color:#2e1a16!important}.sm{font-size:1.55rem!important}
+.it{color:#3a1f2a!important}.t small{font-size:1.2rem!important}
+.tip{font-size:1.1rem!important;opacity:.85!important}
+#cat img{width:min(400px,76vw)!important}
+.cats img{width:clamp(130px,26vw,250px)!important}
+.cg img{width:clamp(110px,24vw,230px)!important}
+.tgb{font-size:clamp(1.2rem,2.8vw,1.6rem)!important;color:#2e2010!important;max-width:min(300px,62vw)!important}
+.bub{font-size:clamp(1.15rem,2.8vw,1.5rem)!important}
+.bq{width:min(340px,76vw)!important;height:min(430px,96vw)!important}.bq>img{width:100%!important}
+.msg{font-size:clamp(1.25rem,2.8vw,1.55rem)!important;color:#241a46!important}
+.lines span{font-size:1.05rem!important;color:#2e2218!important}.cd h3{font-size:1.7rem!important}
+.op{font-size:1.7rem!important}.qb h3{font-size:2.4rem!important}#ts{font-size:clamp(2rem,4.8vw,3.2rem)!important}
+.fr h3{font-size:2rem!important}.bk p{font-size:1.5rem!important;color:#1f3a30!important}
 </style></head><body data-bg="cream" data-p="0"><main>
 <p class="ey">Room 3 · The Gallery</p>
 <h2>Our <mark class="m">photos</mark></h2>
@@ -21,7 +48,7 @@ function show(k){i=(k+P4.length)%P4.length;pic(P4[i].src,i,s=>im.src=s);$('ti').
  cv.style.opacity=dn[i]?0:1;cv.style.pointerEvents=dn[i]?'none':'auto';
  if(!dn[i]){x.globalCompositeOperation='source-over';const g=x.createLinearGradient(0,0,S,S);g.addColorStop(0,'#dcb680');g.addColorStop(1,'#c99a5b');x.fillStyle=g;x.fillRect(0,0,S,S);x.fillStyle='rgba(90,55,20,.35)';for(let j=0;j<300;j++)x.fillRect(R(0,S),R(0,S),R(1,3),R(1,3))}}
 const sc=e=>{const r=cv.getBoundingClientRect();x.globalCompositeOperation='destination-out';x.beginPath();x.arc((e.clientX-r.left)*S/r.width,(e.clientY-r.top)*S/r.height,48,0,7);x.fill()};
-const rv2=()=>{if(dn[i])return;const d=x.getImageData(0,0,S,S).data;let c=0;for(let p=3;p<d.length;p+=160)if(!d[p])c++;if(c>d.length/160*.1){dn[i]=1;show(i);petals(8,true)}};
+const rv2=()=>{if(dn[i])return;const d=x.getImageData(0,0,S,S).data;let c=0;for(let p=3;p<d.length;p+=160)if(!d[p])c++;if(c>d.length/160*.2){dn[i]=1;show(i);petals(8,true)}};
 cv.onpointerdown=e=>{dw=1;cv.setPointerCapture(e.pointerId);sc(e)};cv.onpointermove=e=>{if(dw){sc(e);if(++mv%4==0)rv2()}};cv.onpointerup=()=>{dw=0;rv2()};
 $('pv').onclick=()=>show(i-1);$('nt').onclick=()=>show(i+1);
 document.fonts.ready.then(()=>show(0));prog(3);

@@ -1,18 +1,48 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The gift box</title><link rel="stylesheet" href="common.css"><style>
-main{gap:1rem}
-.tbl{position:relative;width:min(820px,98vw);aspect-ratio:1.5}
-.bxo{position:absolute;inset:7% 8% 12% 8%;background:linear-gradient(135deg,#d9b27a,#c19556);border:7px solid #b9894a;box-shadow:inset 0 0 50px rgba(90,50,10,.5),0 30px 50px -20px rgba(40,10,10,.7)}
-.bxo::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:7px;background:rgba(120,80,30,.4)}
-.it{position:absolute;background:none;border:0;cursor:pointer;transition:transform .3s;filter:drop-shadow(4px 8px 6px rgba(0,0,0,.35))}.it:hover{transform:rotate(-4deg) scale(1.08)}
-.it .e{font-size:clamp(3.4rem,13vw,7rem);line-height:1;display:block}.it img{display:block;width:clamp(100px,24vw,230px)}
-#i1{left:10%;top:14%}#i2{right:10%;top:12%}#i3{left:12%;bottom:14%}#i4{right:10%;bottom:14%}
-.bwz{position:absolute;left:-2%;top:-1%;font-size:clamp(3.6rem,11vw,7rem);filter:drop-shadow(3px 6px 4px rgba(0,0,0,.3));pointer-events:none}.bwz img{width:clamp(90px,20vw,170px)}
-.plz{position:absolute;left:0;right:0;bottom:1%;height:9%;background:repeating-linear-gradient(90deg,#5a6272 0 6px,#4a5262 6px 12px);opacity:.85}
+main{gap:.8rem;padding:3vh 0 8vh}
+.tbl{position:relative;width:min(1000px,100vw);aspect-ratio:1.5}
+.pl{position:absolute;bottom:-2%;width:46%;z-index:1;pointer-events:none}.pl.l{left:-8%}.pl.r{right:-8%;scale:-1 1}
+.bxo{position:absolute;inset:5% 9% 27% 9%;z-index:2;background:linear-gradient(135deg,#d9b27a,#c19556);border:8px solid #b9894a;box-shadow:inset 0 0 60px rgba(90,50,10,.5),0 30px 50px -20px rgba(40,10,10,.7)}
+.bxo::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:8px;background:rgba(120,80,30,.4)}
+.it{position:absolute;z-index:3;background:none;border:0;padding:0;cursor:pointer;transition:transform .3s;filter:drop-shadow(5px 9px 7px rgba(0,0,0,.35))}.it:hover{transform:rotate(-3deg) scale(1.06)}
+.it img{display:block;width:100%}.it .e{font-size:clamp(4rem,14vw,8rem);line-height:1;display:block}
+#i1{left:13%;top:6%;width:27%}#i2{left:56%;top:7%;width:28%}#i3{left:17%;top:38%;width:20%}#i4{left:52%;top:38%;width:30%}#i5{left:62%;top:75%;width:25%}
+.bwz{position:absolute;left:3%;top:-3%;width:19%;z-index:4;pointer-events:none;font-size:clamp(3.6rem,11vw,7rem)}.bwz img{width:100%}
+@media(max-width:720px){.tbl{aspect-ratio:.82;width:98vw}.bxo{inset:4% 5% 28% 5%}#i1{left:8%;top:6%;width:42%}#i2{left:52%;top:5%;width:40%}#i3{left:10%;top:37%;width:30%}#i4{left:44%;top:38%;width:46%}#i5{left:25%;top:76%;width:50%}.bwz{width:26%}.pl{width:72%}}
+/* readability: bigger, darker text and bigger artwork */
+.cap{font-size:clamp(1.35rem,2.8vw,1.85rem)!important;font-weight:500!important}
+body[data-bg=cream] .cap{font-size:1.3rem!important;color:#1f1710!important}
+body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
+.ey{font-size:.95rem!important;letter-spacing:.16em!important;color:#b8330f!important}body[data-bg=door] .ey{color:#cfe0d8!important}
+.ft{font-size:1rem!important;color:#3a2c20!important}
+.ch div{font-size:.85rem!important;color:#3a2c20!important}.ch b{font-size:2.1rem!important}
+.ev2 h3{font-size:1.55rem!important}.ev2 p{font-size:1.3rem!important;color:#1f1710!important}
+.pc2 li label{font-size:1.25rem!important;color:#1f1710!important}.pc2 h3{font-size:1.7rem!important}.by,.lb{font-size:.9rem!important;color:#3a2c20!important}
+.chs span,.chs button{font-size:1.05rem!important}
+.plq b{font-size:1.4rem!important}.plq small{font-size:.8rem!important;color:#3a2408!important}
+.nv{font-size:1.15rem!important;color:#1f1710!important}
+.pl{font-size:1rem!important}#kt{font-size:1.1rem!important;color:#e6f3ee!important}
+.fy{font-size:clamp(2.1rem,5.4vw,2.8rem)!important}.tp{font-size:1.25rem!important;color:#5a3a2e!important}
+#t1{font-size:1.55rem!important;color:#2e1a16!important}#t2{font-size:1rem!important;color:#2e1a16!important}.sm{font-size:1.55rem!important}
+.it{color:#3a1f2a!important}.t small{font-size:1.2rem!important}
+.tip{font-size:1.1rem!important;opacity:.85!important}
+#cat img{width:min(400px,76vw)!important}
+.cats img{width:clamp(130px,26vw,250px)!important}
+.cg img{width:clamp(110px,24vw,230px)!important}
+.tgb{font-size:clamp(1.2rem,2.8vw,1.6rem)!important;color:#2e2010!important;max-width:min(300px,62vw)!important}
+.bub{font-size:clamp(1.15rem,2.8vw,1.5rem)!important}
+.bq{width:min(340px,76vw)!important;height:min(430px,96vw)!important}.bq>img{width:100%!important}
+.msg{font-size:clamp(1.25rem,2.8vw,1.55rem)!important;color:#241a46!important}
+.lines span{font-size:1.05rem!important;color:#2e2218!important}.cd h3{font-size:1.7rem!important}
+.op{font-size:1.7rem!important}.qb h3{font-size:2.4rem!important}#ts{font-size:clamp(2rem,4.8vw,3.2rem)!important}
+.fr h3{font-size:2rem!important}.bk p{font-size:1.5rem!important;color:#1f3a30!important}
 </style></head><body data-bg="redcheck" data-p="0"><main>
-<div class="tbl rise"><div class="bxo"></div><button class="it" id="i1" title="memories"></button><button class="it" id="i2" title="a letter"></button><button class="it" id="i3" title="flowers"></button><button class="it" id="i4" title="your turn"></button><div class="bwz" id="bw"></div><div class="plz"></div></div>
-<p class="cap">tap something in the box</p>
-<button class="next" data-after="6000">keep going</button>
+<div class="tbl rise"><img class="pl l" id="pl1" alt=""><img class="pl r" id="pl2" alt=""><div class="bxo"></div>
+<button class="it" id="i1" title="memories"></button><button class="it" id="i2" title="a letter"></button><button class="it" id="i3" title="flowers"></button><button class="it" id="i4" title="your turn"></button><button class="it" id="i5" title="music tape"></button><div class="bwz" id="bw"></div></div>
+<p class="cap">tap something in the box, or the music tape</p>
+<button class="next" data-after="7000">keep going</button>
 </main><script src="config.js"></script><script src="common.js"></script><script>
-[['i1','camera','📷','cinema'],['i2','letters','💌','postcard'],['i3','bouquetWhite','💐','garden'],['i4','gifts','🎁','notebook']].forEach(([id,k,e,p])=>{ast(k,s=>$(id).innerHTML=s?`<img src="${s}" alt="">`:`<span class="e">${e}</span>`);$(id).onclick=()=>go(p+'.html')});
+[['i1','camera','📷','cinema'],['i2','letters','💌','postcard'],['i3','bouquetWhite','💐','garden'],['i4','gifts','🎁','notebook'],['i5','cassette','📼','tape']].forEach(([id,k,e,p])=>{ast(k,s=>$(id).innerHTML=s?`<img src="${s}" alt="">`:`<span class="e">${e}</span>`);$(id).onclick=()=>go(p+'.html')});
 ast('bow',s=>$('bw').innerHTML=s?`<img src="${s}" alt="">`:'🎀');
+ast('plush',s=>{if(s){$('pl1').src=s;$('pl2').src=s}else{$('pl1').hidden=$('pl2').hidden=true}});
 </script></body></html>

@@ -32,6 +32,33 @@ body.s3 #hero{opacity:1}
 #cd{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(.8rem,3vw,2rem)}
 .t{min-width:clamp(78px,17vw,170px);padding:1rem .6rem;border:2px dashed var(--hd);border-radius:255px 18px 225px 18px/18px 225px 18px 255px;background:rgba(255,255,255,.5)}
 .t b{display:block;font:700 clamp(2.6rem,8vw,5.4rem)/1 'Caveat',cursive;color:var(--hd)}.t small{font-size:1.05rem}
+/* readability: bigger, darker text and bigger artwork */
+.cap{font-size:clamp(1.35rem,2.8vw,1.85rem)!important;font-weight:500!important}
+body[data-bg=cream] .cap{font-size:1.3rem!important;color:#1f1710!important}
+body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
+.ey{font-size:.95rem!important;letter-spacing:.16em!important;color:#b8330f!important}body[data-bg=door] .ey{color:#cfe0d8!important}
+.ft{font-size:1rem!important;color:#3a2c20!important}
+.ch div{font-size:.85rem!important;color:#3a2c20!important}.ch b{font-size:2.1rem!important}
+.ev2 h3{font-size:1.55rem!important}.ev2 p{font-size:1.3rem!important;color:#1f1710!important}
+.pc2 li label{font-size:1.25rem!important;color:#1f1710!important}.pc2 h3{font-size:1.7rem!important}.by,.lb{font-size:.9rem!important;color:#3a2c20!important}
+.chs span,.chs button{font-size:1.05rem!important}
+.plq b{font-size:1.4rem!important}.plq small{font-size:.8rem!important;color:#3a2408!important}
+.nv{font-size:1.15rem!important;color:#1f1710!important}
+.pl{font-size:1rem!important}#kt{font-size:1.1rem!important;color:#e6f3ee!important}
+.fy{font-size:clamp(2.1rem,5.4vw,2.8rem)!important}.tp{font-size:1.25rem!important;color:#5a3a2e!important}
+#t1{font-size:1.55rem!important;color:#2e1a16!important}#t2{font-size:1rem!important;color:#2e1a16!important}.sm{font-size:1.55rem!important}
+.it{color:#3a1f2a!important}.t small{font-size:1.2rem!important}
+.tip{font-size:1.1rem!important;opacity:.85!important}
+#cat img{width:min(400px,76vw)!important}
+.cats img{width:clamp(130px,26vw,250px)!important}
+.cg img{width:clamp(110px,24vw,230px)!important}
+.tgb{font-size:clamp(1.2rem,2.8vw,1.6rem)!important;color:#2e2010!important;max-width:min(300px,62vw)!important}
+.bub{font-size:clamp(1.15rem,2.8vw,1.5rem)!important}
+.bq{width:min(340px,76vw)!important;height:min(430px,96vw)!important}.bq>img{width:100%!important}
+.msg{font-size:clamp(1.25rem,2.8vw,1.55rem)!important;color:#241a46!important}
+.lines span{font-size:1.05rem!important;color:#2e2218!important}.cd h3{font-size:1.7rem!important}
+.op{font-size:1.7rem!important}.qb h3{font-size:2.4rem!important}#ts{font-size:clamp(2rem,4.8vw,3.2rem)!important}
+.fr h3{font-size:2rem!important}.bk p{font-size:1.5rem!important;color:#1f3a30!important}
 </style></head><body data-bg="bokeh" data-p="0"><main>
 <section id="s1"><div id="gl"></div><p id="t1">a little something, for you</p>
 <svg id="ht" viewBox="0 0 100 100" width="110"><defs><radialGradient id="hg" cx="35%" cy="28%"><stop offset="0" stop-color="#ffc3d6"/><stop offset=".4" stop-color="#ec4f86"/><stop offset="1" stop-color="#b0124c"/></radialGradient></defs><path d="M50 90C8 60 6 26 28 18C40 14 48 20 50 30C52 20 60 14 72 18C94 26 92 60 50 90Z" fill="url(#hg)"/><ellipse cx="34" cy="32" rx="8" ry="5" fill="#fff" opacity=".85" transform="rotate(-25 34 32)"/></svg>
@@ -54,7 +81,7 @@ function shoot(){if(shot)return;shot=1;const g=gm(),L=(g.dist+20)/g.k;ar.style.t
 function burst(x,y){ht.style.display='none';for(let i=0;i<26;i++){const p=document.createElement('i');p.className='pb';p.style.cssText=`left:${x}px;top:${y}px;--dx:${R(-90,90)}px;--dy:${R(-90,90)}px;background:${P(['#ec4f86','#ffb3cb','#f5b94a'])}`;s1.appendChild(p)}
  setTimeout(()=>{s2.style.clipPath=`circle(0 at ${x}px ${y}px)`;s2.classList.add('on');requestAnimationFrame(()=>requestAnimationFrame(()=>{s2.style.transition='clip-path 1s ease-in';s2.style.clipPath=`circle(150vmax at ${x}px ${y}px)`}));setTimeout(()=>s2.classList.add('go'),900);setTimeout(show3,5400)},500)}
 setTimeout(()=>{if(!shot){setAr(60);setTimeout(shoot,700)}},9000);
-function show3(){s1.remove();B.classList.add('s3');tree();petals(26);s2.style.transition='opacity 1s';s2.style.opacity=0;setTimeout(()=>s2.remove(),1000);setTimeout(()=>nx.classList.add('show'),8000)}
+function show3(){s1.remove();B.classList.add('s3');tree();petals(26);s2.style.transition='opacity 1s';s2.style.opacity=0;setTimeout(()=>s2.remove(),1000);setTimeout(()=>nx.classList.add('show'),8000);setTimeout(()=>autoScroll(70,0,()=>auto(12000)),9500)}
 function tree(){const t=$('tr'),br=[['M200 560C198 500 204 440 200 380',14],['M200 380C186 350 156 330 126 292',9],['M126 292C108 274 84 262 66 228',6],['M126 292C124 262 112 236 96 200',5],['M156 330C146 300 150 262 142 222',5],['M142 222C130 196 128 170 140 140',4],['M200 380C214 350 244 330 274 292',9],['M274 292C292 274 316 262 334 228',6],['M274 292C276 262 288 236 304 200',5],['M244 330C254 300 250 262 258 222',5],['M258 222C270 196 272 170 260 140',4],['M200 380C198 336 204 296 200 250',7],['M200 250C186 224 180 196 188 160',4],['M200 250C216 224 222 196 212 160',4],['M200 310C176 290 164 262 166 224',3],['M200 310C224 290 236 262 234 224',3]];
 let h=br.map(([d,w],i)=>`<path class="br" pathLength="1" d="${d}" stroke-width="${w}" style="animation-delay:${(i*.2).toFixed(2)}s"/>`).join('');
 const C=['#e0457f','#f06fa0','#f8a1bf','#f5a623','#f8c14b','#d23a78'];let n=0;

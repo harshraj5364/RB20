@@ -1,10 +1,17 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Upload check</title><link rel="stylesheet" href="common.css"><style>
-body{--ink:#3a2c20;--hd:#b0486a;background:#f6efe3;font-family:'Outfit',sans-serif}main{justify-content:flex-start;text-align:left}
-.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.8rem;width:100%}.c{background:#fff;border-radius:10px;padding:.6rem;font-size:.85rem;box-shadow:0 4px 12px -6px rgba(0,0,0,.3)}
-.c img{width:100%;height:90px;object-fit:contain;background:#f1ebe0;border-radius:6px}.ok{color:#1a8a4a}.no{color:#c0392b}</style></head><body data-gate="1" data-p="0"><main>
-<h1 style="font-size:2.4rem">Upload check</h1><p class="cap">Green = found in the photos folder. Red = missing (a stand-in is used). Names are listed in photos/UPLOAD-THESE.txt.</p><div class="g" id="g"></div></main>
+body{--ink:#2a1c10;--hd:#b0486a;background:#f6efe3;font-family:'Outfit',sans-serif}main{justify-content:flex-start;text-align:left}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.8rem;width:100%}.c{background:#fff;border-radius:10px;padding:.6rem;font-size:.95rem;box-shadow:0 4px 12px -6px rgba(0,0,0,.3)}
+.c img{width:100%;height:96px;object-fit:contain;background:#f1ebe0;border-radius:6px}.ok{color:#117a3a;font-weight:700}.no{color:#c0392b;font-weight:700}h3{margin:1rem 0 .2rem}</style></head><body data-gate="1" data-p="0"><main>
+<h1 style="font-size:2.6rem">Upload check</h1><p class="cap">Green = found. Red = missing, so a stand-in is used. File names are in photos/UPLOAD-THESE.txt and videos/README.txt.</p><div id="out" style="width:100%"></div></main>
 <script src="config.js"></script><script src="common.js"></script><script>
-const L=[];CFG.photos.forEach((p,i)=>L.push(['gallery '+(i+1),p.src]));L.push(['puzzle',CFG.puzzle],['cinema',CFG.cinema]);CFG.polaroids.forEach((p,i)=>L.push(['polaroid '+(i+1),p.src]));
-const sb=CFG.scrapbook;L.push(['scrap notebook',sb.notebook],['scrap frame',sb.frame],['scrap bow',sb.bow],['scrap note',sb.note]);sb.film.forEach((f,i)=>L.push(['film '+(i+1),f]));Object.entries(CFG.assets).forEach(([k,v])=>L.push([k,v]));
-L.forEach(([n,s])=>{const d=document.createElement('div');d.className='c';d.innerHTML=`<img alt=""><b>${n}</b><br><small>${s}</small><br><span>checking…</span>`;$('g').appendChild(d);const m=new Image();m.onload=()=>{d.querySelector('img').src=s;d.querySelector('span').className='ok';d.querySelector('span').textContent='✓ found'};m.onerror=()=>{d.querySelector('span').className='no';d.querySelector('span').textContent='✕ missing'};m.src=s});
+const G={};const add=(g,n,s,vid)=>(G[g]=G[g]||[]).push([n,s,vid]);
+CFG.photos.forEach((p,i)=>add('Her photos (gallery)','gallery '+(i+1),p.src));CFG.polaroids.forEach((p,i)=>add('Her photos (polaroids)','polaroid '+(i+1),p.src));
+add('Together photo','together (puzzle + scrapbook note)',CFG.puzzle);add('Her photos (other)','cinema',CFG.cinema);
+const sb=CFG.scrapbook;add('Her photos (scrapbook)','scrap notebook',sb.notebook);add('Her photos (scrapbook)','scrap frame',sb.frame);add('Her photos (scrapbook)','scrap bow',sb.bow);
+CFG.videos.forEach((v,i)=>add('Her videos','video '+(i+1),v.src,1));add('Her videos','music tape video',CFG.tape.video,1);
+Object.entries(CFG.assets).forEach(([k,v])=>add('Artwork',k,v));
+Object.entries(G).forEach(([g,L])=>{const h=document.createElement('h3');h.textContent=g;$('out').appendChild(h);const w=document.createElement('div');w.className='g';$('out').appendChild(w);
+ L.forEach(([n,s,vid])=>{const d=document.createElement('div');d.className='c';d.innerHTML=(vid?'<div style="height:96px;display:grid;place-items:center;background:#f1ebe0;border-radius:6px">🎞</div>':'<img alt="">')+`<b>${n}</b><br><small>${s}</small><br><span>checking…</span>`;w.appendChild(d);
+  const sp=d.querySelector('span'),good=()=>{sp.className='ok';sp.textContent='✓ found'},bad=()=>{sp.className='no';sp.textContent='✕ missing'};
+  if(vid){const m=document.createElement('video');m.onloadedmetadata=good;m.onerror=bad;m.preload='metadata';m.src=s}else{const m=new Image();m.onload=()=>{d.querySelector('img').src=s;good()};m.onerror=bad;m.src=s}})});
 </script></body></html>

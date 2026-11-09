@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Scrapbook</title><link rel="stylesheet" href="common.css"><style>
+main{gap:1.4rem}
+.hw2{font:700 clamp(1.45rem,3vw,2.05rem)/1.55 'Gaegu',cursive;color:#1b2750}
+.crd{background:#fff;padding:.5rem 1.8rem;font:400 clamp(2.4rem,7vw,4rem) 'Great Vibes',cursive;color:#2a2a2a;rotate:-4deg;box-shadow:0 6px 14px rgba(0,0,0,.2)}
+.cl{font:400 clamp(1.9rem,4.2vw,2.6rem) 'Great Vibes',cursive;background:rgba(255,255,255,.92);border:0;border-radius:6px;padding:.1rem 1.3rem;color:#222;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,.2)}
+#cov img{width:min(920px,96vw);display:block}#cov .em{font-size:clamp(5rem,18vw,10rem);line-height:1;text-align:center}
+.nb{display:grid;grid-template-columns:1fr 1fr;width:min(900px,94vw);background:#f4efe6;border-radius:10px;box-shadow:0 30px 60px -25px rgba(40,50,80,.5);position:relative;text-align:left;border:1px solid #d8cfc0}
+.nb>div{padding:2.2rem 1.8rem;min-height:360px;position:relative}
+.nb::after{content:'';position:absolute;left:50%;top:5%;bottom:5%;width:20px;translate:-50% 0;background:radial-gradient(circle,#f4f4f4 0 5px,#8a8a8a 6px 7px,transparent 8px) 0 0/100% 16.66%}
+.big{display:flex;align-items:center;gap:.4rem;font:700 clamp(5.5rem,16vw,9rem)/1 'Baloo 2',sans-serif;color:#e0407f}
+.pp{position:relative;background:#fff;padding:8px 8px 30px;box-shadow:0 12px 24px -12px rgba(0,0,0,.5);rotate:4deg;width:min(300px,72%);margin:0 auto}.pp img{display:block;width:100%;aspect-ratio:1;object-fit:cover}
+.pp::before{content:'';position:absolute;top:-12px;left:50%;width:90px;height:26px;translate:-50% 0;rotate:-4deg;background:rgba(255,226,120,.8)}
+.tag{position:absolute;right:-8px;top:-18px;font:700 1.8rem 'Kaushan Script',cursive;color:#c0202e;rotate:10deg;z-index:2}
+.row2{display:flex;gap:2.6rem;align-items:center;justify-content:center;flex-wrap:wrap;width:min(980px,94vw);text-align:left}.row2 p{flex:1 1 320px}
+.frm2{padding:9px;background:repeating-linear-gradient(45deg,#e8a0a8 0 8px,#fff 8px 16px);box-shadow:0 12px 24px -12px rgba(0,0,0,.5);width:min(340px,76vw);position:relative}.frm2 img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.film{position:relative;width:min(1000px,98vw);background:#111;padding:28px 10px;display:flex;gap:6px;box-shadow:0 20px 40px -18px rgba(0,0,0,.6);rotate:-1.5deg}
+.film::before,.film::after{content:'';position:absolute;left:0;right:0;height:10px;background:repeating-linear-gradient(90deg,#f3f3f3 0 12px,transparent 12px 26px)}.film::before{top:9px}.film::after{bottom:9px}
+.film img{flex:1;min-width:0;aspect-ratio:3/4;object-fit:cover;filter:grayscale(.15) contrast(1.05)}
+.film .a{position:absolute;right:-22px;bottom:-20px;font-size:3.8rem}.film .b{position:absolute;left:-18px;top:-16px;font-size:3rem}
+.tn{display:flex;gap:2.8rem;align-items:center;justify-content:center;flex-wrap:wrap}
+.nt{position:relative;width:min(580px,92vw);background:#f2e6c9;padding:2.8rem 2.2rem;text-align:left;font:400 clamp(1.2rem,2.5vw,1.55rem)/1.7 'Special Elite',serif;color:#33200c;box-shadow:0 24px 40px -20px rgba(60,40,10,.5);rotate:-1.5deg}
+.nt::before,.nt::after{content:'';position:absolute;left:0;right:0;height:10px;background:radial-gradient(circle at 10px 10px,#f2e6c9 9.5px,transparent 10px) 0 0/20px 10px repeat-x}.nt::before{top:-10px}
+.nt::after{bottom:-10px;background:radial-gradient(circle at 10px 0,#f2e6c9 9.5px,transparent 10px) 0 0/20px 10px repeat-x}
+.stkr{position:absolute;font-size:5rem;filter:drop-shadow(2px 4px 4px rgba(0,0,0,.3))}.stkr img{width:5.4rem}
+@media(max-width:640px){.nb{grid-template-columns:1fr}.nb::after{display:none}}
+/* readability: bigger, darker text and bigger artwork */
+.cap{font-size:clamp(1.35rem,2.8vw,1.85rem)!important;font-weight:500!important}
+body[data-bg=cream] .cap{font-size:1.3rem!important;color:#1f1710!important}
+body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
+.ey{font-size:.95rem!important;letter-spacing:.16em!important;color:#b8330f!important}body[data-bg=door] .ey{color:#cfe0d8!important}
+.ft{font-size:1rem!important;color:#3a2c20!important}
+.ch div{font-size:.85rem!important;color:#3a2c20!important}.ch b{font-size:2.1rem!important}
+.ev2 h3{font-size:1.55rem!important}.ev2 p{font-size:1.3rem!important;color:#1f1710!important}
+.pc2 li label{font-size:1.25rem!important;color:#1f1710!important}.pc2 h3{font-size:1.7rem!important}.by,.lb{font-size:.9rem!important;color:#3a2c20!important}
+.chs span,.chs button{font-size:1.05rem!important}
+.plq b{font-size:1.4rem!important}.plq small{font-size:.8rem!important;color:#3a2408!important}
+.nv{font-size:1.15rem!important;color:#1f1710!important}
+.pl{font-size:1rem!important}#kt{font-size:1.1rem!important;color:#e6f3ee!important}
+.fy{font-size:clamp(2.1rem,5.4vw,2.8rem)!important}.tp{font-size:1.25rem!important;color:#5a3a2e!important}
+#t1{font-size:1.55rem!important;color:#2e1a16!important}#t2{font-size:1rem!important;color:#2e1a16!important}.sm{font-size:1.55rem!important}
+.it{color:#3a1f2a!important}.t small{font-size:1.2rem!important}
+.tip{font-size:1.1rem!important;opacity:.85!important}
+#cat img{width:min(400px,76vw)!important}
+.cats img{width:clamp(130px,26vw,250px)!important}
+.cg img{width:clamp(110px,24vw,230px)!important}
+.tgb{font-size:clamp(1.2rem,2.8vw,1.6rem)!important;color:#2e2010!important;max-width:min(300px,62vw)!important}
+.bub{font-size:clamp(1.15rem,2.8vw,1.5rem)!important}
+.bq{width:min(340px,76vw)!important;height:min(430px,96vw)!important}.bq>img{width:100%!important}
+.msg{font-size:clamp(1.25rem,2.8vw,1.55rem)!important;color:#241a46!important}
+.lines span{font-size:1.05rem!important;color:#2e2218!important}.cd h3{font-size:1.7rem!important}
+.op{font-size:1.7rem!important}.qb h3{font-size:2.4rem!important}#ts{font-size:clamp(2rem,4.8vw,3.2rem)!important}
+.fr h3{font-size:2rem!important}.bk p{font-size:1.5rem!important;color:#1f3a30!important}
+</style></head><body data-bg="gingham" data-p="0"><main>
+<div class="row2 rise"><p class="hw2">I could keep a little box of everything from this year. It would probably be filled with blurry pictures, ridiculous conversations, tiny surprises, and all the moments that meant more than they seemed at the time. For once, I just want you to enjoy being celebrated today, because you absolutely deserve it. ❤</p><div class="pp"><img id="i3" alt=""></div></div>
+<button class="next" data-after="8000">keep going</button>
+</main><script src="config.js"></script><script src="common.js"></script><script>
+const sb=CFG.scrapbook,y0=new Date(),yy=y0.getFullYear();pic(sb.bow,2,s=>$('i3').src=s);auto(22000);
+</script></body></html>

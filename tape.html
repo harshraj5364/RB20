@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Music tape</title><link rel="stylesheet" href="common.css"><style>
+body{--tc:#fbf3b8;--ink:#3b2a6a;--hd:#5b3fb0;font-family:'Baloo 2',cursive;background:repeating-linear-gradient(90deg,#fffbe0 0 44px,#fbf0a8 44px 88px) fixed}
+body::before,body::after{content:'';position:fixed;z-index:0;pointer-events:none;border-radius:50% 40% 60% 30%}
+body::before{left:-90px;top:-70px;width:360px;height:320px;rotate:-12deg;background:#cdbdf2}body::after{right:-100px;bottom:-80px;width:400px;height:340px;rotate:20deg;background:#d6c8f6}
+.stars{position:fixed;inset:0;pointer-events:none;z-index:0}.stars i{position:absolute;font-style:normal;color:#8a6bd8}.stars i:nth-child(odd){color:#f0b800}
+main{gap:1.2rem}
+.ttl{font:700 clamp(2.2rem,5vw,3.4rem)/1.1 'Baloo 2',cursive;color:#4a2f98}
+.frame{position:relative;width:min(800px,94vw);background:#fff;border:10px solid #f8f4ff;border-radius:18px;box-shadow:0 24px 50px -24px rgba(80,50,150,.6),0 0 0 3px #b9a6ee;padding-bottom:.6rem}
+.frame video{display:block;width:100%;aspect-ratio:16/9;background:#14101c;border-radius:8px 8px 0 0;object-fit:contain;cursor:pointer}
+.ms2{display:none;position:absolute;left:0;right:0;top:0;aspect-ratio:16/9;place-items:center;text-align:center;padding:1.4rem;color:#fff;font:700 1.5rem/1.4 'Baloo 2',cursive;background:linear-gradient(135deg,#6b4bb8,#a98be8);border-radius:8px 8px 0 0}
+.ctl{display:flex;align-items:center;gap:1rem;padding:.9rem 1.2rem .4rem}
+.tt{font:700 1.55rem 'Baloo 2',cursive;color:#3a2480;white-space:nowrap}
+.bar{flex:1;height:10px;border-radius:99px;background:#e2d8fa;cursor:pointer;position:relative}.bar i{position:absolute;left:0;top:0;bottom:0;border-radius:99px;background:#6b4bb8;width:0}
+#tm{font:700 1.15rem 'Baloo 2',cursive;color:#3a2480}
+.btns{display:flex;gap:1.4rem;justify-content:center;align-items:center;font-size:2rem;color:#2a1a66}.btns button{background:none;border:0;font-size:inherit;color:inherit;cursor:pointer}
+#pp{width:70px;height:70px;border-radius:50%;background:#2a1a66;color:#fff;font-size:1.9rem}
+.dog{position:absolute;right:-30px;bottom:-36px;font-size:6rem;z-index:3}.dog img{width:clamp(130px,24vw,220px)}
+.bk3{font:700 1.3rem 'Baloo 2',cursive;color:#fff;background:#6b4bb8;border:0;border-radius:999px;padding:.4em 1.4em;box-shadow:0 6px 16px -6px rgba(60,30,140,.6);cursor:pointer}
+/* readability: bigger, darker text and bigger artwork */
+.cap{font-size:clamp(1.35rem,2.8vw,1.85rem)!important;font-weight:500!important}
+body[data-bg=cream] .cap{font-size:1.3rem!important;color:#1f1710!important}
+body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
+.ey{font-size:.95rem!important;letter-spacing:.16em!important;color:#b8330f!important}body[data-bg=door] .ey{color:#cfe0d8!important}
+.ft{font-size:1rem!important;color:#3a2c20!important}
+.ch div{font-size:.85rem!important;color:#3a2c20!important}.ch b{font-size:2.1rem!important}
+.ev2 h3{font-size:1.55rem!important}.ev2 p{font-size:1.3rem!important;color:#1f1710!important}
+.pc2 li label{font-size:1.25rem!important;color:#1f1710!important}.pc2 h3{font-size:1.7rem!important}.by,.lb{font-size:.9rem!important;color:#3a2c20!important}
+.chs span,.chs button{font-size:1.05rem!important}
+.plq b{font-size:1.4rem!important}.plq small{font-size:.8rem!important;color:#3a2408!important}
+.nv{font-size:1.15rem!important;color:#1f1710!important}
+.pl{font-size:1rem!important}#kt{font-size:1.1rem!important;color:#e6f3ee!important}
+.fy{font-size:clamp(2.1rem,5.4vw,2.8rem)!important}.tp{font-size:1.25rem!important;color:#5a3a2e!important}
+#t1{font-size:1.55rem!important;color:#2e1a16!important}#t2{font-size:1rem!important;color:#2e1a16!important}.sm{font-size:1.55rem!important}
+.it{color:#3a1f2a!important}.t small{font-size:1.2rem!important}
+.tip{font-size:1.1rem!important;opacity:.85!important}
+#cat img{width:min(400px,76vw)!important}
+.cats img{width:clamp(130px,26vw,250px)!important}
+.cg img{width:clamp(110px,24vw,230px)!important}
+.tgb{font-size:clamp(1.2rem,2.8vw,1.6rem)!important;color:#2e2010!important;max-width:min(300px,62vw)!important}
+.bub{font-size:clamp(1.15rem,2.8vw,1.5rem)!important}
+.bq{width:min(340px,76vw)!important;height:min(430px,96vw)!important}.bq>img{width:100%!important}
+.msg{font-size:clamp(1.25rem,2.8vw,1.55rem)!important;color:#241a46!important}
+.lines span{font-size:1.05rem!important;color:#2e2218!important}.cd h3{font-size:1.7rem!important}
+.op{font-size:1.7rem!important}.qb h3{font-size:2.4rem!important}#ts{font-size:clamp(2rem,4.8vw,3.2rem)!important}
+.fr h3{font-size:2rem!important}.bk p{font-size:1.5rem!important;color:#1f3a30!important}
+</style></head><body data-p="0"><main>
+<div class="stars" id="stars"></div>
+<h1 class="ttl rise">press play ♪</h1>
+<div class="frame rise" style="--i:2"><video id="v" playsinline preload="auto"></video><div class="ms2" id="ms"><span>Your video will play here.<br>Upload it as videos/tape.mp4</span></div>
+<div class="ctl"><span class="tt" id="tt"></span><div class="bar" id="bar"><i id="pg"></i></div><span id="tm">0:00</span></div>
+<div class="btns"><button id="hb">♡</button><button id="pv">⏮</button><button id="pp">▶</button><button id="nx2">⏭</button><button id="rp">↻</button></div><div class="dog" id="dog">🐶</div></div>
+<button class="back bk3" onclick="go('gifts.html')">‹ back to the box</button>
+</main><script src="config.js"></script><script src="common.js"></script><script>
+const v=$('v'),TP=CFG.tape;$('tt').textContent='♪ '+TP.title;
+let h='';for(let i=0;i<26;i++)h+=`<i style="left:${R(0,98)}%;top:${R(0,96)}%;font-size:${R(1,2.2).toFixed(1)}rem">★</i>`;$('stars').innerHTML=h;
+ast('dog',s=>$('dog').innerHTML=s?`<img src="${s}" alt="">`:'🐶');
+const fm=s=>Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
+v.src=TP.video;v.onerror=()=>{$('ms').style.display='grid'};
+v.ontimeupdate=()=>{$('pg').style.width=(v.currentTime/(v.duration||1)*100)+'%';$('tm').textContent=fm(v.currentTime)+' / '+fm(v.duration||0)};
+const tog=()=>v.paused?v.play():v.pause();$('pp').onclick=tog;v.onclick=tog;v.onplay=()=>$('pp').textContent='❚❚';v.onpause=()=>$('pp').textContent='▶';
+$('bar').onclick=e=>{const r=$('bar').getBoundingClientRect();v.currentTime=(e.clientX-r.left)/r.width*v.duration};
+$('pv').onclick=()=>{v.currentTime=0;v.play()};$('nx2').onclick=()=>go('gifts.html');
+$('rp').style.opacity=.5;$('rp').onclick=()=>{v.loop=!v.loop;$('rp').style.opacity=v.loop?1:.5};$('hb').onclick=function(){this.textContent=this.textContent=='♡'?'♥':'♡'};
+</script></body></html>

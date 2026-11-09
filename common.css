@@ -70,3 +70,8 @@ body[data-bg=cream] main{gap:1.3rem}
 body[data-bg=cream] :is(h1,h2){font:800 clamp(2rem,6.4vw,3.4rem)/1.1 'Outfit',sans-serif;color:#2b2118}
 body[data-bg=cream] .cap{font:400 1rem/1.5 'Outfit',sans-serif;letter-spacing:0;color:#4a3b30;max-width:34rem}
 body:is([data-bg=peach],[data-bg=ivory]) :is(h1,h2){font-family:'Dancing Script','Caveat',cursive}
+
+#apb{position:fixed;left:0;right:0;bottom:0;height:5px;background:rgba(0,0,0,.1);z-index:98}#apb i{display:block;height:100%;width:0;background:var(--hd,#e8730c)}
+#apx{position:fixed;right:14px;bottom:14px;z-index:98;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.9);box-shadow:0 4px 12px rgba(0,0,0,.3);font-size:1.1rem;cursor:pointer;color:#222}
+body[data-bg=dream]{--tc:#f4e3ee;--ink:#2e1a2c;--hd:#8a2a5c;background:radial-gradient(circle at 15% 10%,#fde0ee,transparent 45%),radial-gradient(circle at 88% 85%,#e0d8fb,transparent 45%),linear-gradient(#fbeef5,#f1dced) fixed}
+body[data-bg=dream] :is(.next,.btn){font:600 1.15rem 'Cormorant Garamond',serif;color:#6a1f4a;background:rgba(255,255,255,.7);border:1px solid rgba(106,31,74,.2);border-radius:999px;padding:.55em 1.5em;box-shadow:0 4px 14px -6px rgba(0,0,0,.2)}
