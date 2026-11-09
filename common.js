@@ -1,7 +1,7 @@
 const R=(a,b)=>a+Math.random()*(b-a),P=a=>a[Math.random()*a.length|0],B=document.body,$=i=>document.getElementById(i);
 if(!B.dataset.gate&&!sessionStorage.getItem('riya'))location.replace('index.html');
 /* the one list that decides the order of the journey */
-const FLOW=['index','birthday','door','band','days','gallery','puzzle','timeline','reading','promises','gift','fromme','memories','scrapbook','yesno','gifts','letter','quiz','balloons','page2','closing','page4'];
+const FLOW=['index','birthday','door','band','days','gallery','puzzle','timeline','reading','promises','gift','fromme1','fromme2','fromme3','memories','mletter','mfinal','video1','video2','video3','video4','scrap1','scrap2','scrap3','scrap4','scrap5','scrap6','yesno','gifts','letter','quiz','balloons','page2','closing','page4'];
 const ix=Math.max(0,FLOW.indexOf(location.pathname.split('/').pop().replace('.html','')||'index'));
 const nextUrl=()=>FLOW[ix+1]+'.html';
 /* page change: fade through the colour of the page you are leaving */
@@ -73,9 +73,18 @@ pd.querySelectorAll('.gk').forEach(b=>b.onclick=()=>key(b.textContent));
 addEventListener('keydown',e=>{if(o.on&&!o.on())return;key(e.key=='Backspace'?'⌫':e.key)})}
 const shk=e=>e.animate([{transform:'none'},{transform:'translateX(-12px)'},{transform:'translateX(12px)'},{transform:'translateX(-8px)'},{transform:'translateX(8px)'},{transform:'none'}],500);
 /* fade elements in as they scroll into view */
-const rv=(sel,cb)=>{const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);cb&&cb(x.target)}}),{threshold:.35});document.querySelectorAll(sel).forEach(e=>io.observe(e))};
+const rv=(sel,cb)=>{const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);cb&&cb(x.target)}}),{threshold:.15});document.querySelectorAll(sel).forEach(e=>io.observe(e))};
 /* words appear one by one, the newest one still pale */
-const typeWords=(el,ms)=>{const t=el.textContent.trim().split(/\s+/);el.innerHTML=t.map(w=>`<span class="tw">${w} </span>`).join('');const s=[...el.children];let i=0;(function f(){if(i>0)s[i-1].classList.add('d');if(i<s.length){s[i].classList.add('o');i++;setTimeout(f,ms||110)}else s[s.length-1].classList.add('d')})()};
+const typeWords=(el,ms,done)=>{const t=el.textContent.trim().split(/\s+/);el.innerHTML=t.map(w=>`<span class="tw">${w} </span>`).join('');const s=[...el.children];let i=0;(function f(){if(i>0)s[i-1].classList.add('d');if(i<s.length){s[i].classList.add('o');if(i%4==0){const r=s[i].getBoundingClientRect();if(r.bottom>innerHeight*.78)scrollTo({top:scrollY+r.bottom-innerHeight*.5,behavior:'smooth'})}i++;setTimeout(f,ms||110)}else{s[s.length-1].classList.add('d');done&&done()}})()};
+/* move on by itself: a thin bar fills at the bottom, then the next page opens (the round button pauses it) */
+let aT=0,aP=0,aS=0,aL=0;
+function auto(ms){if(aL)return;aL=ms;if(!$('apb'))B.insertAdjacentHTML('beforeend','<div id="apb"><i></i></div><button id="apx" aria-label="pause">⏸</button>');
+ const bar=document.querySelector('#apb i'),run=()=>{aS=Date.now();bar.style.transition=`width ${aL}ms linear`;bar.style.width='100%';aT=setTimeout(()=>go(nextUrl()),aL)};
+ requestAnimationFrame(()=>requestAnimationFrame(run));
+ $('apx').onclick=()=>{if(!aP){aP=1;clearTimeout(aT);aL=Math.max(500,aL-(Date.now()-aS));const w=bar.getBoundingClientRect().width/$('apb').getBoundingClientRect().width*100;bar.style.transition='none';bar.style.width=w+'%';$('apx').textContent='▶'}else{aP=0;$('apx').textContent='⏸';requestAnimationFrame(()=>requestAnimationFrame(run))}}}
+/* scroll down by itself; touching the page stops it. Returns a stop() function */
+function autoScroll(speed,delay,done){let stop=0;const halt=()=>stop=1;['wheel','touchstart','keydown'].forEach(e=>addEventListener(e,halt,{once:true,passive:true}));
+ setTimeout(()=>{if(stop)return;let y=scrollY,t=performance.now();(function f(n){if(stop)return;y+=(n-t)/1000*speed;t=n;scrollTo({top:y,behavior:'instant'});if(scrollY+innerHeight>=document.documentElement.scrollHeight-4){done&&done();return}requestAnimationFrame(f)})(t)},delay||2500);return halt}
 /* museum progress row */
 const prog=n=>{document.querySelector('main').insertAdjacentHTML('beforeend',`<div class="pr">${['🧶','📅','🖼️','🧩','🧭','✉️','✍️'].map((e,i)=>`<i class="${i<n?'on':''}${i==n-1?' cur':''}">${e}</i>`).join('')}</div><small class="ft">Made for Riya · 19 January</small>`)};
 if(B.dataset.pf!==undefined)bg();
@@ -83,3 +92,4 @@ petals(B.dataset.p===undefined?18:+B.dataset.p);
 document.querySelectorAll('[data-s]').forEach(split);
 const nx=document.querySelector('.next');
 if(nx){if(!nx.dataset.to&&ix>0)nx.dataset.to=nextUrl();nx.onclick=()=>go(nx.dataset.to);if(!('hold' in nx.dataset))setTimeout(()=>nx.classList.add('show'),+nx.dataset.after||3200)}
+  
