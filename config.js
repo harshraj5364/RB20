@@ -4,7 +4,7 @@ const CFG={
   from:'Harsh',                          // your name, used on letters and signs
   friendsSince:'2024-06-15',             // drives "friends for N days"
   instagram:'https://www.instagram.com/harsh__.0201/',   // only used for reference now
-  whatsapp:'',                           // YOUR WhatsApp number with country code, digits only, e.g. '919876543210'
+  whatsapp:'919097538872',                           // YOUR WhatsApp number with country code, digits only, e.g. '919876543210'
   answersEndpoint:'',                    // optional: a Formspree / Web3Forms URL if you also want her answers by email
   passkey:'1901',                        // her birthday, day then month
   /* HER photos are photos/her1.jpg ... her15.jpg. The only photo of the two of you is photos/together.jpg */
