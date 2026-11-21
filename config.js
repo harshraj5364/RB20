@@ -3,8 +3,8 @@ const CFG={
   to:'Riya',
   from:'Harsh',                          // your name, used on letters and signs
   friendsSince:'2024-06-15',             // drives "friends for N days"
-  instagram:'https://www.instagram.com/harsh__.0201/',
-  instagramDM:'https://ig.me/m/harsh__.0201',   // opens a message to you
+  instagram:'https://www.instagram.com/harsh__.0201/',   // only used for reference now
+  whatsapp:'',                           // YOUR WhatsApp number with country code, digits only, e.g. '919876543210'
   answersEndpoint:'',                    // optional: a Formspree / Web3Forms URL if you also want her answers by email
   passkey:'1901',                        // her birthday, day then month
   /* HER photos are photos/her1.jpg ... her15.jpg. The only photo of the two of you is photos/together.jpg */
@@ -21,7 +21,7 @@ const CFG={
     {src:'photos/her9.jpg',cap:'Elegant without even trying'},{src:'photos/her10.jpg',cap:'Beautiful inside and out'},
     {src:'photos/her11.jpg',cap:'That glow, though'},{src:'photos/her12.jpg',cap:'Simply stunning'}],
   scrapbook:{notebook:'photos/her13.jpg',frame:'photos/her14.jpg',bow:'photos/her15.jpg',note:'photos/together.jpg',
-    film:['photos/film1.jpg','photos/film2.jpg','photos/film3.jpg','photos/film4.jpg','photos/film5.jpg']},
+    film:['photos/her1.jpg','photos/her2.jpg','photos/her3.jpg','photos/her4.jpg','photos/her5.jpg']},
   videos:[                               // her videos: videos/her1.mp4 ... her4.mp4
     {src:'videos/her1.mp4',h:'That smile',t:'Some smiles do not need a reason. Yours makes the whole room feel warmer, and it is impossible not to smile back.'},
     {src:'videos/her2.mp4',h:'Those eyes',t:'Eyes that say everything before a single word. Calm, kind, and a little bit mischievous in the best way.'},
