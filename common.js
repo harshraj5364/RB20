@@ -12,7 +12,7 @@ const split=e=>{let i=0;e.innerHTML=e.textContent.split(' ').map(w=>`<span class
 const PEN='<svg viewBox="-40 -110 80 130" width="80" height="130" style="position:absolute;left:-40px;top:-110px;overflow:visible;filter:drop-shadow(3px 6px 4px rgba(0,0,0,.25))"><g transform="rotate(28)"><path d="M0 0L-5-15Q0-20 5-15Z" fill="#e2bd6b" stroke="#8a6a25" stroke-width=".8"/><path d="M-5-15L-7-38H7L5-15Z" fill="#2c3a5c"/><rect x="-7.5" y="-96" width="15" height="58" rx="5" fill="#34476f"/><rect x="-2" y="-92" width="3" height="46" rx="1.5" fill="#fff" opacity=".25"/><path d="M5-92v28" stroke="#e2bd6b" stroke-width="2.2"/></g></svg>';
 /* sketch placeholder shown when a photo has not been uploaded yet */
 const PH=n=>'data:image/svg+xml,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"><rect width="300" height="300" fill="hsl(${330+n*50} 80% 93%)"/><g fill="hsl(${340+n*50} 78% 82%)" stroke="#b07a8a" stroke-width="3"><circle cx="150" cy="96" r="40"/><circle cx="196" cy="132" r="40"/><circle cx="178" cy="186" r="40"/><circle cx="122" cy="186" r="40"/><circle cx="104" cy="132" r="40"/><circle cx="150" cy="144" r="28" fill="#ffe08a"/></g><g fill="none" stroke="#b07a8a" stroke-width="2.5"><circle cx="64" cy="64" r="24"/><circle cx="238" cy="78" r="17"/><circle cx="226" cy="244" r="21"/><circle cx="60" cy="236" r="14"/></g></svg>`);
-const pic=(s,n,cb)=>{const m=new Image();m.onload=()=>cb(s);m.onerror=()=>cb(PH(n));m.src=s};
+const pic=(s,n,cb)=>{const m=new Image();m.decoding='async';m.onload=()=>{(m.decode?m.decode():Promise.resolve()).then(()=>cb(s),()=>cb(s))};m.onerror=()=>cb(PH(n));m.src=s};
 /* optional cut-out artwork from the photos folder; cb(null) when it has not been uploaded */
 const ast=(k,cb)=>{const s=(CFG.assets||{})[k];if(!s)return cb(null);const m=new Image();m.onload=()=>cb(s);m.onerror=()=>cb(null);m.src=s};
 const tw=(e,t,cb,ms)=>{let i=0;(function f(){e.textContent=t.slice(0,++i);i<t.length?setTimeout(f,ms||55):cb&&cb()})()};
@@ -77,11 +77,20 @@ const rv=(sel,cb)=>{const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.is
 /* words appear one by one, the newest one still pale */
 const typeWords=(el,ms,done)=>{const t=el.textContent.trim().split(/\s+/);el.innerHTML=t.map(w=>`<span class="tw">${w} </span>`).join('');const s=[...el.children];let i=0;(function f(){if(i>0)s[i-1].classList.add('d');if(i<s.length){s[i].classList.add('o');if(i%4==0){const r=s[i].getBoundingClientRect();if(r.bottom>innerHeight*.78)scrollTo({top:scrollY+r.bottom-innerHeight*.5,behavior:'smooth'})}i++;setTimeout(f,ms||110)}else{s[s.length-1].classList.add('d');done&&done()}})()};
 /* move on by itself: a thin bar fills at the bottom, then the next page opens (the round button pauses it) */
-let aT=0,aP=0,aS=0,aL=0;
-function auto(ms){if(aL)return;aL=ms;if(!$('apb'))B.insertAdjacentHTML('beforeend','<div id="apb"><i></i></div><button id="apx" aria-label="pause">⏸</button>');
- const bar=document.querySelector('#apb i'),run=()=>{aS=Date.now();bar.style.transition=`width ${aL}ms linear`;bar.style.width='100%';aT=setTimeout(()=>go(nextUrl()),aL)};
- requestAnimationFrame(()=>requestAnimationFrame(run));
- $('apx').onclick=()=>{if(!aP){aP=1;clearTimeout(aT);aL=Math.max(500,aL-(Date.now()-aS));const w=bar.getBoundingClientRect().width/$('apb').getBoundingClientRect().width*100;bar.style.transition='none';bar.style.width=w+'%';$('apx').textContent='▶'}else{aP=0;$('apx').textContent='⏸';requestAnimationFrame(()=>requestAnimationFrame(run))}}}
+let aT=0,aP=0,aS=0,aL=0,aH=0,aV=0;
+function auto(ms){
+  if(aL)return;aL=ms;
+  if(!$('apb'))B.insertAdjacentHTML('beforeend','<div id="apb"><i></i></div><button id="apx" aria-label="pause moving on">❚❚</button>');
+  const bar=document.querySelector('#apb i'),btn=$('apx');
+  const run=()=>{aS=Date.now();bar.style.transition=`width ${aL}ms linear`;bar.style.width='100%';aT=setTimeout(()=>go(nextUrl()),aL)};
+  const pause=()=>{if(aP)return;aP=1;clearTimeout(aT);aL=Math.max(500,aL-(Date.now()-aS));const w=bar.getBoundingClientRect().width/$('apb').getBoundingClientRect().width*100;bar.style.transition='none';bar.style.width=w+'%';btn.textContent='▶'};
+  const resume=()=>{if(!aP)return;aP=0;btn.textContent='❚❚';requestAnimationFrame(()=>requestAnimationFrame(run))};
+  requestAnimationFrame(()=>requestAnimationFrame(run));
+  btn.onclick=()=>aP?resume():pause();
+  /* leaving the tab pauses it, so she never misses a page */
+  if(!aV){aV=1;document.addEventListener('visibilitychange',()=>{if(!aL)return;const b=$('apx');if(!b)return;if(document.hidden&&!aP){aH=1;b.click()}else if(!document.hidden&&aH){aH=0;b.click()}})}
+}
+function autoStop(){clearTimeout(aT);aT=0;aL=0;aP=0;aH=0;['apb','apx'].forEach(i=>{const e=$(i);e&&e.remove()})}
 /* scroll down by itself; touching the page stops it. Returns a stop() function */
 function autoScroll(speed,delay,done){let stop=0;const halt=()=>stop=1;['wheel','touchstart','keydown'].forEach(e=>addEventListener(e,halt,{once:true,passive:true}));
  setTimeout(()=>{if(stop)return;let y=scrollY,t=performance.now();(function f(n){if(stop)return;y+=(n-t)/1000*speed;t=n;scrollTo({top:y,behavior:'instant'});if(scrollY+innerHeight>=document.documentElement.scrollHeight-4){done&&done();return}requestAnimationFrame(f)})(t)},delay||2500);return halt}
@@ -92,4 +101,3 @@ petals(B.dataset.p===undefined?18:+B.dataset.p);
 document.querySelectorAll('[data-s]').forEach(split);
 const nx=document.querySelector('.next');
 if(nx){if(!nx.dataset.to&&ix>0)nx.dataset.to=nextUrl();nx.onclick=()=>go(nx.dataset.to);if(!('hold' in nx.dataset))setTimeout(()=>nx.classList.add('show'),+nx.dataset.after||3200)}
-  
