@@ -1,0 +1,44 @@
+RIYA'S BIRTHDAY WEBSITE: HOW IT WORKS
+=====================================
+
+Open index.html. The secret code is 2007. Host the whole folder on GitHub Pages (or Netlify) to share a link.
+
+FILES
+  index.html, birthday.html, door.html ...   one file per page (the order is the FLOW list in common.js)
+  common.css      colours, fonts, buttons and the background for every theme
+  common.js       shared engine: page changes, auto-advance bar, handwriting pen, roses, keypad, helpers
+  motion.js       extra polish: tap sparkles, next-page prefetch, keyboard help, "never stuck" helpers
+  config.js       EVERYTHING you may want to change: names, dates, photo names, captions, questions, texts
+  photos/         her photos (her1.jpg ...), together.jpg, and the artwork made for you (see UPLOAD-THESE.txt)
+  videos/         her four videos and the music tape video (see README.txt inside)
+  check.html      shows which photos, videos and artwork were found
+
+THINGS TO SET IN config.js
+  from            your name
+  whatsapp        your WhatsApp number with country code, digits only (for example 919876543210)
+  friendsSince    2024-06-15
+  photos / polaroids   the compliment written under each picture
+  videos          the title and words beside each of her videos
+  qa              the questions she answers on the "Your turn" page
+  Any photo path may also be a full web link (https://...), so photos can come from other web pages.
+
+THE ORDER OF THE JOURNEY
+  common.js -> FLOW. Move a name in that list to move a page. Pages that are not in the list
+  (cinema, postcard, garden, notebook, tape) open from the gift box and have a Back button.
+
+HOW THE PAGES MOVE ON BY THEMSELVES
+  A thin bar at the bottom fills and the next page opens. The round button pauses it, and it also
+  pauses when she leaves the browser tab. Pages that need a tap (door, band, sealed letters, gift box)
+  play the next step by themselves if she does nothing for about 15 seconds. Locks (secret code,
+  passkey) always wait for her.
+
+HOW HER ANSWERS REACH YOU
+  A website cannot send a WhatsApp message on its own. When she finishes, the button builds ONE picture
+  with every question, answer and photo, then opens the phone's share sheet (she picks WhatsApp and your
+  chat). On a computer the picture is saved, the text is copied and WhatsApp opens with the text ready.
+  config.js -> answersEndpoint can also post the text to a form service (Formspree, Web3Forms) so you
+  get a copy by email.
+
+TIPS
+  Keep each photo under about 1.5 MB and each video under 50 MB so pages load quickly.
+  The finished zip is small (about 2.5 MB); your photos and videos are added to the folders separately.

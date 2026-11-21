@@ -5,6 +5,7 @@ main{gap:1.3rem}
 .sub{font:600 clamp(1.8rem,4.2vw,2.7rem) 'Caveat',cursive;color:#52201a}
 #art{width:min(460px,86vw)}#art img{width:100%;display:block}
 .dts{color:#7a1f1f;font-size:1rem;letter-spacing:.3em}
+#dried{font-size:3.6rem}main{padding-top:13vh}
 /* readability: bigger, darker text and bigger artwork */
 .cap{font-size:clamp(1.35rem,2.8vw,1.85rem)!important;font-weight:500!important}
 body[data-bg=cream] .cap{font-size:1.3rem!important;color:#1f1710!important}
@@ -44,4 +45,4 @@ ast('dried',s=>$('dried').innerHTML=s?`<img src="${s}" alt="">`:'🥀');
 const put=s=>$('art').innerHTML=s?`<img src="${s}" alt="">`:'<div style="font-size:6rem">💐</div>';
 ast('fromme',s=>s?put(s):ast('bouquetWhite',put));
 auto(12000);
-</script></body></html>
+</script><script src="motion.js"></script></body></html>

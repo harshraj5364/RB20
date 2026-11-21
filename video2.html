@@ -43,7 +43,8 @@ body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
 </main><script src="config.js"></script><script src="common.js"></script><script>
 const I=2,V=CFG.videos[I-1],v=$('v');$('vh').textContent=V.h;$('vt').textContent=V.t;$('vn').textContent='0'+I+' / 0'+CFG.videos.length;if(I%2==0)$('vr').classList.add('rev');
 const miss=()=>{$('ms').style.display='grid';$('pl').hidden=true;auto(12000)};
-v.onerror=miss;v.onended=()=>auto(2500);v.onplay=()=>{$('pl').hidden=true};v.src=V.src;
+v.onerror=miss;v.onended=()=>auto(2500);v.onplay=()=>{$('pl').hidden=true;autoStop()};v.src=V.src;
 v.play().catch(()=>{if($('ms').style.display!=='grid')$('pl').hidden=false});$('pl').onclick=()=>v.play();
 setTimeout(()=>{if(v.readyState<1&&$('ms').style.display!=='grid')miss()},7000);
-</script></body></html>
+setTimeout(()=>{if(v.paused&&!v.ended)auto(9000)},16000);
+</script><script src="motion.js"></script></body></html>

@@ -23,6 +23,7 @@ main{gap:1.4rem}
 .nt::after{bottom:-10px;background:radial-gradient(circle at 10px 0,#f2e6c9 9.5px,transparent 10px) 0 0/20px 10px repeat-x}
 .stkr{position:absolute;font-size:5rem;filter:drop-shadow(2px 4px 4px rgba(0,0,0,.3))}.stkr img{width:5.4rem}
 @media(max-width:640px){.nb{grid-template-columns:1fr}.nb::after{display:none}}
+#cov img{width:min(920px,96vw)}@media(max-width:700px){#cov img{width:min(520px,98vw)}}
 /* readability: bigger, darker text and bigger artwork */
 .cap{font-size:clamp(1.35rem,2.8vw,1.85rem)!important;font-weight:500!important}
 body[data-bg=cream] .cap{font-size:1.3rem!important;color:#1f1710!important}
@@ -55,6 +56,8 @@ body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
 <button class="cl rise" style="--i:4" id="cm">click me!</button>
 <button class="next" data-after="6000">keep going</button>
 </main><script src="config.js"></script><script src="common.js"></script><script>
-ast('cover',s=>$('cov').innerHTML=s?`<img src="${s}" alt="">`:'<div class="crd">Happy Birthday</div><div class="em">📷✉️💐</div>');
+const showCover=s=>$('cov').innerHTML=s?`<img src="${s}" alt="">`:'<div class="crd">Happy Birthday</div><div class="em">📷✉️💐</div>';
+/* phones get a tall version of the picture so it fills the screen */
+if(innerWidth<700){const m=new Image();m.onload=()=>showCover('photos/cover-scene-portrait.png');m.onerror=()=>ast('cover',showCover);m.src='photos/cover-scene-portrait.png'}else ast('cover',showCover);
 $('cm').onclick=()=>go(nextUrl());auto(13000);
-</script></body></html>
+</script><script src="motion.js"></script></body></html>

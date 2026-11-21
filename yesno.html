@@ -43,4 +43,4 @@ let s=1;const no=$('no'),yes=$('yes');
 const run=e=>{e.preventDefault();no.style.left=R(5,70)+'%';no.style.top=R(0,60)+'px';s+=.12;yes.style.scale=Math.min(s,1.9)};
 no.onpointerenter=run;no.onclick=run;no.ontouchstart=run;
 yes.onclick=()=>{petals(40,true);$('q').textContent='Yay! Come, follow me…';setTimeout(()=>go(nextUrl()),1300)};
-</script></body></html>
+</script><script src="motion.js"></script></body></html>

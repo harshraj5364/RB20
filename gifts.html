@@ -9,6 +9,7 @@ main{gap:.8rem;padding:3vh 0 8vh}
 #i1{left:13%;top:6%;width:27%}#i2{left:56%;top:7%;width:28%}#i3{left:17%;top:38%;width:20%}#i4{left:52%;top:38%;width:30%}#i5{left:62%;top:75%;width:25%}
 .bwz{position:absolute;left:3%;top:-3%;width:19%;z-index:4;pointer-events:none;font-size:clamp(3.6rem,11vw,7rem)}.bwz img{width:100%}
 @media(max-width:720px){.tbl{aspect-ratio:.82;width:98vw}.bxo{inset:4% 5% 28% 5%}#i1{left:8%;top:6%;width:42%}#i2{left:52%;top:5%;width:40%}#i3{left:10%;top:37%;width:30%}#i4{left:44%;top:38%;width:46%}#i5{left:25%;top:76%;width:50%}.bwz{width:26%}.pl{width:72%}}
+.tbl{margin-bottom:2.6rem}
 /* readability: bigger, darker text and bigger artwork */
 .cap{font-size:clamp(1.35rem,2.8vw,1.85rem)!important;font-weight:500!important}
 body[data-bg=cream] .cap{font-size:1.3rem!important;color:#1f1710!important}
@@ -45,4 +46,4 @@ body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
 [['i1','camera','📷','cinema'],['i2','letters','💌','postcard'],['i3','bouquetWhite','💐','garden'],['i4','gifts','🎁','notebook'],['i5','cassette','📼','tape']].forEach(([id,k,e,p])=>{ast(k,s=>$(id).innerHTML=s?`<img src="${s}" alt="">`:`<span class="e">${e}</span>`);$(id).onclick=()=>go(p+'.html')});
 ast('bow',s=>$('bw').innerHTML=s?`<img src="${s}" alt="">`:'🎀');
 ast('plush',s=>{if(s){$('pl1').src=s;$('pl2').src=s}else{$('pl1').hidden=$('pl2').hidden=true}});
-</script></body></html>
+</script><script src="motion.js"></script></body></html>

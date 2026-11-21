@@ -14,4 +14,4 @@ Object.entries(G).forEach(([g,L])=>{const h=document.createElement('h3');h.textC
  L.forEach(([n,s,vid])=>{const d=document.createElement('div');d.className='c';d.innerHTML=(vid?'<div style="height:96px;display:grid;place-items:center;background:#f1ebe0;border-radius:6px">🎞</div>':'<img alt="">')+`<b>${n}</b><br><small>${s}</small><br><span>checking…</span>`;w.appendChild(d);
   const sp=d.querySelector('span'),good=()=>{sp.className='ok';sp.textContent='✓ found'},bad=()=>{sp.className='no';sp.textContent='✕ missing'};
   if(vid){const m=document.createElement('video');m.onloadedmetadata=good;m.onerror=bad;m.preload='metadata';m.src=s}else{const m=new Image();m.onload=()=>{d.querySelector('img').src=s;good()};m.onerror=bad;m.src=s}})});
-</script></body></html>
+</script><script src="motion.js"></script></body></html>

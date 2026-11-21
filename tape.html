@@ -61,4 +61,4 @@ const tog=()=>v.paused?v.play():v.pause();$('pp').onclick=tog;v.onclick=tog;v.on
 $('bar').onclick=e=>{const r=$('bar').getBoundingClientRect();v.currentTime=(e.clientX-r.left)/r.width*v.duration};
 $('pv').onclick=()=>{v.currentTime=0;v.play()};$('nx2').onclick=()=>go('gifts.html');
 $('rp').style.opacity=.5;$('rp').onclick=()=>{v.loop=!v.loop;$('rp').style.opacity=v.loop?1:.5};$('hb').onclick=function(){this.textContent=this.textContent=='♡'?'♥':'♡'};
-</script></body></html>
+</script><script src="motion.js"></script></body></html>

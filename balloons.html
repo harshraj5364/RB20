@@ -40,4 +40,4 @@ body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
 const Wd=CFG.wishes,ts=document.getElementById('ts'),k=document.getElementById('k');let n=0;
 Wd.forEach((w,i)=>{const b=document.createElement('i');b.className='bl2';b.textContent='🎈';b.style.cssText=`left:${6+i*(84/Math.max(1,Wd.length-1))+R(-2,2)}%;top:${R(24,70)}%;--dl:${(i*.25).toFixed(2)}s;filter:hue-rotate(${i*45}deg) drop-shadow(3px 6px 4px rgba(0,0,0,.15))`;
 b.onclick=()=>{b.remove();petals(10,true);ts.textContent=w;k.textContent=++n+' / '+Wd.length+' popped';if(n==Wd.length)nx.classList.add('show')};B.appendChild(b)});
-</script></body></html>
+</script><script src="motion.js"></script></body></html>

@@ -13,7 +13,7 @@ cinema.jpg                    shown on the cinema screen (a portrait of her, lan
 garden.jpg                    full-screen flower or sunflower field (wide, landscape)
 
 ARTWORK THAT IS ALREADY MADE FOR YOU (in this folder, you can replace any of them)
-cover-scene.png  plush.png  camera.png  letters.png  bouquet-white.png  gifts.png  bow-red.png
+cover-scene.png  cover-scene-portrait.png  plush.png  camera.png  letters.png  bouquet-white.png  gifts.png  bow-red.png
 cassette.png  sunflower-bouquet.png  rose-1.png  rose-2.png  rose-3.png
 
 OPTIONAL CUT-OUT ARTWORK (transparent PNG). Without them an emoji or drawing is used.

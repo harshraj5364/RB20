@@ -46,4 +46,4 @@ body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
 const col=$('col'),m=$('m');
 ast('collage',s=>{if(s)col.innerHTML=`<img src="${s}" alt="">`;else CFG.polaroids.slice(0,3).forEach((p,i)=>{const f=document.createElement('i');f.style.cssText=`left:${i*28}%;top:${[4,34,14][i]}%;rotate:${[-8,5,-3][i]}deg;z-index:${i}`;f.innerHTML='<img alt="">';pic(p.src,i,u=>f.firstChild.src=u);col.appendChild(f)})});
 keypad({code:'2007',ok:()=>{sessionStorage.setItem('riya','1');m.textContent='opening…';petals(40,true);setTimeout(()=>go('birthday.html'),900)},bad:b=>{shk(b);m.textContent='hmm, not quite… try again'}});
-</script></body></html>
+</script><script src="motion.js"></script></body></html>

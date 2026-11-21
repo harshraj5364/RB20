@@ -22,6 +22,7 @@ main{gap:1.2rem}
 #ld small{font:700 .9rem 'Cormorant Garamond',serif;letter-spacing:.35em;color:#7a6040}
 #ld::before,#ld::after{content:'';position:absolute;width:260px;height:260px;border-radius:50%;border:1px solid rgba(180,150,110,.3);animation:rp 3s ease-out infinite}#ld::after{animation-delay:1.5s}
 @keyframes rp{from{scale:.5;opacity:1}to{scale:2.6;opacity:0}}
+#dried{font-size:3.6rem}main{padding-top:13vh}
 /* readability: bigger, darker text and bigger artwork */
 .cap{font-size:clamp(1.35rem,2.8vw,1.85rem)!important;font-weight:500!important}
 body[data-bg=cream] .cap{font-size:1.3rem!important;color:#1f1710!important}
@@ -64,4 +65,4 @@ ok:()=>{md.classList.add('ok');$('pt').textContent='Unlocked';$('pm').textConten
  Promise.all(['rose1','rose2','rose3'].map(k=>new Promise(r=>ast(k,r)))).then(a=>{const ok=a.filter(Boolean);$('rg').innerHTML=[0,1,2,3,4,5].map(i=>{const t=i*Math.PI/3-Math.PI/2;return `<i class="rs" style="left:${(65+Math.cos(t)*50-28).toFixed(0)}px;top:${(65+Math.sin(t)*50-28).toFixed(0)}px;translate:0 0;--r:0deg;animation-delay:${i*.15}s">${rose(i%2?'#fff':'#f4a6b6',56,ok.length?P(ok):0)}</i>`}).join('')});
  setTimeout(()=>go(nextUrl()),3200)},1100)},
 bad:b=>{b.classList.add('r');$('pm').textContent='wrong passkey, try again';setTimeout(()=>{b.classList.remove('r');$('pm').textContent=''},1400)}});
-</script></body></html>
+</script><script src="motion.js"></script></body></html>

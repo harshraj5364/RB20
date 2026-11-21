@@ -43,13 +43,13 @@ body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
 <div class="nv"><button class="rb" id="pv">‹</button><span id="ct"></span><button class="rb" id="nt">›</button></div>
 <button class="next" data-after="1500">Keep walking →</button>
 </main><script src="config.js"></script><script src="common.js"></script><script>
-const P4=CFG.photos,im=$('im'),cv=$('cv'),x=cv.getContext('2d'),S=420,dn=[];let i=0,dw=0,mv=0;cv.width=cv.height=S;
+const P4=CFG.photos,im=$('im'),cv=$('cv'),x=cv.getContext('2d',{willReadFrequently:true}),S=420,dn=[];let i=0,dw=0,mv=0;cv.width=cv.height=S;
 function show(k){i=(k+P4.length)%P4.length;pic(P4[i].src,i,s=>im.src=s);$('ti').textContent=dn[i]?P4[i].cap:'Untitled';$('ex').textContent=`EXHIBIT ${i+1} · FROM THE ${(CFG.from||'MY').toUpperCase()} COLLECTION`;$('ct').textContent=(i+1)+'/'+P4.length;
  cv.style.opacity=dn[i]?0:1;cv.style.pointerEvents=dn[i]?'none':'auto';
  if(!dn[i]){x.globalCompositeOperation='source-over';const g=x.createLinearGradient(0,0,S,S);g.addColorStop(0,'#dcb680');g.addColorStop(1,'#c99a5b');x.fillStyle=g;x.fillRect(0,0,S,S);x.fillStyle='rgba(90,55,20,.35)';for(let j=0;j<300;j++)x.fillRect(R(0,S),R(0,S),R(1,3),R(1,3))}}
-const sc=e=>{const r=cv.getBoundingClientRect();x.globalCompositeOperation='destination-out';x.beginPath();x.arc((e.clientX-r.left)*S/r.width,(e.clientY-r.top)*S/r.height,48,0,7);x.fill()};
-const rv2=()=>{if(dn[i])return;const d=x.getImageData(0,0,S,S).data;let c=0;for(let p=3;p<d.length;p+=160)if(!d[p])c++;if(c>d.length/160*.2){dn[i]=1;show(i);petals(8,true)}};
+const sc=e=>{const r=cv.getBoundingClientRect();x.globalCompositeOperation='destination-out';x.fillStyle='#000';x.beginPath();x.arc((e.clientX-r.left)*S/r.width,(e.clientY-r.top)*S/r.height,48,0,7);x.fill()};
+const rv2=()=>{if(dn[i])return;const d=x.getImageData(0,0,S,S).data;let c=0;for(let p=3;p<d.length;p+=160)if(d[p]<60)c++;if(c>d.length/160*.2){dn[i]=1;show(i);petals(8,true)}};
 cv.onpointerdown=e=>{dw=1;cv.setPointerCapture(e.pointerId);sc(e)};cv.onpointermove=e=>{if(dw){sc(e);if(++mv%4==0)rv2()}};cv.onpointerup=()=>{dw=0;rv2()};
 $('pv').onclick=()=>show(i-1);$('nt').onclick=()=>show(i+1);
 document.fonts.ready.then(()=>show(0));prog(3);
-</script></body></html>
+</script><script src="motion.js"></script></body></html>

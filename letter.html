@@ -25,6 +25,7 @@ background:linear-gradient(115deg,transparent 40%,rgba(120,110,90,.1) 41%,transp
 .hs{position:absolute;right:.6rem;top:3.4rem;font-size:1.6rem}.hs+.hs{right:2.2rem;top:4.8rem;font-size:1.2rem}
 .sheet::after{content:'✉';position:absolute;right:1.4rem;bottom:1rem;font-size:1.8rem;color:#889;opacity:.7}
 #L{position:relative}#L p{margin:0 0 .7em;visibility:hidden;font:500 clamp(1.6rem,3.2vw,2.3rem)/1.55 'Caveat',cursive}#L.ty p{font-family:'Special Elite',monospace;font-size:clamp(1rem,2.2vw,1.25rem);line-height:1.7}
+.ev3{width:clamp(240px,30vw,400px)!important}.ad{font-size:clamp(1.4rem,2.2vw,2rem)!important}
 /* readability: bigger, darker text and bigger artwork */
 .cap{font-size:clamp(1.35rem,2.8vw,1.85rem)!important;font-weight:500!important}
 body[data-bg=cream] .cap{font-size:1.3rem!important;color:#1f1710!important}
@@ -47,7 +48,7 @@ body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
 .cg img{width:clamp(110px,24vw,230px)!important}
 .tgb{font-size:clamp(1.2rem,2.8vw,1.6rem)!important;color:#2e2010!important;max-width:min(300px,62vw)!important}
 .bub{font-size:clamp(1.15rem,2.8vw,1.5rem)!important}
-.bq{width:min(340px,76vw)!important;height:min(430px,96vw)!important}.bq>img{width:100%!important}
+.bq{width:clamp(250px,34vw,470px)!important;height:clamp(318px,43vw,596px)!important}.bq>img{width:100%!important}
 .msg{font-size:clamp(1.25rem,2.8vw,1.55rem)!important;color:#241a46!important}
 .lines span{font-size:1.05rem!important;color:#2e2218!important}.cd h3{font-size:1.7rem!important}
 .op{font-size:1.7rem!important}.qb h3{font-size:2.4rem!important}#ts{font-size:clamp(2rem,4.8vw,3.2rem)!important}
@@ -78,4 +79,4 @@ ev.onclick=e=>{
  if(st==1&&e.target.closest('#wx')){st=2;ev.classList.add('op');$('tt2').remove();hn.textContent='shhh… read it as it is written ✿';
   setTimeout(()=>{sh.classList.add('in');sh.scrollIntoView({behavior:'smooth',block:'center'})},900);
   setTimeout(()=>document.fonts.ready.then(()=>{tip.hidden=false;write(L,()=>{tip.hidden=true;nx.classList.add('show')})}),2600)}};
-</script></body></html>
+</script><script src="motion.js"></script></body></html>

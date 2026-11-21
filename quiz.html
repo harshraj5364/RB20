@@ -41,4 +41,4 @@ function ask(){const q=Q[qi];qb.innerHTML=`<p class="cap">question ${qi+1} of ${
 qb.querySelectorAll('.op').forEach(b=>b.onclick=()=>{b.classList.add('d');qb.querySelectorAll('.op').forEach(x=>x.onclick=null);document.getElementById('rp').textContent=q.r;petals(6,true);
 setTimeout(()=>{if(++qi<Q.length)ask();else{qb.innerHTML='<h3 style="font-size:2.6rem">Full marks, obviously ✿</h3><p>There were never any wrong answers.</p>';nx.classList.add('show')}},2200)})}
 ask();
-</script></body></html>
+</script><script src="motion.js"></script></body></html>

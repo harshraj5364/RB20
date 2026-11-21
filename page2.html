@@ -47,4 +47,4 @@ const C=[['Your laugh','On the days you laugh, everything feels a little better.
 const g=document.getElementById('g'),k=document.getElementById('k');let o=0;
 g.innerHTML=C.map(([t,b],i)=>`<div class="fc rise" style="--i:${i+2}"><div class="in"><div class="fr"><span>${'❀✿❁✾❃✽'[i]}</span><h3>${t}</h3></div><div class="bk"><p>${b}</p></div></div></div>`).join('');
 g.querySelectorAll('.fc').forEach(c=>c.onclick=()=>{c.classList.toggle('f');if(!c.dataset.o){c.dataset.o=1;k.textContent=++o+' / 6 opened';if(o==6){k.textContent='all opened, and there are still more reasons than petals ✿';nx.classList.add('show')}}});
-</script></body></html>
+</script><script src="motion.js"></script></body></html>

@@ -54,4 +54,4 @@ body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
 $('h1').innerHTML=`${CFG.from||'Someone'} built you a <mark class="m">museum</mark>.`;
 let n=0;$('kn').onclick=()=>{if(n>2)return;n++;const k=$('kn');k.classList.add('hit');setTimeout(()=>k.classList.remove('hit'),450);$('dd').animate([{rotate:'0deg'},{rotate:'-1.4deg'},{rotate:'.9deg'},{rotate:'0deg'}],300);[...$('kd').children].forEach((e,i)=>e.classList.toggle('on',i<n));
 if(n==3){$('kt').textContent='Walking in…';setTimeout(()=>$('dr').classList.add('open'),500);setTimeout(()=>go('band.html'),4300)}};
-</script></body></html>
+</script><script src="motion.js"></script></body></html>

@@ -11,7 +11,8 @@ main{gap:1rem;padding:8vh 0 10vh}
 .ro{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:space-between;margin-top:.8rem}
 .pin{position:absolute;left:50%;top:-14px;font-size:2rem;z-index:3}.rbw{position:absolute;right:-10px;top:-12px;font-size:2.8rem;z-index:3}
 .cat5{position:absolute;left:-12%;bottom:-6%;font-size:clamp(4rem,12vw,7rem);filter:drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff)}.cat5 img{width:clamp(150px,30vw,280px)}
-#done{text-align:center}#done .btn{font-size:1.6rem}
+#done{text-align:center}#done .btn{font-size:1.6rem;margin:.3rem}
+#nxq:disabled{cursor:not-allowed}
 /* readability: bigger, darker text and bigger artwork */
 .cap{font-size:clamp(1.35rem,2.8vw,1.85rem)!important;font-weight:500!important}
 body[data-bg=cream] .cap{font-size:1.3rem!important;color:#1f1710!important}
@@ -44,27 +45,62 @@ body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
 <div id="step"><p class="qn" id="qn"></p><div class="pgs"><i id="pb"></i></div><div class="qq" id="qq"></div>
 <textarea id="ans" maxlength="800" placeholder="write your answer here ✿"></textarea>
 <div class="phr"><label class="btn" for="file">📷 add a photo from your camera</label><input type="file" id="file" accept="image/*" hidden><img id="thumb" alt="" hidden><button class="btn" id="rm" hidden>remove photo</button></div>
-<div class="ro"><button class="btn" id="bk">‹ back</button><button class="btn" id="nx3">next ›</button></div></div>
-<div id="done" hidden><div class="qq">All done. Thank you ✿</div><p class="cap">Tap the button and choose Instagram. Your answers and photos are sent to my messages.</p><button class="btn" id="send">send my answers on Instagram</button><p class="cap" id="ms2"></p></div>
-<span class="cat5" id="ct5">🐱🌷</span></div><button class="back" onclick="go('gifts.html')">Back</button>
+<div class="ro"><button class="btn" id="bk">‹ back</button><button class="btn" id="nxq">next ›</button></div></div>
+<div id="done" hidden><div class="qq">All done. Thank you ✿</div><p class="cap">Tap the green button and choose WhatsApp. Every question, answer and photo goes in one picture, with the text too.</p><button class="btn" id="send">send my answers on WhatsApp</button><br><button class="btn" id="sendt">send the text only</button><p class="cap" id="ms2"></p></div>
+<span class="cat5" id="ct5">🐱🌷</span></div>
+<button class="back" onclick="go('gifts.html')">Back</button>
 </main><script src="config.js"></script><script src="common.js"></script><script>
 ast('catTulips',s=>{if(s)$('ct5').innerHTML=`<img src="${s}" alt="">`});
 const Q=CFG.qa,A=Q.map(()=>({t:'',f:null,u:''}));let qi=0,tqt=0;
 try{JSON.parse(localStorage.getItem('riya_qa')||'[]').forEach((a,i)=>{if(A[i]&&a)A[i].t=a.t||''})}catch(e){}
-const chk=()=>{const ok=$('ans').value.trim().length>0;$('nx3').disabled=!ok;$('nx3').style.opacity=ok?1:.5};
+const chk=()=>{const ok=$('ans').value.trim().length>0;$('nxq').disabled=!ok;$('nxq').style.opacity=ok?1:.5};
 function show(){const a=A[qi];$('qn').textContent=`QUESTION ${qi+1} OF ${Q.length}`;$('pb').style.width=(qi/Q.length*100)+'%';clearTimeout(tqt);$('qq').textContent='';let k=0;(function f(){$('qq').textContent=Q[qi].slice(0,++k);if(k<Q[qi].length)tqt=setTimeout(f,28)})();
- $('ans').value=a.t;$('thumb').hidden=$('rm').hidden=!a.u;if(a.u)$('thumb').src=a.u;$('bk').style.visibility=qi?'visible':'hidden';$('nx3').textContent=qi==Q.length-1?'finish ✓':'next ›';chk()}
+ $('ans').value=a.t;$('thumb').hidden=$('rm').hidden=!a.u;if(a.u)$('thumb').src=a.u;$('bk').style.visibility=qi?'visible':'hidden';$('nxq').textContent=qi==Q.length-1?'finish ✓':'next ›';chk()}
 $('ans').oninput=()=>{A[qi].t=$('ans').value;chk();try{localStorage.setItem('riya_qa',JSON.stringify(A.map(a=>({t:a.t}))))}catch(e){}};
+/* photos are shrunk first so that they are quick to send */
 const shrink=f=>new Promise(res=>{const i=new Image(),u=URL.createObjectURL(f);i.onload=()=>{const s=Math.min(1,1280/Math.max(i.width,i.height)),c=document.createElement('canvas');c.width=Math.round(i.width*s);c.height=Math.round(i.height*s);c.getContext('2d').drawImage(i,0,0,c.width,c.height);c.toBlob(b=>res(b?new File([b],'answer.jpg',{type:'image/jpeg'}):f),'image/jpeg',.85)};i.onerror=()=>res(f);i.src=u});
 $('file').onchange=async e=>{const f=e.target.files[0];if(!f)return;const b=await shrink(f);A[qi].f=b;A[qi].u=URL.createObjectURL(b);$('thumb').src=A[qi].u;$('thumb').hidden=$('rm').hidden=false;e.target.value=''};
 $('rm').onclick=()=>{A[qi].f=null;A[qi].u='';$('thumb').hidden=$('rm').hidden=true};
 $('bk').onclick=()=>{if(qi>0){qi--;show()}};
-$('nx3').onclick=()=>{if($('nx3').disabled)return;if(qi<Q.length-1){qi++;show()}else{$('step').hidden=true;$('done').hidden=false;$('pb').style.width='100%'}};
-$('send').onclick=async()=>{const text=[CFG.to+"'s answers"].concat(Q.map((q,i)=>`${i+1}. ${q}\n-> ${A[i].t}${A[i].f?'  [photo attached]':''}`)).join('\n\n'),files=A.map((a,i)=>a.f?new File([a.f],`answer-${i+1}.jpg`,{type:'image/jpeg'}):null).filter(Boolean);
- try{await navigator.clipboard.writeText(text)}catch(e){}
- let shared=0;if(navigator.canShare&&files.length&&navigator.canShare({files})){try{await navigator.share({files,text,title:'My answers'});shared=1}catch(e){}}
- if(!shared)window.open(CFG.instagramDM,'_blank');
- $('ms2').textContent=shared?'Choose Instagram, then Direct, and send. The text is also copied, so you can paste it in the message ✿':'Your answers are copied. Instagram is opening: paste them in the chat and press send ✿';
- if(CFG.answersEndpoint)fetch(CFG.answersEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text})}).catch(()=>{})};
+$('nxq').onclick=()=>{if($('nxq').disabled)return;if(qi<Q.length-1){qi++;show()}else{$('step').hidden=true;$('done').hidden=false;$('pb').style.width='100%'}};
+/* ONE picture that holds every question, answer and photo, so text and images always travel together */
+async function makeCard(){
+  const W=1080,P=64;
+  await Promise.all([document.fonts.load('700 38px Outfit'),document.fonts.load('500 46px Caveat'),document.fonts.load('700 96px "Dancing Script"')]).catch(()=>{});
+  const imgs=await Promise.all(A.map(a=>a.u?new Promise(r=>{const i=new Image();i.onload=()=>r(i);i.onerror=()=>r(null);i.src=a.u}):Promise.resolve(null)));
+  const c=document.createElement('canvas'),x=c.getContext('2d');
+  const wrap=(t,w,font)=>{x.font=font;const L=[];let cur='';for(const word of String(t).split(/\s+/)){const n=cur?cur+' '+word:word;if(x.measureText(n).width>w&&cur){L.push(cur);cur=word}else cur=n}if(cur)L.push(cur);return L};
+  const run=draw=>{
+    let y=P;
+    if(draw){const g=x.createLinearGradient(0,0,0,c.height);g.addColorStop(0,'#fff6e2');g.addColorStop(1,'#fbe3d6');x.fillStyle=g;x.fillRect(0,0,W,c.height);x.strokeStyle='#d9556a';x.lineWidth=6;x.strokeRect(20,20,W-40,c.height-40)}
+    y+=70;if(draw){x.font='700 96px "Dancing Script",cursive';x.fillStyle='#8a1f3a';x.textAlign='center';x.fillText(`${CFG.to}'s answers`,W/2,y);x.textAlign='left'}
+    y+=60;
+    Q.forEach((q,i)=>{
+      wrap(`${i+1}. ${q}`,W-2*P,'700 38px Outfit,sans-serif').forEach(l=>{if(draw){x.font='700 38px Outfit,sans-serif';x.fillStyle='#7a2a1a';x.fillText(l,P,y)}y+=48});
+      wrap(A[i].t||'(no answer)',W-2*P-24,'500 46px Caveat,cursive').forEach(l=>{if(draw){x.font='500 46px Caveat,cursive';x.fillStyle='#14224f';x.fillText(l,P+24,y+6)}y+=56});
+      if(imgs[i]){const iw=Math.min(560,W-2*P-24),ih=Math.round(iw*imgs[i].height/imgs[i].width);y+=14;
+        if(draw){x.save();x.shadowColor='rgba(0,0,0,.3)';x.shadowBlur=18;x.fillStyle='#fff';x.fillRect(P+12,y-12,iw+24,ih+24);x.restore();x.drawImage(imgs[i],P+24,y,iw,ih)}
+        y+=ih+26}
+      y+=36});
+    return y+P-10};
+  const H=run(false);c.width=W;c.height=H;run(true);
+  return new Promise(r=>c.toBlob(b=>r(new File([b],'riya-answers.jpg',{type:'image/jpeg'})),'image/jpeg',.9));
+}
+const plain=()=>[`${CFG.to}'s answers`].concat(Q.map((q,i)=>`${i+1}. ${q}\n${A[i].t}${A[i].f?'  [photo in the picture]':''}`)).join('\n\n');
+const chat=()=>{const n=(CFG.whatsapp||'').replace(/\D/g,'');return n?`https://wa.me/${n}`:'https://wa.me/'};
+$('send').onclick=async()=>{
+  const btn=$('send');btn.disabled=true;$('ms2').textContent='making your picture…';
+  const text=plain();let card=null;try{card=await makeCard()}catch(e){console.warn(e)}
+  try{await navigator.clipboard.writeText(text)}catch(e){}
+  let shared=0;
+  if(card&&navigator.canShare&&navigator.canShare({files:[card]})){try{await navigator.share({files:[card],text,title:`${CFG.to}'s answers`});shared=1}catch(e){}}
+  if(!shared){
+    if(card){const a=document.createElement('a');a.href=URL.createObjectURL(card);a.download='riya-answers.jpg';document.body.appendChild(a);a.click();a.remove()}
+    window.open(`${chat()}?text=${encodeURIComponent(text)}`,'_blank');
+    $('ms2').textContent='Your picture is saved and the text is copied. WhatsApp is opening: attach the picture and press send ✿';
+  }else $('ms2').textContent='Choose WhatsApp and pick the chat, then press send. Everything is in one picture ✿';
+  if(CFG.answersEndpoint)fetch(CFG.answersEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text})}).catch(()=>{});
+  btn.disabled=false};
+$('sendt').onclick=()=>{const text=plain();try{navigator.clipboard.writeText(text)}catch(e){}window.open(`${chat()}?text=${encodeURIComponent(text)}`,'_blank');$('ms2').textContent='WhatsApp is opening with your answers as text ✿'};
 show();
-</script></body></html>
+</script><script src="motion.js"></script></body></html>

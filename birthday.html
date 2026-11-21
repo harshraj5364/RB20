@@ -92,4 +92,4 @@ const cd=$('cd');if(td)$('cp').remove();
 cd.innerHTML=td?'<h2>Today is your day! 🎂</h2>':['days','hours','minutes','seconds'].map(l=>`<div class="t"><b>00</b><small>${l}</small></div>`).join('');
 const bs=cd.querySelectorAll('b');
 (function k(){if(td)return;const d=Math.max(0,T-new Date());[d/864e5,d/36e5%24,d/6e4%60,d/1e3%60].forEach((v,i)=>{const s=String(Math.floor(v)).padStart(2,'0');if(bs[i].textContent!=s){bs[i].textContent=s;bs[i].animate([{transform:'translateY(-14px)',opacity:.2},{transform:'none',opacity:1}],300)}});setTimeout(k,1000)})();
-</script></body></html>
+</script><script src="motion.js"></script></body></html>

@@ -3,6 +3,7 @@
 .qc{width:min(620px,92vw);background:linear-gradient(#fbf3e4,#f6e6cf);border:1px solid rgba(160,110,70,.25);border-radius:8px;padding:2.2rem 1.8rem;box-shadow:0 14px 30px -18px rgba(120,60,30,.5);position:relative;font:700 clamp(2rem,4.8vw,2.9rem)/1.7 'Caveat',cursive;color:#2e1612}
 .qc::before,.qc::after{content:'♡';position:absolute;color:#d9556a;font-size:1.1rem}.qc::before{left:12px;top:8px}.qc::after{right:12px;bottom:8px}
 mark{background:none;padding:0 .25em;border-radius:3px;color:inherit}
+#dried{font-size:3.6rem}main{padding-top:13vh}
 /* readability: bigger, darker text and bigger artwork */
 .cap{font-size:clamp(1.35rem,2.8vw,1.85rem)!important;font-weight:500!important}
 body[data-bg=cream] .cap{font-size:1.3rem!important;color:#1f1710!important}
@@ -37,4 +38,4 @@ body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
 </main><script src="config.js"></script><script src="common.js"></script><script>
 ast('dried',s=>$('dried').innerHTML=s?`<img src="${s}" alt="">`:'🥀');
 auto(10000);
-</script></body></html>
+</script><script src="motion.js"></script></body></html>

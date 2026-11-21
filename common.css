@@ -75,3 +75,12 @@ body:is([data-bg=peach],[data-bg=ivory]) :is(h1,h2){font-family:'Dancing Script'
 #apx{position:fixed;right:14px;bottom:14px;z-index:98;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.9);box-shadow:0 4px 12px rgba(0,0,0,.3);font-size:1.1rem;cursor:pointer;color:#222}
 body[data-bg=dream]{--tc:#f4e3ee;--ink:#2e1a2c;--hd:#8a2a5c;background:radial-gradient(circle at 15% 10%,#fde0ee,transparent 45%),radial-gradient(circle at 88% 85%,#e0d8fb,transparent 45%),linear-gradient(#fbeef5,#f1dced) fixed}
 body[data-bg=dream] :is(.next,.btn){font:600 1.15rem 'Cormorant Garamond',serif;color:#6a1f4a;background:rgba(255,255,255,.7);border:1px solid rgba(106,31,74,.2);border-radius:999px;padding:.55em 1.5em;box-shadow:0 4px 14px -6px rgba(0,0,0,.2)}
+
+/* ---- polish: smoother motion, touch comfort, accessibility ---- */
+main{min-height:100dvh}
+button,a,label,.it,.tg,[role=button]{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:3px solid #5b8cff;outline-offset:3px;border-radius:6px}
+.pt,.rs,.spk{will-change:transform,opacity}
+.spk{position:fixed;z-index:97;pointer-events:none;font-style:normal;color:var(--hd,#e0527f);animation:spk .8s cubic-bezier(.2,.8,.3,1) forwards;text-shadow:0 0 6px rgba(255,255,255,.8)}
+@keyframes spk{from{opacity:1;transform:translate(-50%,-50%) scale(.4)}to{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(1.2) rotate(120deg)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
