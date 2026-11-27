@@ -4,23 +4,20 @@ const CFG={
   from:'Harsh',                          // your name, used on letters and signs
   friendsSince:'2024-06-15',             // drives "friends for N days"
   instagram:'https://www.instagram.com/harsh__.0201/',   // only used for reference now
-  whatsapp:'919097538872',                           // YOUR WhatsApp number with country code, digits only, e.g. '919876543210'
+  whatsapp:'',                           // YOUR WhatsApp number with country code, digits only, e.g. '919876543210'
   answersEndpoint:'',                    // optional: a Formspree / Web3Forms URL if you also want her answers by email
   passkey:'1901',                        // her birthday, day then month
   /* HER photos are photos/her1.jpg ... her15.jpg. The only photo of the two of you is photos/together.jpg */
-  photos:[                               // museum gallery: her most beautiful pictures
-    {src:'photos/her1.jpg',cap:'Effortlessly beautiful'},
-    {src:'photos/her2.jpg',cap:'That smile, though'},
-    {src:'photos/her3.jpg',cap:'Pure sunshine'},
-    {src:'photos/her4.jpg',cap:'Prettiest of them all'}],
-  puzzle:'photos/together.jpg',
+  together:{src:'photos/together.jpg',title:'A wish that came true',
+    note:['On Diwali, I made a quiet wish: one beautiful photo of the two of us together.','Then, on the kharna of Chhath Puja, you invited me, and just like that my manifestation came true.','And in your traditional look, you were absolutely stunning.','This photo is my wish come true, and I will keep it forever.']},
+  gift:{src:'photos/gift.jpg',title:'A gift for you',cap:'',note:'Happy Birthday, Riya! I chose this thinking only of you. I wish you liked my gift.'},
   cinema:'photos/cinema.jpg',
   polaroids:[
     {src:'photos/her5.jpg',cap:'Gorgeous, as always'},{src:'photos/her6.jpg',cap:'Those eyes, wow'},
     {src:'photos/her7.jpg',cap:'A smile that fixes everything'},{src:'photos/her8.jpg',cap:'Absolutely radiant'},
     {src:'photos/her9.jpg',cap:'Elegant without even trying'},{src:'photos/her10.jpg',cap:'Beautiful inside and out'},
     {src:'photos/her11.jpg',cap:'That glow, though'},{src:'photos/her12.jpg',cap:'Simply stunning'}],
-  scrapbook:{notebook:'photos/her13.jpg',frame:'photos/her14.jpg',bow:'photos/her15.jpg',note:'photos/together.jpg',
+  scrapbook:{notebook:'photos/her13.jpg',frame:'photos/her14.jpg',bow:'photos/her15.jpg',note:'photos/her2.jpg',
     film:['photos/her1.jpg','photos/her2.jpg','photos/her3.jpg','photos/her4.jpg','photos/her5.jpg']},
   videos:[                               // her videos: videos/her1.mp4 ... her4.mp4
     {src:'videos/her1.mp4',h:'That smile',t:'Some smiles do not need a reason. Yours makes the whole room feel warmer, and it is impossible not to smile back.'},
@@ -33,11 +30,16 @@ const CFG={
     {h:'Class 9',t:'She joined my school. We were in the same class and never said a word, like total strangers.'},
     {h:'15 June 2024',t:'School was behind us after the 10th, and somehow we finally started talking. That was the day we became friends.'},
     {h:'Best friends',t:'Somewhere along the way you became my best friend, and my favourite person to talk to.'},
-    {h:'Three meetings',t:'We have met only three times. The rest of our story lives in our Instagram chats.'},
+    {h:'1st meeting',t:'<b>After Dussehra 2024.</b> The first time we met.'},
+    {h:'2nd meeting',t:'<b>2 January 2025.</b> We met on my birthday.'},
+    {h:'3rd meeting',t:'<b>19 January 2025.</b> We met on your birthday.'},
+    {h:'4th meeting',t:'<b>16 April 2025.</b> We met again.'},
+    {h:'5th meeting',t:'<b>25 October 2025.</b> We met again, and our friendship kept growing.'},
+    {h:'6th meeting',t:'<b>14 November 2026.</b> Chhath Puja, the last time we met.'},
+    {h:'In between',t:'The rest of our story lives in our Instagram chats.'},
     {h:'Today',t:'Your birthday, 19 January, and I got to build this for you.'}],
-  promises:['Reply to my texts within one business week','Show up when it matters, without being asked','Keep every secret, forever, no exceptions','Meet more often than three times in total','Split the last slice, always'],
+  promises:['Reply to my texts within one business week','Show up when it matters, without being asked','Keep every secret, forever, no exceptions','Meet more often than six times in total','Split the last slice, always'],
   postcard:'You make ordinary days feel special just by being in them. Your smile brings me peace, your kindness inspires me, and your friendship makes me feel incredibly lucky.',
-  quiz:[{q:'What do we do best together?',o:['Laugh at absolutely nothing','Talk for hours','Make plans we never follow','Eat. Always eat.'],r:'Correct. And honestly, all of them.'},{q:'Who is usually right?',o:['Me','You','Whoever holds the snacks','We will never know'],r:'Correct, and let us not argue about it.'},{q:'What is the best part of any day?',o:['Hearing from you','A good meal','A good laugh','All of the above'],r:'You got it. All of the above.'}],
   wishes:['May this year be as bright as you are.','More laughter, less worry.','Every plan you make works out.','Good food, good people, good days.','Tiny joys, every single day.','Your dreams come looking for you.','Cake. Lots of cake.','A whole year full of yes.'],
   closing:'Thank you for every laugh, every secret and every ordinary day you made feel special. I will always be on your side.',
   letterStyle:'hand',                    // 'hand' = pen writes it, 'type' = typewriter lettering
