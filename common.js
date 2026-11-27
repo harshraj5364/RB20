@@ -1,9 +1,9 @@
 const R=(a,b)=>a+Math.random()*(b-a),P=a=>a[Math.random()*a.length|0],B=document.body,$=i=>document.getElementById(i);
 if(!B.dataset.gate&&!sessionStorage.getItem('riya'))location.replace('index.html');
 /* the one list that decides the order of the journey */
-const FLOW=['index','birthday','door','band','days','gallery','puzzle','timeline','reading','promises','gift','fromme1','fromme2','fromme3','memories','mletter','mfinal','video1','video2','video3','video4','scrap1','scrap2','scrap3','scrap4','scrap5','scrap6','yesno','gifts','letter','quiz','balloons','page2','closing','page4'];
+const FLOW=['index','birthday','door','band','days','timeline','together','reading','promises','gift','fromme1','passkey','memories','mletter','mfinal','video1','video2','scrap1','scrap2','scrap3','scrap4','scrap5','scrap6','yesno','gifts','notebook','letter','balloons','page2','closing','page4'];
 const ix=Math.max(0,FLOW.indexOf(location.pathname.split('/').pop().replace('.html','')||'index'));
-const nextUrl=()=>FLOW[ix+1]+'.html';
+const nextUrl=()=>(B.dataset.next||FLOW[ix+1])+'.html';   /* pages opened from the gift box say where to go next with data-next */
 /* page change: fade through the colour of the page you are leaving */
 const go=u=>{const c=getComputedStyle(B).getPropertyValue('--tc').trim()||'#fff',w=document.createElement('div');w.dataset.wp=1;sessionStorage.setItem('tc',c);sessionStorage.setItem('wp','1');w.style.cssText=`position:fixed;inset:0;z-index:99;background:${c};opacity:0;transition:opacity .55s`;B.appendChild(w);requestAnimationFrame(()=>requestAnimationFrame(()=>w.style.opacity=1));setTimeout(()=>location.href=u,580)};
 if(sessionStorage.getItem('wp')){sessionStorage.removeItem('wp');const w=document.createElement('div');w.dataset.wp=1;w.style.cssText=`position:fixed;inset:0;z-index:99;background:${sessionStorage.getItem('tc')||'#fff'};transition:opacity .9s .1s`;B.appendChild(w);requestAnimationFrame(()=>requestAnimationFrame(()=>w.style.opacity=0));setTimeout(()=>w.remove(),1100)}
@@ -94,8 +94,13 @@ function autoStop(){clearTimeout(aT);aT=0;aL=0;aP=0;aH=0;['apb','apx'].forEach(i
 /* scroll down by itself; touching the page stops it. Returns a stop() function */
 function autoScroll(speed,delay,done){let stop=0;const halt=()=>stop=1;['wheel','touchstart','keydown'].forEach(e=>addEventListener(e,halt,{once:true,passive:true}));
  setTimeout(()=>{if(stop)return;let y=scrollY,t=performance.now();(function f(n){if(stop)return;y+=(n-t)/1000*speed;t=n;scrollTo({top:y,behavior:'instant'});if(scrollY+innerHeight>=document.documentElement.scrollHeight-4){done&&done();return}requestAnimationFrame(f)})(t)},delay||2500);return halt}
+/* reading pages: if the page is taller than the screen it scrolls down gently by itself, then it moves on after enough time to read it */
+function flow(minMs){
+  const words=(document.querySelector('main').innerText.match(/\S+/g)||[]).length,read=Math.max(minMs||8000,words*340);
+  if(document.documentElement.scrollHeight>innerHeight+60)autoScroll(38,2600,()=>auto(Math.max(5000,read*.4)));else auto(read);
+}
 /* museum progress row */
-const prog=n=>{document.querySelector('main').insertAdjacentHTML('beforeend',`<div class="pr">${['🧶','📅','🖼️','🧩','🧭','✉️','✍️'].map((e,i)=>`<i class="${i<n?'on':''}${i==n-1?' cur':''}">${e}</i>`).join('')}</div><small class="ft">Made for Riya · 19 January</small>`)};
+const prog=n=>{document.querySelector('main').insertAdjacentHTML('beforeend',`<div class="pr">${['🧶','📅','🧭','🪔','✉️','✍️'].map((e,i)=>`<i class="${i<n?'on':''}${i==n-1?' cur':''}">${e}</i>`).join('')}</div><small class="ft">Made for Riya · 19 January</small>`)};
 if(B.dataset.pf!==undefined)bg();
 petals(B.dataset.p===undefined?18:+B.dataset.p);
 document.querySelectorAll('[data-s]').forEach(split);
