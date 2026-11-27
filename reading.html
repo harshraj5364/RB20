@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Room 6</title><link rel="stylesheet" href="common.css"><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Room 6</title><link rel="stylesheet" href="common.css"><style>
 #env{position:relative;width:min(270px,70vw);aspect-ratio:3/2;background:linear-gradient(#b0661f,#8a4a12);border-radius:6px;box-shadow:0 26px 40px -16px rgba(80,40,10,.6);cursor:pointer;transition:transform .8s,opacity .8s}
 #env::before{content:'';position:absolute;left:0;right:0;top:0;height:62%;background:linear-gradient(#c27a2c,#a8601c);clip-path:polygon(0 0,100% 0,50% 100%)}
 .sl{position:absolute;left:50%;top:46%;translate:-50% -50%;width:46px;height:46px;border-radius:50%;border:0;background:radial-gradient(#ffa24a,#e8590c);color:#fff3d6;font-size:1.3rem;z-index:3;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,.45);animation:wb 1.8s ease-in-out infinite}
@@ -35,7 +35,7 @@ body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
 .op{font-size:1.7rem!important}.qb h3{font-size:2.4rem!important}#ts{font-size:clamp(2rem,4.8vw,3.2rem)!important}
 .fr h3{font-size:2rem!important}.bk p{font-size:1.5rem!important;color:#1f3a30!important}
 </style></head><body data-bg="cream" data-p="0"><main>
-<p class="ey">Room 6 · The Reading Room</p>
+<p class="ey">Room 5 · The Reading Room</p>
 <h2 id="h">A letter, sealed just for <mark class="m">you</mark>.</h2>
 <div id="env"><button class="sl" id="sl">✿</button></div>
 <p class="cap" id="hn">Tap the seal to open</p>
@@ -45,5 +45,5 @@ body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
 </main><script src="config.js"></script><script src="common.js"></script><script>
 const open=()=>{$('env').classList.add('gone');$('hn').hidden=true;setTimeout(()=>{$('env').hidden=true;$('h').innerHTML=`${CFG.from||'Someone'} wrote you <mark class="m">this</mark>.`;$('nt').hidden=false;$('sg').textContent='— '+(CFG.from||'your friend');
  tw($('tx'),"I don't say it enough, but becoming your best friend is one of the best things that has happened to me. You make everything better just by being you.",()=>{$('hug').hidden=false;nx.classList.add('show')},34)},800)};
-$('env').onclick=open;prog(6);
+$('env').onclick=open;prog(5);
 </script><script src="motion.js"></script></body></html>

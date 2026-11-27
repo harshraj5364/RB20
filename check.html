@@ -1,12 +1,12 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Upload check</title><link rel="stylesheet" href="common.css"><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Upload check</title><link rel="stylesheet" href="common.css"><style>
 body{--ink:#2a1c10;--hd:#b0486a;background:#f6efe3;font-family:'Outfit',sans-serif}main{justify-content:flex-start;text-align:left}
 .g{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.8rem;width:100%}.c{background:#fff;border-radius:10px;padding:.6rem;font-size:.95rem;box-shadow:0 4px 12px -6px rgba(0,0,0,.3)}
 .c img{width:100%;height:96px;object-fit:contain;background:#f1ebe0;border-radius:6px}.ok{color:#117a3a;font-weight:700}.no{color:#c0392b;font-weight:700}h3{margin:1rem 0 .2rem}</style></head><body data-gate="1" data-p="0"><main>
 <h1 style="font-size:2.6rem">Upload check</h1><p class="cap">Green = found. Red = missing, so a stand-in is used. File names are in photos/UPLOAD-THESE.txt and videos/README.txt.</p><div id="out" style="width:100%"></div></main>
 <script src="config.js"></script><script src="common.js"></script><script>
 const G={};const add=(g,n,s,vid)=>(G[g]=G[g]||[]).push([n,s,vid]);
-CFG.photos.forEach((p,i)=>add('Her photos (gallery)','gallery '+(i+1),p.src));CFG.polaroids.forEach((p,i)=>add('Her photos (polaroids)','polaroid '+(i+1),p.src));
-add('Together photo','together (puzzle + scrapbook note)',CFG.puzzle);add('Her photos (other)','cinema',CFG.cinema);
+CFG.polaroids.forEach((p,i)=>add('Her photos (polaroids)','polaroid '+(i+1),p.src));
+add('Together photo','your photo together',CFG.together.src);add('Gift photo','the gift you sent her',CFG.gift.src);add('Her photos (other)','cinema',CFG.cinema);
 const sb=CFG.scrapbook;add('Her photos (scrapbook)','scrap notebook',sb.notebook);add('Her photos (scrapbook)','scrap frame',sb.frame);add('Her photos (scrapbook)','scrap bow',sb.bow);
 CFG.videos.forEach((v,i)=>add('Her videos','video '+(i+1),v.src,1));add('Her videos','music tape video',CFG.tape.video,1);
 Object.entries(CFG.assets).forEach(([k,v])=>add('Artwork',k,v));

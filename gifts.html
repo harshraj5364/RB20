@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The gift box</title><link rel="stylesheet" href="common.css"><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>The gift box</title><link rel="stylesheet" href="common.css"><style>
 main{gap:.8rem;padding:3vh 0 8vh}
 .tbl{position:relative;width:min(1000px,100vw);aspect-ratio:1.5}
 .pl{position:absolute;bottom:-2%;width:46%;z-index:1;pointer-events:none}.pl.l{left:-8%}.pl.r{right:-8%;scale:-1 1}
@@ -43,7 +43,9 @@ body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
 <p class="cap">tap something in the box, or the music tape</p>
 <button class="next" data-after="7000">keep going</button>
 </main><script src="config.js"></script><script src="common.js"></script><script>
-[['i1','camera','📷','cinema'],['i2','letters','💌','postcard'],['i3','bouquetWhite','💐','garden'],['i4','gifts','🎁','notebook'],['i5','cassette','📼','tape']].forEach(([id,k,e,p])=>{ast(k,s=>$(id).innerHTML=s?`<img src="${s}" alt="">`:`<span class="e">${e}</span>`);$(id).onclick=()=>go(p+'.html')});
+[['i1','camera','📷','cinema'],['i2','letters','💌','postcard'],['i3','bouquetWhite','💐','garden'],['i4','gifts','🎁','giftpic'],['i5','cassette','📼','tape']].forEach(([id,k,e,p])=>{ast(k,s=>$(id).innerHTML=s?`<img src="${s}" alt="">`:`<span class="e">${e}</span>`);$(id).onclick=()=>{sessionStorage.setItem('gseen','1');go(p+'.html')}});
 ast('bow',s=>$('bw').innerHTML=s?`<img src="${s}" alt="">`:'🎀');
 ast('plush',s=>{if(s){$('pl1').src=s;$('pl2').src=s}else{$('pl1').hidden=$('pl2').hidden=true}});
+/* once she has opened something and comes back, the next page follows by itself */
+if(sessionStorage.getItem('gseen')){nx.classList.add('show');auto(16000)}
 </script><script src="motion.js"></script></body></html>

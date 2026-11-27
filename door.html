@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The museum</title><link rel="stylesheet" href="common.css"><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>The museum</title><link rel="stylesheet" href="common.css"><style>
 main{gap:1.1rem}
 .chip{display:inline-block;font:600 .75rem 'Outfit',sans-serif;color:#d8e8e0;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:.3rem .9rem;background:rgba(255,255,255,.06)}
 .ey{color:#bcd0c8}
@@ -15,6 +15,8 @@ h1{font:800 clamp(1.8rem,5vw,2.7rem)/1.15 'Outfit',sans-serif;color:#fff}
 .kn.hit{background:radial-gradient(#ff7a8a,#d62839);box-shadow:0 0 34px 8px #ff4d6d;border-color:#ff9aa8}
 #kd{display:flex;gap:.7rem}#kd i{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.2)}#kd i.on{background:#f5a524}
 #kt{font:400 .8rem 'Outfit',sans-serif;color:#9fb3ab}
+@media(max-height:760px),(max-width:420px){#dr{width:min(240px,64vw,calc(42dvh*.652))}main{padding-top:5dvh;gap:.7rem}}
+.pl{font-size:.9rem!important}.chip{font-size:.95rem!important}
 /* readability: bigger, darker text and bigger artwork */
 .cap{font-size:clamp(1.35rem,2.8vw,1.85rem)!important;font-weight:500!important}
 body[data-bg=cream] .cap{font-size:1.3rem!important;color:#1f1710!important}
@@ -47,7 +49,7 @@ body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
 <p class="ey">closed to everyone, except you.</p>
 <h1 id="h1"></h1>
 <p class="cap">Knock three times. That's the rule.</p>
-<div id="dr"><div id="lt"><p><b>Come in, Riya.</b><br>7 rooms, and every one of them is about you.</p></div><div id="dd"><div class="pn"></div><div class="pn"></div><div class="pl">The Museum of Riya<br>one visitor only</div><b class="kn" id="kn"></b></div></div>
+<div id="dr"><div id="lt"><p><b>Come in, Riya.</b><br>6 rooms, and every one of them is about you.</p></div><div id="dd"><div class="pn"></div><div class="pn"></div><div class="pl">The Museum of Riya<br>one visitor only</div><b class="kn" id="kn"></b></div></div>
 <div id="kd"><i></i><i></i><i></i></div>
 <small id="kt">Tap the brass ring 👋</small>
 </main><script src="config.js"></script><script src="common.js"></script><script>

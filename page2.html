@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Little reasons ✿</title><link rel="stylesheet" href="common.css"><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Little reasons ✿</title><link rel="stylesheet" href="common.css"><style>
 body{--a:#f3fff7;--b:#e2f7ea;--c:#d2eef2;--ink:#3f6657;--hd:#2f9a7a;--pc:#6f9a8b;--f1:#a8e3c5;--f2:#fff0a6}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.8rem;width:100%}
 .fc{perspective:1000px;height:290px;cursor:pointer}
@@ -9,6 +9,7 @@ body{--a:#f3fff7;--b:#e2f7ea;--c:#d2eef2;--ink:#3f6657;--hd:#2f9a7a;--pc:#6f9a8b
 .fc:hover .fr span{transform:rotate(90deg) scale(1.12)}
 .bk{transform:rotateY(180deg);background:rgba(255,255,255,.92);font-size:1.35rem;line-height:1.7}
 h3{font:700 1.8rem 'Kalam',cursive;color:var(--hd)}
+@media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)!important;gap:.8rem!important}.fc{height:190px!important}.fr span{font-size:3rem!important}.fr,.bk{padding:.7rem!important}body .fr h3{font-size:1.35rem!important}body .bk p{font-size:1.1rem!important;line-height:1.35!important}}
 /* readability: bigger, darker text and bigger artwork */
 .cap{font-size:clamp(1.35rem,2.8vw,1.85rem)!important;font-weight:500!important}
 body[data-bg=cream] .cap{font-size:1.3rem!important;color:#1f1710!important}

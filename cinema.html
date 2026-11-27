@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Now showing</title><link rel="stylesheet" href="common.css"><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Now showing</title><link rel="stylesheet" href="common.css"><style>
 .bk2{top:auto;bottom:5vh;left:50%;translate:-50% 0}
 main{gap:0;justify-content:flex-end;padding:0 0 12vh}
 .scr{position:relative;width:min(760px,94vw);aspect-ratio:16/8.5;border:3px solid #ddd;background:#000;box-shadow:0 0 60px rgba(255,255,255,.08);rotate:1deg;margin-bottom:3rem}
@@ -33,10 +33,11 @@ body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
 .lines span{font-size:1.05rem!important;color:#2e2218!important}.cd h3{font-size:1.7rem!important}
 .op{font-size:1.7rem!important}.qb h3{font-size:2.4rem!important}#ts{font-size:clamp(2rem,4.8vw,3.2rem)!important}
 .fr h3{font-size:2rem!important}.bk p{font-size:1.5rem!important;color:#1f3a30!important}
-</style></head><body data-bg="cinema" data-p="0"><main>
+</style></head><body data-next="notebook" data-bg="cinema" data-p="0"><main>
 <div class="scr rise"><img id="im" alt=""><p class="bub">Wait a second… is that a diva on my screen? Ohhh, it's you, Riya! 🎉</p><span class="cats" style="left:-5%" id="c1">🐱</span><span class="cats" style="right:-4%" id="c2">🙀</span></div>
 <div class="seats"></div><button class="back bk2" onclick="go('gifts.html')">Back</button>
 </main><script src="config.js"></script><script src="common.js"></script><script>
 pic(CFG.cinema,0,s=>$('im').src=s);
 ast('catOrange',s=>{if(s)$('c1').innerHTML=`<img src="${s}" alt="">`});ast('catWhite',s=>{if(s)$('c2').innerHTML=`<img src="${s}" alt="">`});
+auto(15000);
 </script><script src="motion.js"></script></body></html>

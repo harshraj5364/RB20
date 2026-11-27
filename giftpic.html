@@ -1,0 +1,30 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Your gift</title><link rel="stylesheet" href="common.css"><style>
+main{gap:1.2rem;padding:9vh 0 14vh}
+.bk2{top:auto;bottom:calc(4vh + env(safe-area-inset-bottom,0px));left:50%;translate:-50% 0}
+.gt{font:700 clamp(2.8rem,11vw,4.8rem)/1.05 'Dancing Script',cursive;color:#7a1f1f}
+#bx{width:min(78vw,380px);cursor:pointer}#bx img{width:100%;display:block;filter:drop-shadow(0 18px 20px rgba(0,0,0,.3))}#bx .e{font-size:9rem;line-height:1;text-align:center}
+#bx.open{animation:bye .7s ease forwards;pointer-events:none}@keyframes bye{to{opacity:0;scale:.6;translate:0 -30px}}
+#hn{color:#52201a}
+.pol{position:relative;width:min(84vw,430px);background:#fff;padding:12px 12px 24px;box-shadow:0 26px 50px -20px rgba(120,40,40,.6);rotate:-2deg;opacity:0;scale:.7;translate:0 40px;transition:opacity .9s,scale .9s cubic-bezier(.3,1.4,.5,1),translate .9s cubic-bezier(.2,.9,.3,1)}
+.pol.on{opacity:1;scale:1;translate:0 0}
+.pol img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.pol::before{content:'';position:absolute;top:-12px;left:50%;width:96px;height:28px;translate:-50% 0;rotate:-4deg;background:rgba(255,214,120,.85)}
+.nt2{width:min(92vw,560px);background:#fff8ee;border-radius:12px;padding:1.4rem 1.3rem;box-shadow:0 18px 40px -22px rgba(120,40,40,.6);border:2px dashed #d98a9a;text-align:center;opacity:0;transition:opacity 1s}.nt2.on{opacity:1}
+.nt2 p{font:700 clamp(1.8rem,6.6vw,2.4rem)/1.4 'Caveat',cursive;color:#33121c}
+</style></head><body data-bg="ivory" data-p="14" data-next="notebook"><main>
+<h1 class="gt rise" id="gt"></h1>
+<div id="bx" class="rise" style="--i:2"></div>
+<p class="cap" id="hn">tap the gift to open it</p>
+<figure class="pol" id="pol"><img id="gi" alt=""></figure>
+<div class="nt2" id="nt2"><p id="gn"></p></div>
+<button class="btn back bk2" onclick="go('gifts.html')">Back</button>
+</main><script src="config.js"></script><script src="common.js"></script><script>
+const G=CFG.gift;$('gt').textContent=G.title;$('gn').textContent=G.note;
+ast('gifts',s=>$('bx').innerHTML=s?`<img src="${s}" alt="">`:'<div class="e">🎁</div>');
+pic(G.src,5,s=>$('gi').src=s);
+let opened=0;
+const open=()=>{if(opened)return;opened=1;$('bx').classList.add('open');$('hn').hidden=true;petals(40,true);
+  setTimeout(()=>{$('pol').classList.add('on');$('pol').scrollIntoView({behavior:'smooth',block:'center'})},700);
+  setTimeout(()=>{$('nt2').classList.add('on');typeWords($('gn'),150,()=>auto(10000))},1900)};
+$('bx').onclick=open;setTimeout(open,6000);
+</script><script src="motion.js"></script></body></html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Questions</title><link rel="stylesheet" href="common.css"><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Questions</title><link rel="stylesheet" href="common.css"><style>
 main{gap:1rem;padding:8vh 0 10vh}
 .pg2{position:relative;width:min(820px,94vw);background:#f6efd9;padding:2.6rem 2rem 2rem 3.8rem;box-shadow:0 26px 44px -18px rgba(0,0,0,.7);rotate:.5deg;text-align:left}
 .pg2::before{content:'';position:absolute;left:2.8rem;top:0;bottom:0;width:2px;background:rgba(220,90,90,.55)}
@@ -10,7 +10,7 @@ main{gap:1rem;padding:8vh 0 10vh}
 #thumb{width:96px;height:96px;object-fit:cover;border-radius:8px;border:3px solid #fff;box-shadow:0 4px 10px rgba(0,0,0,.35)}
 .ro{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:space-between;margin-top:.8rem}
 .pin{position:absolute;left:50%;top:-14px;font-size:2rem;z-index:3}.rbw{position:absolute;right:-10px;top:-12px;font-size:2.8rem;z-index:3}
-.cat5{position:absolute;left:-12%;bottom:-6%;font-size:clamp(4rem,12vw,7rem);filter:drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff)}.cat5 img{width:clamp(150px,30vw,280px)}
+.cat5{position:absolute;left:-3%;bottom:-6%;font-size:clamp(4rem,12vw,7rem);filter:drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff)}.cat5 img{width:clamp(150px,30vw,280px)}
 #done{text-align:center}#done .btn{font-size:1.6rem;margin:.3rem}
 #nxq:disabled{cursor:not-allowed}
 /* readability: bigger, darker text and bigger artwork */
@@ -49,6 +49,7 @@ body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
 <div id="done" hidden><div class="qq">All done. Thank you ✿</div><p class="cap">Tap the green button and choose WhatsApp. Every question, answer and photo goes in one picture, with the text too.</p><button class="btn" id="send">send my answers on WhatsApp</button><br><button class="btn" id="sendt">send the text only</button><p class="cap" id="ms2"></p></div>
 <span class="cat5" id="ct5">🐱🌷</span></div>
 <button class="back" onclick="go('gifts.html')">Back</button>
+<a id="sk" hidden class="ft" style="cursor:pointer;text-decoration:underline;font-size:1.2rem;color:#fff!important" onclick="go(nextUrl())">skip this page</a>
 </main><script src="config.js"></script><script src="common.js"></script><script>
 ast('catTulips',s=>{if(s)$('ct5').innerHTML=`<img src="${s}" alt="">`});
 const Q=CFG.qa,A=Q.map(()=>({t:'',f:null,u:''}));let qi=0,tqt=0;
@@ -100,7 +101,8 @@ $('send').onclick=async()=>{
     $('ms2').textContent='Your picture is saved and the text is copied. WhatsApp is opening: attach the picture and press send ✿';
   }else $('ms2').textContent='Choose WhatsApp and pick the chat, then press send. Everything is in one picture ✿';
   if(CFG.answersEndpoint)fetch(CFG.answersEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text})}).catch(()=>{});
-  btn.disabled=false};
-$('sendt').onclick=()=>{const text=plain();try{navigator.clipboard.writeText(text)}catch(e){}window.open(`${chat()}?text=${encodeURIComponent(text)}`,'_blank');$('ms2').textContent='WhatsApp is opening with your answers as text ✿'};
+  btn.disabled=false;auto(12000)};
+$('sendt').onclick=()=>{const text=plain();try{navigator.clipboard.writeText(text)}catch(e){}window.open(`${chat()}?text=${encodeURIComponent(text)}`,'_blank');$('ms2').textContent='WhatsApp is opening with your answers as text ✿';auto(12000)};
 show();
+setTimeout(()=>$('sk').hidden=false,25000);
 </script><script src="motion.js"></script></body></html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Music tape</title><link rel="stylesheet" href="common.css"><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Music tape</title><link rel="stylesheet" href="common.css"><style>
 body{--tc:#fbf3b8;--ink:#3b2a6a;--hd:#5b3fb0;font-family:'Baloo 2',cursive;background:repeating-linear-gradient(90deg,#fffbe0 0 44px,#fbf0a8 44px 88px) fixed}
 body::before,body::after{content:'';position:fixed;z-index:0;pointer-events:none;border-radius:50% 40% 60% 30%}
 body::before{left:-90px;top:-70px;width:360px;height:320px;rotate:-12deg;background:#cdbdf2}body::after{right:-100px;bottom:-80px;width:400px;height:340px;rotate:20deg;background:#d6c8f6}
@@ -16,6 +16,7 @@ main{gap:1.2rem}
 #pp{width:70px;height:70px;border-radius:50%;background:#2a1a66;color:#fff;font-size:1.9rem}
 .dog{position:absolute;right:-30px;bottom:-36px;font-size:6rem;z-index:3}.dog img{width:clamp(130px,24vw,220px)}
 .bk3{font:700 1.3rem 'Baloo 2',cursive;color:#fff;background:#6b4bb8;border:0;border-radius:999px;padding:.4em 1.4em;box-shadow:0 6px 16px -6px rgba(60,30,140,.6);cursor:pointer}
+@media(max-width:700px){.dog{top:-56px!important;bottom:auto!important;right:-4px!important;font-size:4.2rem!important}.dog img{width:96px!important}}
 /* readability: bigger, darker text and bigger artwork */
 .cap{font-size:clamp(1.35rem,2.8vw,1.85rem)!important;font-weight:500!important}
 body[data-bg=cream] .cap{font-size:1.3rem!important;color:#1f1710!important}
@@ -43,7 +44,7 @@ body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
 .lines span{font-size:1.05rem!important;color:#2e2218!important}.cd h3{font-size:1.7rem!important}
 .op{font-size:1.7rem!important}.qb h3{font-size:2.4rem!important}#ts{font-size:clamp(2rem,4.8vw,3.2rem)!important}
 .fr h3{font-size:2rem!important}.bk p{font-size:1.5rem!important;color:#1f3a30!important}
-</style></head><body data-p="0"><main>
+</style></head><body data-next="notebook" data-p="0"><main>
 <div class="stars" id="stars"></div>
 <h1 class="ttl rise">press play ♪</h1>
 <div class="frame rise" style="--i:2"><video id="v" playsinline preload="auto"></video><div class="ms2" id="ms"><span>Your video will play here.<br>Upload it as videos/tape.mp4</span></div>
@@ -55,10 +56,12 @@ const v=$('v'),TP=CFG.tape;$('tt').textContent='♪ '+TP.title;
 let h='';for(let i=0;i<26;i++)h+=`<i style="left:${R(0,98)}%;top:${R(0,96)}%;font-size:${R(1,2.2).toFixed(1)}rem">★</i>`;$('stars').innerHTML=h;
 ast('dog',s=>$('dog').innerHTML=s?`<img src="${s}" alt="">`:'🐶');
 const fm=s=>Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
-v.src=TP.video;v.onerror=()=>{$('ms').style.display='grid'};
+v.src=TP.video;v.onerror=()=>{$('ms').style.display='grid';auto(9000)};
 v.ontimeupdate=()=>{$('pg').style.width=(v.currentTime/(v.duration||1)*100)+'%';$('tm').textContent=fm(v.currentTime)+' / '+fm(v.duration||0)};
 const tog=()=>v.paused?v.play():v.pause();$('pp').onclick=tog;v.onclick=tog;v.onplay=()=>$('pp').textContent='❚❚';v.onpause=()=>$('pp').textContent='▶';
 $('bar').onclick=e=>{const r=$('bar').getBoundingClientRect();v.currentTime=(e.clientX-r.left)/r.width*v.duration};
 $('pv').onclick=()=>{v.currentTime=0;v.play()};$('nx2').onclick=()=>go('gifts.html');
 $('rp').style.opacity=.5;$('rp').onclick=()=>{v.loop=!v.loop;$('rp').style.opacity=v.loop?1:.5};$('hb').onclick=function(){this.textContent=this.textContent=='♡'?'♥':'♡'};
+v.addEventListener('play',autoStop);v.addEventListener('ended',()=>auto(3500));
+setTimeout(()=>{if(v.paused&&!v.ended)auto(14000)},30000);
 </script><script src="motion.js"></script></body></html>

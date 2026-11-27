@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A postcard</title><link rel="stylesheet" href="common.css"><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>A postcard</title><link rel="stylesheet" href="common.css"><style>
 .bk2{top:auto;bottom:5vh;left:50%;translate:-50% 0}
 main{gap:1.2rem}
 .ww{display:flex;gap:2.4rem;align-items:center;justify-content:center;flex-wrap:wrap;width:min(1000px,94vw)}
@@ -11,6 +11,7 @@ main{gap:1.2rem}
 .msg{font:500 clamp(1.05rem,2.4vw,1.3rem)/1.5 'Dancing Script',cursive;color:#3a2f55;text-align:left}
 .stp{position:absolute;right:10px;top:8px;width:46px;height:52px;border:2px dashed #a8741f;display:grid;place-items:center;font-size:1.4rem;background:#fff;rotate:3deg}
 .flw{position:absolute;right:6px;bottom:2px;font-size:3.4rem}.flw img{width:90px}
+@media(max-width:620px){.cd{grid-template-columns:1fr!important}.flw{font-size:2.4rem!important;right:4px!important;bottom:4px!important}}
 /* readability: bigger, darker text and bigger artwork */
 .cap{font-size:clamp(1.35rem,2.8vw,1.85rem)!important;font-weight:500!important}
 body[data-bg=cream] .cap{font-size:1.3rem!important;color:#1f1710!important}
@@ -38,11 +39,12 @@ body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
 .lines span{font-size:1.05rem!important;color:#2e2218!important}.cd h3{font-size:1.7rem!important}
 .op{font-size:1.7rem!important}.qb h3{font-size:2.4rem!important}#ts{font-size:clamp(2rem,4.8vw,3.2rem)!important}
 .fr h3{font-size:2rem!important}.bk p{font-size:1.5rem!important;color:#1f3a30!important}
-</style></head><body data-bg="crim" data-p="0"><main>
+</style></head><body data-next="notebook" data-bg="crim" data-p="0"><main>
 <div class="ww"><article id="pc"><div class="env0"></div><div class="cd"><div><h3>POST CARD</h3><div class="lines"><span>To: Riya</span><span id="fm"></span><span>Date: 19/01</span></div></div><div><p class="msg" id="mg"></p></div><div class="stp">🌸</div><div class="flw" id="fw">🌺</div></div></article><h2 class="ttl" id="tt"></h2></div><button class="back bk2" onclick="go('gifts.html')">Back</button>
 </main><script src="config.js"></script><script src="common.js"></script><script>
 $('fm').textContent='From: '+(CFG.from||'your friend');
 $('mg').innerHTML=`Hey ${CFG.to},<br>To my favourite person: ${CFG.postcard}`;
 ast('poinsettia',s=>{if(s)$('fw').innerHTML=`<img src="${s}" alt="">`});
 setTimeout(()=>tw($('tt'),'A letter for the prettiest girl in the whole universe',null,75),900);
+flow(16000);
 </script><script src="motion.js"></script></body></html>

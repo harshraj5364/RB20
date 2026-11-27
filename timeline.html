@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Room 5</title><link rel="stylesheet" href="common.css"><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Room 5</title><link rel="stylesheet" href="common.css"><style>
 #tl{position:relative;width:min(560px,92vw);text-align:left;padding-left:2.2rem;display:flex;flex-direction:column;gap:1.1rem}
 #tl::before{content:'';position:absolute;left:.55rem;top:.6rem;bottom:.6rem;width:3px;background:linear-gradient(#f59e0b,#e84a3c);border-radius:3px}
 .ev2{position:relative;background:#fff;border-radius:14px;padding:.9rem 1.2rem;box-shadow:0 10px 22px -14px rgba(0,0,0,.35)}
@@ -32,11 +32,11 @@ body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
 .op{font-size:1.7rem!important}.qb h3{font-size:2.4rem!important}#ts{font-size:clamp(2rem,4.8vw,3.2rem)!important}
 .fr h3{font-size:2rem!important}.bk p{font-size:1.5rem!important;color:#1f3a30!important}
 </style></head><body data-bg="cream" data-p="0"><main>
-<p class="ey">Room 5 · The Timeline</p>
+<p class="ey">Room 3 · The Timeline</p>
 <h2>How we got <mark class="m">here</mark>.</h2>
 <div id="tl"></div>
 <button class="next" data-after="3500">Next room →</button>
 </main><script src="config.js"></script><script src="common.js"></script><script>
 $('tl').innerHTML=CFG.timeline.map(e=>`<div class="ev2 rv"><h3>${e.h}</h3><p>${e.t}</p></div>`).join('');
-rv('.ev2');prog(5);autoScroll(45,3500,()=>auto(7000));
+rv('.ev2');prog(3);autoScroll(60,3500,()=>auto(7000));
 </script><script src="motion.js"></script></body></html>

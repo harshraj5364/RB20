@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>The manifestation</title><link rel="stylesheet" href="common.css"><style>
+body{--f1:#ffb347;--f2:#ffd86b}
+main{gap:1.2rem;padding:12vh 0 12vh}
+.gar{position:fixed;left:0;right:0;top:0;height:34px;z-index:4;pointer-events:none;background:radial-gradient(circle at 17px 14px,#ff9a1f 0 11px,#ffb84a 12px 14px,transparent 15px) 0 0/34px 34px repeat-x,radial-gradient(circle at 34px 20px,#ffd23f 0 9px,#ffc21a 10px 12px,transparent 13px) 0 0/34px 34px repeat-x;filter:drop-shadow(0 4px 6px rgba(0,0,0,.35))}
+body[data-bg=diya] .ey{color:#ffe6a8!important;font-size:.95rem!important}
+.hh{font:700 clamp(2.9rem,11vw,5.4rem)/1.05 'Dancing Script',cursive;color:#fff1c9;text-shadow:0 0 24px rgba(255,200,90,.7),0 4px 0 rgba(120,30,10,.5)}
+.fw{position:relative;width:min(84vw,420px);padding:14px;border-radius:10px;background:linear-gradient(135deg,#f6d77a,#b98a1e 45%,#f2d067 70%,#9a6e12);box-shadow:0 30px 60px -20px rgba(0,0,0,.7),0 0 50px rgba(255,190,70,.45)}
+.fw::before{content:'';position:absolute;inset:7px;border:2px solid rgba(255,248,214,.75);border-radius:6px;pointer-events:none;z-index:2}
+.fw img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:3px;filter:blur(14px) sepia(.9) brightness(1.5);scale:1.04;transition:filter 3.4s ease,scale 3.4s ease}
+.fw.dev img{filter:none;scale:1}
+.cn{position:absolute;font-size:1.6rem;color:#fff1c9;z-index:3;text-shadow:0 0 8px #ffb347;animation:tw2 2.4s ease-in-out infinite alternate}.cn.a{left:-8px;top:-10px}.cn.b{right:-8px;top:-10px;animation-delay:.6s}.cn.c{left:-8px;bottom:-10px;animation-delay:1.2s}.cn.d{right:-8px;bottom:-10px;animation-delay:1.8s}
+@keyframes tw2{from{opacity:.5;scale:.8}to{opacity:1;scale:1.25}}
+.dys{display:flex;justify-content:space-between;width:min(90vw,460px);margin-top:-2.4rem;position:relative;z-index:3;pointer-events:none}
+.diya{position:relative;width:76px;height:44px}
+.diya i{position:absolute;left:50%;bottom:34px;width:18px;height:34px;translate:-50% 0;border-radius:50%/60% 60% 40% 40%;background:radial-gradient(circle at 50% 70%,#fff6c8,#ffb030 55%,#ff6a00);box-shadow:0 0 26px 10px rgba(255,170,40,.65);animation:fl .18s ease-in-out infinite alternate;transform-origin:50% 100%}
+.diya b{position:absolute;left:0;right:0;bottom:0;height:36px;border-radius:0 0 76px 76px;background:linear-gradient(#d9692a,#8e3512);box-shadow:inset 0 5px 0 rgba(255,210,120,.55),0 6px 10px rgba(0,0,0,.4)}
+@keyframes fl{from{scale:1 1;rotate:-3deg}to{scale:.9 1.12;rotate:3deg}}
+.nc{width:min(92vw,620px);background:linear-gradient(#fff7e4,#f8e6c0);border-radius:12px;padding:2rem 1.4rem 1.4rem;box-shadow:0 24px 50px -22px rgba(0,0,0,.7);border:3px solid #e2b24a;position:relative;text-align:left;color:#2e1006}
+.nc::before{content:'❀';position:absolute;top:-17px;left:50%;translate:-50% 0;background:#f8e6c0;color:#d9852a;padding:0 .6rem;font-size:1.7rem;border-radius:50%}
+#nt{position:relative}#nt p{margin:0 0 .5em;visibility:hidden;font:700 clamp(1.55rem,6vw,2.1rem)/1.45 'Caveat',cursive}
+.ft{font-size:1rem!important}
+</style></head><body data-bg="diya" data-p="22"><main>
+<div class="gar"></div>
+<p class="ey rise">Room 4 · The Manifestation</p>
+<h1 class="hh rise" style="--i:1" id="hh"></h1>
+<div class="fw rise" style="--i:3" id="fw"><img id="im" alt=""><span class="cn a">✦</span><span class="cn b">✦</span><span class="cn c">✦</span><span class="cn d">✦</span></div>
+<div class="dys rise" style="--i:4"><div class="diya"><i></i><b></b></div><div class="diya"><i></i><b></b></div></div>
+<div class="nc rise" style="--i:5"><div id="nt"></div></div>
+<button class="next" data-hold>Next room →</button>
+</main><script src="config.js"></script><script src="common.js"></script><script>
+const TG=CFG.together;$('hh').textContent=TG.title;$('nt').innerHTML=TG.note.map(t=>`<p>${t}</p>`).join('');
+pic(TG.src,3,s=>{$('im').src=s;setTimeout(()=>$('fw').classList.add('dev'),700)});
+prog(4);
+setTimeout(()=>document.fonts.ready.then(()=>write($('nt'),()=>{nx.classList.add('show');auto(9000)})),3800);
+setTimeout(()=>nx.classList.add('show'),40000);
+</script><script src="motion.js"></script></body></html>

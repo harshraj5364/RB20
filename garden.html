@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The garden</title><link rel="stylesheet" href="common.css"><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>The garden</title><link rel="stylesheet" href="common.css"><style>
 .bk2{top:auto;bottom:5vh;left:50%;translate:-50% 0}
 body{--ink:#fff;--tc:#6a8a3a;background:#8fb860}
 #gd{position:fixed;inset:0;z-index:1;overflow:hidden;background:linear-gradient(#f3b79a,#f7d7b4 38%,#9cb860 39%,#5f8a2e)}
@@ -34,11 +34,12 @@ body[data-bg=door] .cap{font-size:1.25rem!important;color:#dbe9e3!important}
 .lines span{font-size:1.05rem!important;color:#2e2218!important}.cd h3{font-size:1.7rem!important}
 .op{font-size:1.7rem!important}.qb h3{font-size:2.4rem!important}#ts{font-size:clamp(2rem,4.8vw,3.2rem)!important}
 .fr h3{font-size:2rem!important}.bk p{font-size:1.5rem!important;color:#1f3a30!important}
-</style></head><body data-p="0"><main>
+</style></head><body data-next="notebook" data-p="0"><main>
 <div id="gd"></div>
 <p class="tgb">a bouquet is not enough for you so I bring the whole garden for you</p>
 <div class="cg" id="cg">🐱</div><button class="back bk2" onclick="go('gifts.html')">Back</button>
 </main><script src="config.js"></script><script src="common.js"></script><script>
 ast('garden',s=>{const g=$('gd');if(s)g.style.background=`url(${s}) center/cover`;else{let h='';for(let r=0;r<9;r++){const y=44+r*r*.5+r*2,sz=18+r*r*1.2;for(let c=0;c<6+r*2;c++)h+=`<i style="left:${R(-2,100)}%;top:${y}%;font-size:${sz}px;animation-delay:${R(-3,0).toFixed(1)}s">🌻</i>`}g.innerHTML=h}});
 ast('catGarden',s=>{if(s)$('cg').innerHTML=`<img src="${s}" alt="">`});
+auto(13000);
 </script><script src="motion.js"></script></body></html>

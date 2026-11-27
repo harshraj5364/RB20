@@ -44,7 +44,7 @@ body:not([data-pf]) .next::after{content:none}
 .ey{font:700 .72rem 'Outfit',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#d9481c}
 mark.m{background:none;color:#e8730c;text-decoration:underline wavy #e8730c 3px;text-underline-offset:7px}
 .pr{display:flex;gap:.45rem;justify-content:center;margin-top:1rem}
-.pr i{width:1.8rem;height:1.8rem;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.15);display:grid;place-items:center;font-size:.8rem;font-style:normal;opacity:.5}.pr i.on{opacity:1}.pr i.cur{background:#e84a3c}
+.pr i{width:1.8rem;height:1.8rem;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.15);display:grid;place-items:center;font-size:1rem;font-style:normal;opacity:.5}.pr i.on{opacity:1}.pr i.cur{background:#e84a3c}
 .ft{font:400 .75rem 'Outfit',sans-serif;color:#8a7a6a}
 .gp{position:fixed;top:2.2vh;right:2vw;z-index:30;font:500 .9rem 'Cormorant Garamond',serif;color:#6a3a30;background:rgba(255,255,255,.55);border:1px solid rgba(0,0,0,.08);border-radius:999px;padding:.4em 1em;cursor:pointer;backdrop-filter:blur(6px)}
 /* ---- backgrounds copied from the reference videos ---- */
@@ -84,3 +84,10 @@ button,a,label,.it,.tg,[role=button]{touch-action:manipulation;-webkit-tap-highl
 .spk{position:fixed;z-index:97;pointer-events:none;font-style:normal;color:var(--hd,#e0527f);animation:spk .8s cubic-bezier(.2,.8,.3,1) forwards;text-shadow:0 0 6px rgba(255,255,255,.8)}
 @keyframes spk{from{opacity:1;transform:translate(-50%,-50%) scale(.4)}to{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(1.2) rotate(120deg)}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+body[data-bg=diya]{--tc:#4a1410;--ink:#fff4e0;--hd:#ffd77a;background:radial-gradient(120% 70% at 50% -10%,#ffcf6b 0,#f3902f 38%,#b5361c 75%,#4a1410 100%) fixed}
+body[data-bg=diya] .ft{color:#ffe6a8!important}
+/* phones: keep buttons clear of the notch and the home bar */
+#apx{bottom:calc(14px + env(safe-area-inset-bottom,0px));right:calc(14px + env(safe-area-inset-right,0px))}
+.back{top:calc(3vh + env(safe-area-inset-top,0px))}
+.next,.btn{min-height:46px}
